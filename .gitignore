@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# credentials and intermediates (never commit)
+credentials.json
+token.json
+.tmp/
+.temp/
+
+# IDE configs
+.cursor/
+.windsurf/
+.vscode/
+
