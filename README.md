@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SparkFest 2026 Website
 
-## Getting Started
+The official 1-page static marketing website for SparkFest 2026, a flagship hackathon organized by **Google Developer Groups on Campus - Polytechnic University of the Philippines (GDG PUP)**.
 
-First, run the development server:
+This innovation challenge mirrors real-world startup environments, bringing together developers, designers, and managers to build solutions that drive tangible social impact.
 
+## 🚀 Technology Stack
+
+- **Core Framework**: Next.js 16 (Static HTML Export) + React 19
+- **Styling**: Tailwind CSS v4 + Google Fonts (Google Sans)
+- **Deployment Target**: Cloudflare Pages
+
+## 📂 Documentation (FMD)
+
+The project specifications and blueprints are managed under the **Foundational Document Matrix (FMD)** in the `docs/` folder:
+- [index.md](docs/index.md): Document suite status tracker.
+- [prd-sparkfest.md](docs/prd-sparkfest.md): Product Requirements Document specifying features, personas, and roadmap goals.
+- [dsd-sparkfest.md](docs/dsd-sparkfest.md): Design System Document specifying color palettes (Google colors, Halftones, Pastels) and fonts.
+- [sdd-sparkfest.md](docs/sdd-sparkfest.md): System Design Document detailing static architecture and export rules.
+
+## 🛠️ Local Development
+
+### 1. Install Dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Build Static Export
+To compile the project into static files for Cloudflare Pages deployment:
+```bash
+npm run build
+```
+The static files will be exported to the `out/` folder.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ⚡ Developer CTA Booths Note
+The Photobooth and DP Blast CTAs in the landing page are placeholder integrations. When clicked, they display a toast notification detailing the specific codebase lines in `src/app/page.tsx` that need updating with production links.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
