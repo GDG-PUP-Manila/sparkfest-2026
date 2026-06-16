@@ -34,7 +34,7 @@ export const ABOUT = {
   ],
   quote: "“This isn't a competition for prizes. It's a movement for impact.”",
   stats: [
-    { value: "67", label: "Participants" },
+    { value: "67+", label: "Participants" },
     { value: "67", label: "Teams" },
     { value: "67", label: "Communities reached" },
   ],
@@ -134,10 +134,12 @@ export const ROADMAP: {
 ];
 
 export const WHERE_WHEN = {
-  venue: "Bulwagang Bonifacio, PUP Manila",
-  address: "Polytechnic University of the Philippines, Sta. Mesa, Manila",
+  venue: "Bulwagang Bonifacio",
+  address: "Polytechnic University of the Philippines (PUP) — Manila",
   dates: "June 25 – July 9, 2026",
-  format: "On-site hackathon with hybrid pre-events",
+  format: "On-site / In-person",
+  mapEmbed:
+    "https://www.google.com/maps?q=Polytechnic+University+of+the+Philippines+Manila&output=embed",
 };
 
 export const FAQS = [

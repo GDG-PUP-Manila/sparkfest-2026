@@ -1,9 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { HERO, KICKOFF_ISO, REGISTER_URL } from "./content";
-import { Wordmark, PixelPlus } from "./decor";
+import { KICKOFF_ISO, REGISTER_URL } from "./content";
 
 type TimeLeft = {
   days: number;
@@ -30,6 +28,20 @@ function pad(n: number) {
   return n.toString().padStart(2, "0");
 }
 
+/*
+ * The Hero is the exact Figma scene exported as an image (hero-bg.webp),
+ * rendered inside a fixed 1920×1376 aspect canvas so it scales 1:1 with the
+ * design. The navbar and the four countdown digits were hidden during export,
+ * so the live countdown digits and the clickable CTA links are overlaid on top
+ * at the precise coordinates of the baked panels/buttons.
+ *
+ * All percentages below are relative to the 1920×1376 Figma hero frame.
+ */
+const COUNTDOWN = { left: 30.42, top: 60.12, width: 37.24, height: 14.1 };
+const CELL_LEFT = [0, 26.57, 53.15, 79.72]; // % of countdown region width
+const CELL_WIDTH = 20.28; // % of countdown region width
+const BUTTONS = { left: 30.42, top: 80.32, width: 37.24, height: 3.92 };
+
 export default function Hero() {
   const target = new Date(KICKOFF_ISO).getTime();
   const [time, setTime] = useState<TimeLeft | null>(null);
@@ -40,102 +52,99 @@ export default function Hero() {
     return () => clearInterval(id);
   }, [target]);
 
-  const units = [
-    { label: "days", value: time?.days },
-    { label: "hours", value: time?.hours },
-    { label: "minutes", value: time?.minutes },
-    { label: "seconds", value: time?.seconds },
-  ];
+  const values = [time?.days, time?.hours, time?.minutes, time?.seconds];
 
   return (
-    <section
-      id="top"
-      className="relative overflow-hidden bg-gradient-to-b from-navy-900 via-navy-800 to-navy-700 pt-24 pb-0 md:pt-32"
-    >
-      {/* Pixel skyline backdrop */}
+    <section id="top" className="relative w-full overflow-hidden bg-[#050a1f]">
       <div
-        aria-hidden="true"
-        className="pixel-skyline pointer-events-none absolute inset-x-0 top-20 h-40 opacity-40 md:h-56"
-      />
-      <PixelPlus className="animate-blink pointer-events-none absolute left-[8%] top-28 h-3 w-3 opacity-70" />
-      <PixelPlus className="animate-blink pointer-events-none absolute right-[12%] top-44 h-4 w-4 opacity-60" />
+        className="relative mx-auto w-full"
+        style={{
+          aspectRatio: "1920 / 1376",
+          containerType: "inline-size",
+          maxWidth: "1920px",
+        }}
+      >
+        {/* Exact Figma hero scene */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/hero-bg.webp"
+          alt="SparkFest 2026 — Igniting Innovation. Building Impact. Empowering Communities."
+          className="absolute inset-0 h-full w-full select-none object-cover"
+          draggable={false}
+          fetchPriority="high"
+        />
 
-      <div className="relative mx-auto flex max-w-[1280px] flex-col items-center px-4 text-center md:px-8 desktop:max-w-[1600px]">
-        {/* Wordmark */}
-        <Wordmark className="text-[15vw] leading-[0.9] md:text-[110px] xl:text-[140px] desktop:text-[170px]" />
+        <h1 className="sr-only">
+          SparkFest 2026 — Igniting Innovation, Building Impact, Empowering
+          Communities
+        </h1>
 
-        {/* Tagline */}
-        <p className="mt-6 text-base font-semibold text-white/90 md:mt-8 md:text-xl xl:text-2xl">
-          {HERO.tagline.map((line) => (
-            <span key={line} className="block">
-              {line}
-            </span>
-          ))}
-        </p>
-
-        {/* Countdown */}
-        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4 md:mt-10 md:gap-4">
-          {units.map((u) => (
+        {/* Live countdown digits over the baked glossy panels */}
+        <div
+          className="pointer-events-none absolute"
+          style={{
+            left: `${COUNTDOWN.left}%`,
+            top: `${COUNTDOWN.top}%`,
+            width: `${COUNTDOWN.width}%`,
+            height: `${COUNTDOWN.height}%`,
+          }}
+          aria-hidden="true"
+        >
+          {CELL_LEFT.map((cl, i) => (
             <div
-              key={u.label}
-              className="pixel-panel flex min-w-[68px] flex-col items-center px-4 py-3 md:min-w-[92px] md:px-6 md:py-4"
+              key={i}
+              className="absolute top-0 h-full"
+              style={{ left: `${cl}%`, width: `${CELL_WIDTH}%` }}
             >
-              <span className="font-pixel text-2xl text-white tabular-nums md:text-4xl">
-                {time ? pad(u.value ?? 0) : "--"}
-              </span>
-              <span className="mt-2 font-pixel text-[8px] uppercase tracking-widest text-grid-cyan md:text-[10px]">
-                {u.label}
+              <span
+                className="absolute inset-x-0 flex items-center justify-center font-pixel text-white"
+                style={{
+                  top: "4%",
+                  height: "42%",
+                  fontSize: "2.7cqw",
+                  transform: "scaleY(1.3)",
+                  textShadow: "0 0.12cqw 0 rgba(3,8,24,0.55)",
+                }}
+              >
+                {time ? pad(values[i] ?? 0) : "--"}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Eligibility */}
-        <p className="mt-6 flex items-center gap-2 text-xs font-medium text-white/70 md:text-sm">
-          <span aria-hidden="true">🎮</span>
-          {HERO.eligibility}
+        {/* Screen-reader announcement of the live countdown */}
+        <p className="sr-only" aria-live="polite">
+          {time
+            ? `${time.days} days, ${time.hours} hours, ${time.minutes} minutes and ${time.seconds} seconds until SparkFest 2026 kicks off.`
+            : "Loading countdown to SparkFest 2026."}
         </p>
 
-        {/* CTAs */}
-        <div className="mt-6 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row md:mt-8">
+        {/* Clickable links over the baked CTA buttons */}
+        <div
+          className="absolute"
+          style={{
+            left: `${BUTTONS.left}%`,
+            top: `${BUTTONS.top}%`,
+            width: `${BUTTONS.width}%`,
+            height: `${BUTTONS.height}%`,
+          }}
+        >
           <a
             href={REGISTER_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full border-2 border-grid-cyan bg-google-blue-500 px-7 py-3 text-center font-pixel text-[11px] text-white shadow-[0_0_18px_rgba(66,133,244,0.6)] transition-transform hover:-translate-y-0.5 sm:w-auto md:text-xs"
-          >
-            {HERO.primaryCta}
-          </a>
+            aria-label="Register Now – It's Free"
+            className="absolute inset-y-0 left-0 block rounded-md transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            style={{ width: "46.85%" }}
+          />
           <a
             href="#program"
-            className="w-full border-2 border-grid-cyan/70 bg-navy-800 px-7 py-3 text-center font-pixel text-[11px] text-grid-cyan transition-transform hover:-translate-y-0.5 sm:w-auto md:text-xs"
-          >
-            {HERO.secondaryCta}
-          </a>
-        </div>
-
-        {/* Mascot + grid floor */}
-        <div className="relative mt-10 w-full md:mt-14">
-          <Image
-            src="/assets/sprites/sparky.png"
-            alt="Sparky, the SparkFest mascot"
-            width={140}
-            height={128}
-            className="animate-float pixelated mx-auto h-auto w-24 md:w-32"
-            priority
+            aria-label="See How It Works"
+            className="absolute inset-y-0 block rounded-md transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            style={{ left: "53.01%", width: "46.99%" }}
           />
         </div>
       </div>
-
-      {/* Perspective grid floor */}
-      <div
-        aria-hidden="true"
-        className="arcade-grid relative mt-6 h-40 w-full bg-gradient-to-b from-google-green-500/30 to-navy-700 md:h-56"
-        style={{
-          maskImage: "linear-gradient(to bottom, transparent, black 40%)",
-          WebkitMaskImage: "linear-gradient(to bottom, transparent, black 40%)",
-        }}
-      />
     </section>
   );
 }

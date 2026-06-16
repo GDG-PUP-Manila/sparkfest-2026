@@ -115,3 +115,132 @@ export function SparkLogo({ className = "" }: { className?: string }) {
     </svg>
   );
 }
+
+// Repeating pixel skyline strip (space-invader style merlons).
+export function PixelSkyline({
+  color = "#9be38a",
+  flip = false,
+  className = "",
+}: {
+  color?: string;
+  flip?: boolean;
+  className?: string;
+}) {
+  return (
+    <svg
+      viewBox="0 0 160 24"
+      preserveAspectRatio="none"
+      className={className}
+      aria-hidden="true"
+      shapeRendering="crispEdges"
+      style={flip ? { transform: "scaleY(-1)" } : undefined}
+    >
+      <pattern id={`sky-${color}-${flip}`} width="40" height="24" patternUnits="userSpaceOnUse">
+        <path
+          fill={color}
+          d="M0 24V8h4V4h4v4h4v4h4V8h4V4h4v8h4v4h4v-4h4v8z"
+        />
+      </pattern>
+      <rect width="160" height="24" fill={`url(#sky-${color}-${flip})`} />
+    </svg>
+  );
+}
+
+// Fluffy pixel cloud.
+export function PixelCloud({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 20" className={className} aria-hidden="true" shapeRendering="crispEdges">
+      <path
+        fill="rgba(120,140,190,0.5)"
+        d="M10 16h28v-4h4V8h-6V4h-8v4h-6V6h-6v6h-4v4z"
+      />
+    </svg>
+  );
+}
+
+// Retro rocket sprite.
+export function Rocket({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 32 64" className={className} aria-hidden="true" shapeRendering="crispEdges">
+      <rect x="12" y="2" width="8" height="6" fill="#ea4335" />
+      <rect x="10" y="8" width="12" height="22" fill="#e8eefc" />
+      <rect x="14" y="12" width="4" height="4" fill="#4285f4" />
+      <rect x="6" y="22" width="4" height="10" fill="#ea4335" />
+      <rect x="22" y="22" width="4" height="10" fill="#ea4335" />
+      <rect x="12" y="30" width="8" height="4" fill="#b9c6e6" />
+      <rect x="13" y="34" width="6" height="6" fill="#fbbc04" />
+      <rect x="14" y="40" width="4" height="6" fill="#ea4335" />
+    </svg>
+  );
+}
+
+// UFO / flying saucer sprite.
+export function Ufo({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 48 28" className={className} aria-hidden="true" shapeRendering="crispEdges">
+      <rect x="18" y="2" width="12" height="6" fill="#9be38a" />
+      <rect x="14" y="8" width="20" height="4" fill="#cbe9ff" />
+      <rect x="4" y="12" width="40" height="6" fill="#e8eefc" />
+      <rect x="0" y="14" width="48" height="4" fill="#b9c6e6" />
+      <rect x="8" y="18" width="6" height="4" fill="#fbbc04" />
+      <rect x="20" y="18" width="6" height="4" fill="#ea4335" />
+      <rect x="32" y="18" width="6" height="4" fill="#34a853" />
+    </svg>
+  );
+}
+
+// Color swatch / film-strip graphic for the Photobooth card.
+export function ColorSwatch({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 80 96" className={className} aria-hidden="true" shapeRendering="crispEdges">
+      <g transform="rotate(-8 40 48)">
+        <rect x="14" y="6" width="36" height="84" fill="#cfd8ea" />
+        <rect x="18" y="12" width="28" height="16" fill="#4285f4" />
+        <rect x="18" y="30" width="28" height="16" fill="#34a853" />
+        <rect x="18" y="48" width="28" height="16" fill="#fbbc04" />
+        <rect x="18" y="66" width="28" height="16" fill="#ea4335" />
+      </g>
+      <g transform="rotate(6 52 48)">
+        <rect x="40" y="10" width="30" height="78" fill="#e8eefc" />
+        <rect x="44" y="16" width="22" height="14" fill="#fbbc04" />
+        <rect x="44" y="32" width="22" height="14" fill="#ea4335" />
+        <rect x="44" y="48" width="22" height="14" fill="#4285f4" />
+        <rect x="44" y="64" width="22" height="14" fill="#34a853" />
+      </g>
+    </svg>
+  );
+}
+
+// Group of people-with-DP-frame avatars for the DP Frame card.
+export function PeopleFrames({ className = "" }: { className?: string }) {
+  const colors = ["#4285f4", "#34a853", "#fbbc04", "#ea4335"];
+  return (
+    <svg viewBox="0 0 176 72" className={className} aria-hidden="true">
+      {colors.map((c, i) => (
+        <g key={i} transform={`translate(${i * 44}, ${i % 2 ? 6 : 0})`}>
+          <rect x="2" y="6" width="40" height="60" rx="3" fill={c} />
+          <circle cx="22" cy="30" r="9" fill="#e8eefc" />
+          <path d="M8 60c0-9 6-15 14-15s14 6 14 15z" fill="#e8eefc" />
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+// 3D-extruded platformer block used in the roadmap.
+export function Tetromino({
+  color = "#4285f4",
+  className = "",
+}: {
+  color?: string;
+  className?: string;
+}) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden="true" shapeRendering="crispEdges">
+      <rect x="0" y="0" width="16" height="16" fill={color} />
+      <rect x="16" y="0" width="16" height="16" fill={color} opacity="0.85" />
+      <rect x="16" y="16" width="16" height="16" fill={color} />
+      <rect x="32" y="16" width="16" height="16" fill={color} opacity="0.85" />
+    </svg>
+  );
+}
