@@ -9,6 +9,26 @@ Build tracker for the SparkFest 2026 one-page marketing site (retro / pixel-arca
 
 ---
 
+## Section Ownership (DRIs)
+
+Each section below has a **Directly Responsible Individual (DRI)** who owns building it across all four breakpoints, matching Figma, until it passes QA. The QA pair reviews every section against the [QAD](docs/qad-sparkfest.md) before it's marked done.
+
+| Area | Sections | Owner (DRI) | Component(s) |
+|------|----------|-------------|--------------|
+| Hero + Key Highlights | 2.1 Hero, 2.2 About, 2.3 What Goes Down | **Rhandie Sales Jr** | [Hero.tsx](src/app/components/Hero.tsx), [About.tsx](src/app/components/About.tsx), [WhatGoesDown.tsx](src/app/components/WhatGoesDown.tsx) |
+| Target + Judges | 2.4 Who's This For, 2.5 Judges | **Ejay** | [WhoIsThisFor.tsx](src/app/components/WhoIsThisFor.tsx), [Judges.tsx](src/app/components/Judges.tsx) |
+| Road to Demo | 2.6 The Road to Demo Day | **Rey** | [RoadToDemo.tsx](src/app/components/RoadToDemo.tsx) |
+| Where + FAQs | 2.7 Where & When, 2.8 FAQ | **Gab** | [WhereAndWhen.tsx](src/app/components/WhereAndWhen.tsx), [Faq.tsx](src/app/components/Faq.tsx) |
+| Sparky Snap | 2.9 Snap & Frame | **Gab David** | [SnapAndFrame.tsx](src/app/components/SnapAndFrame.tsx) |
+| Before the Spark + CTA | 2.10 Before the Spark, 2.11 Final CTA | **Mobaraq** | [BeforeTheSpark.tsx](src/app/components/BeforeTheSpark.tsx), [FinalCta.tsx](src/app/components/FinalCta.tsx) |
+| QA (cross-cutting) | Phase 4 (Responsive QA) + Phase 5 (A11y/Perf/Polish) | **Keith & Ge** | All — see [QAD](docs/qad-sparkfest.md) |
+
+> **Note on "About" (2.2):** the assignment list named *HERO + KEY HIGHLIGHTS* without calling out About separately, so it's grouped under Rhandie's Key Highlights block (the page's opening narrative: Hero → About → What Goes Down). Reassign if About should belong to someone else.
+>
+> Shared foundation work (Phase 0 setup, Phase 1 shell — nav, background system, footer, scroll-spy) and Phase 3 interactivity are **not** owned per-section: whoever owns the section that needs a given primitive builds it, or it's split during standup. Coordinate so tokens, breakpoints, and shared primitives land once.
+
+---
+
 ## Responsive Breakpoint Strategy
 
 Four Figma frames define the layout at four target widths. Build mobile-first and layer up.
@@ -57,6 +77,8 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 > Each section: build markup + style desktop (1920) → adapt 1280 → 768 → 320. Mark a section done only when all four tiers match Figma.
 
 ### 2.1 Hero
+> **Owner:** Rhandie Sales Jr
+
 - [ ] Logo, nav, SPARK/FEST pixel wordmark with smoke/cloud accents.
 - [ ] Tagline: "Igniting Innovation. Building Impact. Empowering Communities."
 - [ ] **Live countdown** (Days / Hours / Minutes / Seconds) in pixel-bordered tiles — wire to event target date.
@@ -66,6 +88,8 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 - [ ] Responsive: hero wordmark scales; countdown tiles wrap 2×2 on XS; CTAs stack on XS.
 
 ### 2.2 About — "Build the Spark. Become the Impact."
+> **Owner:** Rhandie Sales Jr
+
 - [ ] Heading + two body paragraphs (flagship hackathon of GDG on Campus – PUP; Community Impact Initiative).
 - [ ] Pull-quote: "This isn't a competition for prizes. It's a movement for impact."
 - [ ] Three stat cards (Participants / Teams / Communities reached) with pixel-number styling.
@@ -73,23 +97,31 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 - [ ] Responsive: stat cards row → stack on XS; decorative art hides/repositions.
 
 ### 2.3 What Goes Down at Sparkfest
+> **Owner:** Rhandie Sales Jr
+
 - [ ] Section heading + 6 feature cards: Hackathon Proper, Mentorship Sessions, Pitching Day, Awarding Ceremony, Networking, Community Impact.
 - [ ] Each card: pixel icon/thumbnail + title (arcade font) + description.
 - [ ] Grid: 3×2 desktop → 2×3 (768) → 1 column (XS).
 - [ ] Gradient navy→green background with pixel skyline top/bottom borders.
 
 ### 2.4 Who's This For? — "YOU, Probably."
+> **Owner:** Ejay
+
 - [ ] Heading with colored "YOU" accent + intro copy (open to all disciplines).
 - [ ] Four persona cards (blue / green / yellow / red silhouettes with traffic-light pips).
 - [ ] Highlighted neon banner: "First-timer with zero experience? Perfect. SparkFest is built for your first win."
 - [ ] Responsive: 4-up → 2×2 (768) → 1 column (XS); banner reflows.
 
 ### 2.5 Judges
+> **Owner:** Ejay
+
 - [ ] Build from `image.png` reference (Figma). Confirm: heading + judge cards (photo, name, title/role).
 - [ ] Grid responsive: multi-column desktop → fewer columns down to single column XS.
 - [ ] Placeholder data + image slots until real judges are supplied.
 
 ### 2.6 The Road to Demo Day
+> **Owner:** Rey
+
 - [ ] Platformer-style vertical timeline with 6 milestone blocks:
   - Jun 1–18 Pre-Event Promotions
   - Jun 19 Registration Opens
@@ -101,17 +133,23 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 - [ ] Responsive: staggered platform layout on wide screens collapses to a clean stacked vertical timeline on XS (keep readable, drop heavy decoration).
 
 ### 2.7 Where & When
+> **Owner:** Gab
+
 - [ ] Confirm content from Figma (venue, dates, format). Build info panel(s).
 - [ ] Map / venue callout + date block.
 - [ ] Responsive panel stacking.
 
 ### 2.8 FAQ — "Questions? We've got you."
+> **Owner:** Gab
+
 - [ ] Accordion with numbered items (01–05): Who can join · How much does it cost · Do I need a team/coding experience · What will my team build · Where and when does it happen.
 - [ ] Expand/collapse interaction (single or multi-open — confirm in Figma).
 - [ ] Pac-man ghosts + pixel "?" decorations + green dot-matrix side rails.
 - [ ] Responsive: full-width panels on XS; keyboard-accessible (button + aria-expanded).
 
 ### 2.9 Snap & Frame — "Sparky's Snap & Frame!"
+> **Owner:** Gab David
+
 - [ ] Heading + intro.
 - [ ] Two panels: **GDG Photobooth** ("Proof you showed up and built something") and **GDG DP Frame** ("Show up before you even show up").
 - [ ] CTA buttons: "Try the Photobooth" + "Get Your DP Frame" (placeholder URLs → dev modal until live, per PRD-F4/F5).
@@ -119,6 +157,8 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 - [ ] Responsive: two panels side-by-side desktop → stack on XS.
 
 ### 2.10 Before the Spark (Pre-Events)
+> **Owner:** Mobaraq
+
 - [ ] Heading + intro ("Two pre-events…").
 - [ ] Four cards with poster thumbnails + "Read the Full post →" links:
   - Sparkpulse: UXpedition
@@ -128,6 +168,8 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 - [ ] Grid: 2×2 desktop → 1 column XS.
 
 ### 2.11 Final CTA — "Your idea could be the next big spark."
+> **Owner:** Mobaraq
+
 - [ ] Neon-framed panel: ghosts + "Three weeks. One team. A solution that lives on in a real community." + "Don't just watch it happen — build it."
 - [ ] "Register Now – It's Free" button.
 - [ ] Arcade cabinet / pixel-cube decorative base.
@@ -148,6 +190,8 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 
 ## Phase 4 — Responsive QA (per breakpoint)
 
+> **QA Owners:** Keith & Ge — sign off each section's four tiers against Figma before it's marked done. See [QAD](docs/qad-sparkfest.md).
+
 - [ ] **T4.1** 1920+ — matches desktop Figma frame, no excessive whitespace, art positioned correctly.
 - [ ] **T4.2** 1280–1919 — matches medium frame; container max-width + scaling correct.
 - [ ] **T4.3** 768–1279 — tablet grids collapse correctly; nav still usable.
@@ -157,6 +201,8 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 ---
 
 ## Phase 5 — Accessibility, Performance & Polish
+
+> **QA Owners:** Keith & Ge — own the a11y/perf gates in the [QAD](docs/qad-sparkfest.md) release criteria.
 
 - [ ] **T5.1** Contrast check — neon/pixel text on dark backgrounds must hit WCAG AA (DSD §6).
 - [ ] **T5.2** Keyboard nav + visible focus rings on all interactive elements.
