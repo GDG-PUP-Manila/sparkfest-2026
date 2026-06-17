@@ -103,7 +103,7 @@ function RegisterButton() {
       target="_blank"
       rel="noopener noreferrer"
       style={CTA_BUTTON_SHADOW}
-      className="relative z-10 mb-4 mt-8 flex h-15.5 w-full max-w-85.75 items-center justify-center bg-[#2B7FFF] px-1 font-pixel text-sm font-medium leading-[1.4] text-[#FAFAFA] transition-transform hover:-translate-y-0.5 active:translate-y-0"
+      className="relative z-10 mb-6 mt-8 flex h-12 w-full max-w-54 items-center justify-center bg-[#2B7FFF] px-1 font-pixel text-xs font-medium leading-[1.4] text-[#FAFAFA] transition-transform hover:-translate-y-0.5 active:translate-y-0 md:h-15.5 md:max-w-85.75 md:text-sm"
     >
       {FINAL_CTA.cta}
     </a>
