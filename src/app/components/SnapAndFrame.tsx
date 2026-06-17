@@ -77,6 +77,146 @@ function DPFrameAvatars({ className = "" }: { className?: string }) {
   );
 }
 
+// ── Top rail bezels — separate mobile (Vector 432) / desktop (Vector 431) paths ──
+const MOBILE_RAIL_PATH =
+  "M18.8377 21.7447L27.6225 61.7447C28.6299 66.3316 32.6934 69.5996 37.3897 69.5996H284.231C289.016 69.5996 293.13 66.2101 294.046 61.5138L301.847 21.5138C303.051 15.3392 298.323 9.59961 292.032 9.59961H28.6049C22.2176 9.59961 17.4676 15.5061 18.8377 21.7447Z";
+
+const DESKTOP_RAIL_PATH =
+  "M20.7253 25.7334L65.7708 83.7334C67.6651 86.1726 70.5803 87.5996 73.6687 87.5996H1273.15C1276.44 87.5996 1279.52 85.9835 1281.38 83.277L1321.38 25.277C1325.96 18.6432 1321.21 9.59961 1313.15 9.59961H28.6232C20.305 9.59961 15.6231 19.1638 20.7253 25.7334Z";
+
+function TopRail() {
+  return (
+    <>
+      {/* Mobile — Figma Group 1649 (288×60), stroke only + centered diamond */}
+      <div className="relative aspect-[288/60] w-full md:hidden">
+        <svg
+          viewBox="17.5 9.6 286 60"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full drop-shadow-[0_6px_12px_rgba(0,0,0,0.4)]"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path
+            d={MOBILE_RAIL_PATH}
+            fill="none"
+            stroke="#EFF6FF"
+            strokeWidth="5"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <img
+            src="/assets/snap/diamond.png"
+            alt=""
+            aria-hidden="true"
+            className="h-[58%] w-auto max-w-[70%] object-contain select-none"
+          />
+        </div>
+      </div>
+
+      {/* Desktop — Figma Group 1650 (1324×78), stroke only + centered diamond */}
+      <div className="relative hidden aspect-[1324/78] w-full md:block">
+        <svg
+          viewBox="15.5 9.6 1306 78"
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full drop-shadow-[0_9px_16px_rgba(0,0,0,0.5)]"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path
+            d={DESKTOP_RAIL_PATH}
+            fill="none"
+            stroke="#EFF6FF"
+            strokeWidth="5"
+            strokeLinejoin="round"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <img
+            src="/assets/snap/diamond.png"
+            alt=""
+            aria-hidden="true"
+            className="h-[58%] w-auto max-w-[12%] object-contain select-none"
+          />
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ── Bottom rail — mobile Group 1632 / desktop Group 1651 ──
+function BottomRail() {
+  return (
+    <>
+      {/* Mobile — Figma Group 1632 (289×117) */}
+      <div className="relative aspect-[289/117] w-full md:hidden">
+        {/* Frame + drop shadow (bleed matches Figma inset) */}
+        <div className="pointer-events-none absolute inset-[-8.21%_-6.44%_-23.6%_-6.44%]">
+          <img
+            src="/assets/snap/rail-bottom-mobile.svg"
+            alt=""
+            aria-hidden="true"
+            className="block size-full max-w-none select-none"
+          />
+        </div>
+
+        {/* Arcade controls — Figma absolute positions (393:3430) */}
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <div className="absolute top-[2.21%] right-[71%] left-[13.46%] aspect-square">
+            <img
+              src="/assets/snap/joystick.png"
+              alt=""
+              className="absolute inset-0 size-full object-cover select-none"
+            />
+          </div>
+          <div className="absolute top-[2.21%] right-[13.46%] left-[71%] flex aspect-square items-center justify-center">
+            <img
+              src="/assets/snap/joystick.png"
+              alt=""
+              className="size-full -scale-x-100 object-cover select-none"
+            />
+          </div>
+          <div className="absolute top-[4.7%] right-[53.45%] left-[33.02%] aspect-square">
+            <img
+              src="/assets/snap/btn-red.png"
+              alt=""
+              className="absolute inset-0 size-full object-cover select-none"
+            />
+          </div>
+          <div className="absolute top-[4.7%] right-[43.42%] left-[43.06%] aspect-square">
+            <img
+              src="/assets/snap/btn-yellow.png"
+              alt=""
+              className="absolute inset-0 size-full object-cover select-none"
+            />
+          </div>
+          <div className="absolute top-[4.7%] right-[33.02%] left-[53.45%] aspect-square">
+            <img
+              src="/assets/snap/btn-green.png"
+              alt=""
+              className="absolute inset-0 size-full object-cover select-none"
+            />
+          </div>
+        </div>
+
+        {/* Inner shadow gradient */}
+        <div
+          className="pointer-events-none absolute top-[43.92%] right-[0.82%] bottom-[11.54%] left-[1.19%] bg-gradient-to-b from-black/40 to-[rgba(16,35,67,0)]"
+          aria-hidden="true"
+        />
+      </div>
+
+      {/* Desktop — Figma Group 1651 (baked) */}
+      <img
+        src="/assets/snap/group-1651.png"
+        alt=""
+        aria-hidden="true"
+        className="hidden w-full select-none md:block"
+      />
+    </>
+  );
+}
+
 // ── Pixel-art retro CTA button (bevelled top-light / bottom-dark borders) ──
 function ArcadeButton({
   label,
@@ -99,7 +239,7 @@ function ArcadeButton({
     <PlaceholderCta
       label={label}
       feature={feature}
-      className="relative shrink-0 px-5 py-2.5 font-pixelify text-[15px] font-medium leading-[1.4] transition-transform hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 md:text-[18px]"
+      className="relative shrink-0 px-5 py-2.5 font-pixelify text-[16px] font-medium leading-[1.5] transition-transform hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 md:text-[18px] md:leading-[1.4]"
       style={{
         background: accentColor,
         color: textColor,
@@ -127,70 +267,54 @@ export default function SnapAndFrame() {
       />
 
       {/* ── Content ── */}
-      <div className="relative mx-auto max-w-[1440px] px-4 py-16 md:px-8 md:py-24">
+      <div className="relative mx-auto max-w-[1440px] px-[35px] pt-10 pb-[34px] md:px-8 md:py-24">
         {/* Heading block */}
-        <div className="flex flex-col items-center gap-5 text-center md:gap-[26px]">
-          <h2 className="font-sans text-[32px] font-bold leading-[1.2] text-white md:text-[48px]">
+        <div className="flex flex-col items-center gap-[26px] text-center">
+          <h2 className="font-sans text-[32px] font-bold leading-[1.3] text-white md:text-[48px] md:leading-[1.2]">
             {SNAP_FRAME.title}
           </h2>
-          <p className="max-w-[784px] font-sans text-[18px] font-medium leading-[1.5] text-white md:text-[24px]">
+          <p className="max-w-[784px] font-sans text-[16px] font-medium leading-[1.5] text-white md:text-[24px]">
             {SNAP_FRAME.intro}
           </p>
         </div>
 
         {/* Rails + cards column */}
-        <div className="mt-12 flex flex-col items-center gap-8 md:mt-16 md:gap-[55px]">
-          {/* ── Top rail with <> diamond ── */}
-          <div className="relative w-full">
-            <img
-              src="/assets/snap/rail-top.png"
-              alt=""
-              aria-hidden="true"
-              className="block w-full select-none"
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <img
-                src="/assets/snap/diamond.png"
-                alt=""
-                aria-hidden="true"
-                className="h-[55%] w-auto select-none"
-              />
-            </div>
-          </div>
+        <div className="mt-10 flex flex-col items-center gap-5 md:mt-16 md:gap-[55px]">
+          <TopRail />
 
           {/* ── Outer cards container ── */}
           <div
-            className="w-full rounded-[20px] border-[3px] border-[#eff6ff]/25 px-4 py-8 md:px-[60px] md:py-[60px]"
+            className="w-full rounded-[20px] border-[5px] border-[#ffffff] p-[30px] md:border-[3px] md:px-[60px] md:py-[60px]"
             style={{
               background:
                 "linear-gradient(180deg, #0a162a 0%, #16315d 50%, #0a162a 100%)",
             }}
           >
-            <div className="grid gap-6 md:grid-cols-2 md:gap-[60px]">
+            <div className="flex flex-col gap-[30px] md:grid md:grid-cols-2 md:gap-[60px]">
               {/* ── Photobooth Card ── */}
               <div
-                className="flex flex-col items-center gap-8 rounded-[10px] border-2 border-[#1447e6] px-6 py-8 md:gap-[50px] md:px-[60px] md:py-[40px]"
+                className="flex flex-col items-center gap-[50px] rounded-[10px] border-2 border-[#1447e6] px-[25px] py-5 md:px-[60px] md:py-[40px]"
                 style={{
                   background:
                     "linear-gradient(180deg, #0a162a 0%, #224b90 100%)",
                 }}
               >
-                <div className="flex w-full flex-col gap-6 md:gap-[50px]">
-                  <h3 className="font-sans text-[24px] font-bold leading-[1.3] text-white md:text-[32px]">
+                <div className="flex w-full flex-col gap-[50px]">
+                  <h3 className="font-sans text-[20px] font-bold leading-[1.4] text-white md:text-[32px] md:leading-[1.3]">
                     {`Proof you `}
                     <span className="text-[#f0b100]">showed up</span>
                     {` and `}
                     <span className="text-[#f0b100]">built something</span>
                     {`.`}
                   </h3>
-                  <p className="font-sans text-[16px] font-medium leading-[1.5] text-white md:text-[24px]">
+                  <p className="font-sans text-[18px] font-medium leading-[1.5] text-white md:text-[24px]">
                     {`The `}
                     <span className="font-bold text-[#f0b100]">GDG Photobooth</span>
                     {` is your on-site, no-download, browser-based photo booth that is live at SparkFest 2026. Walk up, snap, and walk away with a snap that actually looks good. No more queue. Just you, your team, and a moment worth keeping.`}
                   </p>
                 </div>
 
-                <PhotoStripMockup className="h-[200px] w-auto md:h-[260px]" />
+                <PhotoStripMockup className="h-[208px] w-auto md:h-[260px]" />
 
                 <ArcadeButton
                   label={photobooth.cta}
@@ -205,25 +329,25 @@ export default function SnapAndFrame() {
 
               {/* ── DP Frame Card ── */}
               <div
-                className="flex flex-col items-center gap-8 rounded-[10px] border-2 border-[#1447e6] px-6 py-8 md:gap-[70px] md:px-[60px] md:py-[40px]"
+                className="flex flex-col items-center gap-10 rounded-[10px] border-2 border-[#1447e6] px-[25px] py-5 md:gap-[70px] md:px-[60px] md:py-[40px]"
                 style={{
                   background:
                     "linear-gradient(180deg, #0a162b 0%, #224a8e 100%)",
                 }}
               >
-                <div className="flex w-full flex-col gap-6 md:gap-[38px]">
-                  <h3 className="font-sans text-[24px] font-bold leading-[1.3] text-white md:text-[32px]">
+                <div className="flex w-full flex-col gap-[38px]">
+                  <h3 className="font-sans text-[20px] font-bold leading-[1.4] text-white md:text-[32px] md:leading-[1.3]">
                     <span className="text-[#00c950]">Show up</span>
                     {` before you even show up.`}
                   </h3>
-                  <p className="font-sans text-[16px] font-medium leading-[1.5] text-white md:text-[24px]">
+                  <p className="font-sans text-[18px] font-medium leading-[1.5] text-white md:text-[24px]">
                     {`Can't wait until July 9 to show your SparkFest energy? Don't. The `}
                     <span className="font-bold text-[#00c950]">GDG DP Frame</span>
                     {` lets you drop a SparkFest 2026 frame on your profile photo right now — self-serve, browser-based, and built to go live in under a minute. Upload. Frame. Post. Let your feed know you're in.`}
                   </p>
                 </div>
 
-                <DPFrameAvatars className="h-[150px] w-full max-w-[376px] md:h-[188px]" />
+                <DPFrameAvatars className="h-[90px] w-full max-w-[376px] md:h-[188px]" />
 
                 <ArcadeButton
                   label={dpFrame.cta}
@@ -238,13 +362,7 @@ export default function SnapAndFrame() {
             </div>
           </div>
 
-          {/* ── Bottom rail (Group 1651: frame + joystick pins + "G" buttons, baked) ── */}
-          <img
-            src="/assets/snap/group-1651.png"
-            alt=""
-            aria-hidden="true"
-            className="block w-full select-none"
-          />
+          <BottomRail />
         </div>
       </div>
     </section>
