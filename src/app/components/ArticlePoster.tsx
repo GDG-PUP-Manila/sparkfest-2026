@@ -95,7 +95,7 @@ export function ArticlePoster({
           <div className="relative z-10 flex h-full w-full flex-col items-center justify-center py-4">
             <div className="absolute -top-10 left-1/2 w-45 -translate-x-1/2 md:-top-22 md:w-60 lg:w-78.75">
               <BadgeIcon
-                color={color}
+                color={color === "blue" ? "red" : color === "green" ? "blue" : color}
                 className="animate-float h-auto w-full drop-shadow-lg"
               />
             </div>
@@ -104,7 +104,7 @@ export function ArticlePoster({
               <img
                 src={TAG_IMAGES[tag]}
                 alt={tag}
-                className="px-4 w-full max-w-50  md:max-w-75 lg:max-w-100"
+                className=" w-full max-w-200  md:max-w-75 lg:max-w-100"
                 loading="lazy"
               />
             ) : (

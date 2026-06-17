@@ -25,7 +25,7 @@ export default function BeforeTheSpark() {
       {/* Added 'relative z-10' to ensure content sits above the pattern layer */}
       <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
         {/* Note: Kept your exact classes here, including text-justify */}
-        <h2 className="mx-auto h-18 w-full max-w-120.25 flex-none text-justify font-sans text-[60px] font-bold leading-[120%] text-[#FAFAFA]">
+        <h2 className="mx-auto w-full max-w-120.25 text-center font-sans text-[40px] md:text-[60px] font-bold leading-[120%] text-[#FAFAFA]">
           Before the Spark
         </h2>
 
