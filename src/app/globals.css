@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/google-sans');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -39,6 +40,7 @@
 @theme {
   --font-sans: 'Google Sans', 'Product Sans', system-ui, -apple-system, sans-serif;
   --font-pixel: 'Press Start 2P', 'Google Sans', monospace;
+  --font-pixelify: 'Pixelify Sans', monospace;
   
   --color-google-red-500: var(--google-red-500);
   --color-google-yellow-500: var(--google-yellow-500);
