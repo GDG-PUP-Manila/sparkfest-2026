@@ -1,6 +1,7 @@
 import React from "react";
 import { WHERE_WHEN } from "./content";
 import { Ghost } from "./decor";
+import WhereAndWhenWall from "./WhereAndWhenWall";
 
 export default function WhereAndWhen() {
   return (
@@ -8,6 +9,7 @@ export default function WhereAndWhen() {
       {/* Pac-Man dotted maze rails (top & bottom) */}
       <MazeRail className="top-6" />
       <MazeRail className="bottom-6 rotate-180" />
+        <WhereAndWhenWall />
 
       {/* corner ghosts */}
       <Ghost color="#57caff" className="pointer-events-none absolute left-4 top-1/3 h-7 w-7 opacity-80 md:left-8" />
