@@ -8,10 +8,12 @@ export default function PlaceholderCta({
   label,
   feature,
   className = "",
+  style,
 }: {
   label: string;
   feature: string;
   className?: string;
+  style?: React.CSSProperties;
 }) {
   const [showToast, setShowToast] = useState(false);
 
@@ -22,7 +24,7 @@ export default function PlaceholderCta({
 
   return (
     <>
-      <button type="button" onClick={handleClick} className={className}>
+      <button type="button" onClick={handleClick} className={className} style={style}>
         {label}
       </button>
 
