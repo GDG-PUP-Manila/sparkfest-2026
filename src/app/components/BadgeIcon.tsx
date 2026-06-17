@@ -28,7 +28,7 @@ export const BadgeIcon = ({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={`/assets/controllers/${getController()}-controller.webp`}
+      src={`/assets/before-the-spark/${getController()}-controller.webp`}
       alt={`${color} controller badge`}
       className={className}
     />
