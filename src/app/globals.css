@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/google-sans');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -39,6 +40,7 @@
 @theme {
   --font-sans: 'Google Sans', 'Product Sans', system-ui, -apple-system, sans-serif;
   --font-pixel: 'Press Start 2P', 'Google Sans', monospace;
+  --font-pixelify: 'Pixelify Sans', monospace;
   
   --color-google-red-500: var(--google-red-500);
   --color-google-yellow-500: var(--google-yellow-500);
@@ -162,5 +164,35 @@ body {
 *:focus-visible {
   outline: 3px solid var(--grid-cyan);
   outline-offset: 2px;
+}
+
+/* Shiny card animation */
+@keyframes shimmer {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(200%) skewX(-20deg); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 3s infinite;
+  z-index: 20;
+  pointer-events: none;
+  mix-blend-mode: overlay;
 }
 

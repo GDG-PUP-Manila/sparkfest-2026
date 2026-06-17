@@ -1,100 +1,146 @@
-import React from "react";
-import { JUDGES, COLOR_HEX } from "./content";
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 
 export default function Judges() {
+  const cards = ["red", "green", "yellow", "blue"];
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const toggleReveal = (color: string) => {
+    setRevealed((prev) => ({ ...prev, [color]: !prev[color] }));
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="judges"
-      className="bg-navy-900 py-16 md:py-24"
+      ref={sectionRef}
+      className={`relative bg-navy-900 py-16 md:py-24 overflow-hidden transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
-      <div className="mx-auto max-w-[1000px] px-4 md:px-8">
-        {/* Neon multi-color arcade frame */}
-        <div
-          className="rounded-xl p-[3px] shadow-[0_0_28px_rgba(87,202,255,0.45)]"
-          style={{
-            background:
-              "linear-gradient(90deg,#ea4335,#fbbc04,#34a853,#4285f4)",
-          }}
-        >
-          <div className="rounded-[10px] border-2 border-white/80 p-1">
-            <div className="dot-matrix relative overflow-hidden rounded-lg bg-[linear-gradient(180deg,#0a1330_0%,#1d4fb0_60%,#57caff_120%)] px-5 py-10 md:px-10">
-              {/* grid floor */}
-              <div
-                aria-hidden="true"
-                className="arcade-grid pointer-events-none absolute inset-x-0 bottom-0 h-2/3 opacity-30"
-                style={{
-                  maskImage: "linear-gradient(to bottom, transparent, black)",
-                  WebkitMaskImage:
-                    "linear-gradient(to bottom, transparent, black)",
-                }}
-              />
-              {/* lightning accents */}
-              <span aria-hidden="true" className="absolute left-6 top-1/2 font-pixel text-3xl text-grid-cyan opacity-70">
-                ⚡
-              </span>
-              <span aria-hidden="true" className="absolute right-6 bottom-10 font-pixel text-3xl text-grid-cyan opacity-70">
-                ⚡
-              </span>
+      {/* Section Background SVG */}
+      <div className="absolute inset-0 pointer-events-none opacity-30 z-0">
+        <Image
+          src="/assets/judge/background.svg"
+          alt=""
+          fill
+          className="object-cover"
+          unoptimized
+        />
+      </div>
 
-              <h2 className="relative text-center text-2xl font-extrabold text-white md:text-4xl">
-                Judges
-              </h2>
+      <div className="relative z-10 mx-auto w-[88.28%] max-w-[1695px]">
 
-              <div className="relative mt-8 grid grid-cols-2 gap-4 md:mt-10 md:gap-6">
-                {JUDGES.map((judge, i) => (
-                  <article
-                    key={i}
-                    className="relative overflow-hidden border border-white/20 shadow-[0_0_16px_rgba(0,0,0,0.4)]"
-                    style={{
-                      background: `linear-gradient(160deg, ${COLOR_HEX[judge.color]}, ${COLOR_HEX[judge.color]}77)`,
-                    }}
+        {/* Container for background logic */}
+        <div className="relative w-full aspect-auto md:aspect-[1672/891] overflow-hidden bg-[#0A162A] rounded-none md:rounded-[22px]">
+          {/* Mobile background */}
+          <div className="absolute inset-0 pointer-events-none md:hidden">
+            <Image
+              src="/assets/judge/judge-background-mobile.svg"
+              alt=""
+              fill
+              className="object-fill"
+              unoptimized
+            />
+          </div>
+          {/* Desktop background */}
+          <div className="absolute inset-0 pointer-events-none hidden md:block">
+            <Image
+              src="/assets/judge/judge-background.svg"
+              alt=""
+              fill
+              className="object-cover object-center"
+              unoptimized
+            />
+          </div>
+
+          {/* Content Wrapper Overlay */}
+          <div className="relative z-10 flex flex-col items-center justify-start pt-16 pb-12 md:pt-[10%] md:pb-[10%] px-4 md:px-8 h-full">
+            <h2 className="font-bold font-sans text-white text-[34px] md:text-[40px] mb-8 md:mb-[4%] text-center leading-[1.3] tracking-normal">
+              Judges
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-[2%] w-full max-w-[200px] md:max-w-[85%]">
+              {cards.map((color) => {
+                const isRevealed = revealed[color];
+                return (
+                  <div
+                    key={color}
+                    onClick={() => toggleReveal(color)}
+                    className={`group relative w-full aspect-[337/421] cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-2 md:hover:-translate-y-4 ${!isRevealed ? 'animate-shimmer' : ''}`}
                   >
-                    {/* halftone overlay */}
-                    <div
-                      aria-hidden="true"
-                      className="absolute inset-0 opacity-25"
-                      style={{
-                        backgroundImage:
-                          "radial-gradient(rgba(0,0,0,0.5) 1.5px, transparent 1.6px)",
-                        backgroundSize: "8px 8px",
-                      }}
+                    <Image
+                      src={`/assets/judge/mystery-judge-${color}.svg`}
+                      alt={`Mystery Judge ${color}`}
+                      fill
+                      className={`object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}`}
+                      unoptimized
                     />
-                    <div className="relative flex aspect-[4/5] items-center justify-center">
-                      <span
-                        className="font-pixel text-5xl md:text-6xl"
-                        style={{ color: "rgba(0,0,0,0.35)" }}
-                        aria-hidden="true"
-                      >
-                        ?
-                      </span>
-                    </div>
-                    <div className="relative bg-navy-900/60 px-3 py-2 text-center">
-                      <p className="text-xs font-bold text-white md:text-sm">
-                        {judge.name}
-                      </p>
-                      <p className="mt-0.5 font-pixel text-[7px] uppercase tracking-wide text-white/80">
-                        {judge.role}
-                      </p>
-                    </div>
-                  </article>
-                ))}
-              </div>
+                    <Image
+                      src={`/assets/judge/mystery-judge-${color}-reveal.svg`}
+                      alt={`Mystery Judge ${color} Reveal`}
+                      fill
+                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                      unoptimized
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        {/* twin progress bars */}
-        <div className="mt-5 grid grid-cols-2 gap-6" aria-hidden="true">
-          {["L", "R"].map((side) => (
-            <div
-              key={side}
-              className="relative h-3 rounded-sm bg-gradient-to-r from-google-blue-500 via-google-green-500 to-google-green-500"
-            >
-              <span className="absolute inset-y-0 left-1/2 flex items-center font-pixel text-[7px] text-navy-900">
-                {side}
-              </span>
-            </div>
-          ))}
+        {/* L/R buttons */}
+        <div className="flex justify-between items-start w-full mt-[10px]">
+          <div className="relative w-[120px] md:w-[300px] lg:w-[400px] h-[30px] md:h-[30px] cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:brightness-110 active:scale-[0.98] active:translate-y-0 rounded-b-[20px] md:rounded-b-[29px] rounded-t-none border-[2px] border-black overflow-hidden flex items-center justify-center shadow-md">
+            {/* Background SVG */}
+            <Image
+              src="/assets/judge/button-bg.svg"
+              alt=""
+              fill
+              className="object-cover object-center pointer-events-none"
+              unoptimized
+            />
+            {/* L Letter */}
+            <span className="relative z-10 text-white font-bold font-pixelify text-[18px] md:text-[20px] lg:text-[25px] leading-none [-webkit-text-stroke:1px_black] mt-1">
+              L
+            </span>
+          </div>
+
+          <div className="relative w-[120px] md:w-[300px] lg:w-[400px] h-[30px] md:h-[30px] cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 hover:brightness-110 active:scale-[0.98] active:translate-y-0 rounded-b-[20px] md:rounded-b-[29px] rounded-t-none border-[2px] border-black overflow-hidden flex items-center justify-center shadow-md">
+            {/* Background SVG */}
+            <Image
+              src="/assets/judge/button-bg.svg"
+              alt=""
+              fill
+              className="object-cover object-center pointer-events-none"
+              unoptimized
+            />
+            {/* R Letter */}
+            <span className="relative z-10 text-white font-bold font-pixelify text-[18px] md:text-[20px] lg:text-[25px] leading-none [-webkit-text-stroke:1px_black] mt-1">
+              R
+            </span>
+          </div>
         </div>
       </div>
     </section>
