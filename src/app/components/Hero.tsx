@@ -47,7 +47,7 @@ export default function Hero() {
   const [time, setTime] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    setTime(getTimeLeft(target));
+    setTimeout(() => setTime(getTimeLeft(target)), 0);
     const id = setInterval(() => setTime(getTimeLeft(target)), 1000);
     return () => clearInterval(id);
   }, [target]);
