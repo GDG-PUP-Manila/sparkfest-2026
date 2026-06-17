@@ -1,19 +1,33 @@
 import React from "react";
 import { WHERE_WHEN } from "./content";
 import { Ghost } from "./decor";
-import WhereAndWhenWall from "./WhereAndWhenWall";
+
+import SectionBorder from "./SectionBorder";
 
 export default function WhereAndWhen() {
   return (
     <section className="relative overflow-hidden bg-navy-800 py-16 md:py-24">
+      {/* left */}
+      <SectionBorder />
+
       {/* Pac-Man dotted maze rails (top & bottom) */}
-      <MazeRail className="top-6" />
-      <MazeRail className="bottom-6 rotate-180" />
-        <WhereAndWhenWall />
+      {/* <MazeRail className="top-6" />
+      <MazeRail className="bottom-6 rotate-180" /> */}
+      {/* <WhereAndWhenWall /> */}
 
       {/* corner ghosts */}
-      <Ghost color="#57caff" className="pointer-events-none absolute left-4 top-1/3 h-7 w-7 opacity-80 md:left-8" />
-      <Ghost color="#ea4335" className="pointer-events-none absolute right-6 bottom-1/4 h-7 w-7 opacity-80 md:right-10" />
+      <Ghost
+        color="#57caff"
+        className="pointer-events-none absolute left-4 top-1/3 h-7 w-7 opacity-80 md:left-8 animate-float animate-ghost-move"
+      />
+      <Ghost
+        color="#ea4335"
+        className="pointer-events-none absolute right-6 bottom-1/4 h-7 w-7 opacity-80 md:right-10 animate-float"
+      />
+      <Ghost
+        color="#34a853"
+        className="pointer-events-none absolute left-305 bottom-200 h-7 w-7 opacity-80 md:right-10 animate-float"
+      />
 
       <div className="relative mx-auto max-w-[940px] px-6 md:px-12">
         <h2 className="text-center text-3xl font-extrabold text-white md:text-5xl">
@@ -64,13 +78,19 @@ function MazeRail({ className = "" }: { className?: string }) {
     >
       <div className="flex flex-1 items-center gap-3 px-6">
         {Array.from({ length: 14 }).map((_, i) => (
-          <span key={i} className="h-1.5 w-1.5 shrink-0 rounded-full bg-google-yellow-500" />
+          <span
+            key={i}
+            className="h-1.5 w-1.5 shrink-0 rounded-full bg-google-yellow-500"
+          />
         ))}
       </div>
       <div className="h-4 w-28 shrink-0 rounded-sm bg-gradient-to-b from-grid-cyan to-google-blue-500" />
       <div className="flex flex-1 items-center gap-3 px-6">
         {Array.from({ length: 14 }).map((_, i) => (
-          <span key={i} className="h-1.5 w-1.5 shrink-0 rounded-full bg-google-yellow-500" />
+          <span
+            key={i}
+            className="h-1.5 w-1.5 shrink-0 rounded-full bg-google-yellow-500"
+          />
         ))}
       </div>
     </div>
