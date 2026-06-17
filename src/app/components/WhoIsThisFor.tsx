@@ -93,7 +93,7 @@ export default function WhoIsThisFor() {
     <section
       ref={sectionRef}
       id="highlights"
-      className={`relative overflow-hidden bg-gradient-to-b from-navy-600 via-navy-700 to-navy-800 pb-16 pt-0 md:pb-24 transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className="relative overflow-hidden bg-gradient-to-b from-navy-600 via-navy-700 to-navy-800 pb-16 pt-0 md:pb-24"
     >
       {/* Top Transition Pixel Edge */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full min-w-[768px] md:min-w-[1280px] lg:min-w-[1920px] h-[24px] md:h-[42px] lg:h-[64px] z-10 pointer-events-none">
@@ -107,7 +107,7 @@ export default function WhoIsThisFor() {
       </div>
 
       {/* Background SVG - positioned above color, not stretched */}
-      <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[1280px] h-[849px] z-20 pointer-events-none mix-blend-screen">
+      <div className={`absolute top-[10%] left-1/2 -translate-x-1/2 w-[1280px] h-[849px] z-20 pointer-events-none mix-blend-screen transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         <Image
           src="/assets/whoisthisfor/background.svg"
           alt=""
@@ -117,7 +117,7 @@ export default function WhoIsThisFor() {
         />
       </div>
 
-      <div className="relative z-30 mx-auto max-w-[1280px] px-4 pt-20 md:px-8 md:pt-28 desktop:max-w-[1600px]">
+      <div className={`relative z-30 mx-auto max-w-[1280px] px-4 pt-20 md:px-8 md:pt-28 desktop:max-w-[1600px] transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         <h2 className="text-center text-4xl font-extrabold text-white md:text-5xl lg:text-[50px] leading-tight">
           Who&apos;s This For?
           <br className="md:hidden" />
