@@ -1,183 +1,224 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 
-import React, { useState } from "react";
-import { FAQS } from "./content";
-import { PixelCloud } from "./decor";
+import { useState } from "react";
 import Image from "next/image";
+import { FAQS } from "./content";
 
+// ── Green dot-matrix rail (vertical or horizontal) ──────────────────────────
+function DotMatrixRail({ className = "" }: { className?: string }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`pointer-events-none ${className}`}
+      style={{
+        backgroundImage:
+          "radial-gradient(circle, #05DF72 2.5px, transparent 2.5px)",
+        backgroundSize: "14px 14px",
+        backgroundRepeat: "repeat",
+      }}
+    />
+  );
+}
+
+// ── Chevron icon ─────────────────────────────────────────────────────────────
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 22 22"
+      className={`h-6 w-6 shrink-0 transition-transform duration-300 md:h-7 md:w-7 xl:h-8 xl:w-8 desktop:h-9 desktop:w-9 ${
+        open ? "rotate-180" : ""
+      }`}
+      aria-hidden="true"
+      style={{ fill: "#2b7fff" }}
+    >
+      <path d="M4 7h14l-7 8z" />
+    </svg>
+  );
+}
+
+// ── FAQ Section ──────────────────────────────────────────────────────────────
 export default function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section
-      id="faq"
-      className="relative min-h-screen sm:h-282.5 md:h-366.75"
-      style={{
-        background: "linear-gradient(180deg, #2a3c71 0%, rgba(0, 166, 62, 0.4) 50%, #21568b 100%)",
-      }}
-    >
-      {/* Background Image Overlay from FAQ assets — placed at the top of DOM to sit behind everything */}
-      <div className="absolute inset-0 pointer-events-none z-0">
+    <section id="faq" className="relative overflow-x-hidden">
+      {/*
+        Grid container — background.png stays in-flow to set the section height.
+        All sibling divs share col-start-1 row-start-1 and stack above the image.
+      */}
+      <div className="grid w-full">
+        {/* Background image — in-flow, NOT absolutely positioned */}
         <Image
           src="/assets/faq/background.png"
-          alt="FAQ background texture"
-          fill
-          className="object-cover object-top"
+          alt=""
+          aria-hidden="true"
+          width={3840}
+          height={2694}
+          className="pointer-events-none col-start-1 row-start-1 h-auto w-full select-none object-top"
+          sizes="100vw"
         />
-      </div>
 
-      {/* Vertical green side rails — visible ONLY on SM devices and up (>= sm) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 left-0 hidden sm:block"
-        style={{
-          width: "56px",
-          backgroundImage: "linear-gradient(to bottom, #05DF72 24px, transparent 24px)",
-          backgroundSize: "100% 52px",
-          backgroundRepeat: "repeat-y",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-y-0 right-0 hidden sm:block"
-        style={{
-          width: "56px",
-          backgroundImage: "linear-gradient(to bottom, #05DF72 24px, transparent 24px)",
-          backgroundSize: "100% 52px",
-          backgroundRepeat: "repeat-y",
-        }}
-      />
+        {/* Vertical green dot-matrix rails — md+ */}
+        <DotMatrixRail className="col-start-1 row-start-1 hidden h-full w-14 self-stretch justify-self-start md:block xl:w-20" />
+        <DotMatrixRail className="col-start-1 row-start-1 hidden h-full w-14 self-stretch justify-self-end md:block xl:w-20" />
 
-      {/* Horizontal green rails — visible ONLY on XS devices (< sm) */}
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-0 right-0 block sm:hidden pointer-events-none"
-        style={{
-          height: "42.81px",
-          backgroundImage: "linear-gradient(to right, #05DF72 18.335px, transparent 18.335px)",
-          backgroundSize: "39.745px 100%",
-          backgroundRepeat: "repeat-x",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="absolute bottom-0 left-0 right-0 block sm:hidden pointer-events-none"
-        style={{
-          height: "42.81px",
-          backgroundImage: "linear-gradient(to right, #05DF72 18.335px, transparent 18.335px)",
-          backgroundSize: "39.745px 100%",
-          backgroundRepeat: "repeat-x",
-        }}
-      />
+        {/* Horizontal green dot-matrix rails — mobile only, top and bottom */}
+        <DotMatrixRail className="col-start-1 row-start-1 block h-10 w-full self-start md:hidden" />
+        <DotMatrixRail className="col-start-1 row-start-1 block h-10 w-full self-end md:hidden" />
 
+        {/* ── Content wrapper ─────────────────────────────────────────────── */}
+        <div className="relative z-10 col-start-1 row-start-1 mx-auto flex w-full min-w-0 max-w-[1200px] flex-col justify-center self-center overflow-visible px-[35px] py-4 sm:px-10 sm:py-5 md:px-16 md:py-6 xl:px-20 xl:py-8 desktop:px-24 desktop:py-10">
 
-      {/* Retro pixel clouds */}
-      <PixelCloud className="pointer-events-none absolute left-[5%] top-[8%] w-48 h-20 opacity-20 text-white/30 hidden lg:block" />
-      <PixelCloud className="pointer-events-none absolute right-[10%] top-[4%] w-60 h-24 opacity-15 text-white/30 hidden lg:block" />
-      <PixelCloud className="pointer-events-none absolute left-[15%] bottom-[5%] w-72 h-28 opacity-15 text-white/30 hidden lg:block" />
-      <PixelCloud className="pointer-events-none absolute right-[8%] bottom-[8%] w-80 h-32 opacity-20 text-white/30 hidden lg:block" />
+          {/* ── Section heading + flanking question-mark decorations ───────── */}
+          <div className="mb-3 flex w-full justify-center md:mb-4 xl:mb-5">
+            <div className="inline-flex max-w-full items-center gap-0.5 md:gap-1.5 xl:gap-2">
+              {/* Left "?" — Pixelify (hidden on mobile) */}
+              <span
+                className="hidden shrink-0 leading-none font-pixelify font-medium text-google-yellow-500 animate-float md:inline-block md:-rotate-[18.9deg] md:text-[56px] xl:text-[84px] desktop:text-[108px]"
+                style={{ textShadow: "0 4px 0 #432004" }}
+                aria-hidden="true"
+              >
+                ?
+              </span>
 
-      <div className="absolute inset-0 flex flex-col justify-center mx-auto w-full h-screen max-w-[1200px] px-4 sm:px-[84px] z-10">
-        {/* Title */}
-        <div className="flex items-center justify-center gap-1 md:gap-6 lg:gap-10 select-none mb-10 md:mb-16">
-          {/* Left Question Mark */}
-          <div
-            className="hidden md:flex items-center justify-center h-[120px] w-[100px] xl:h-[200px] xl:w-[142px] shrink-0 rotate-[-18.9deg] font-pixelify font-medium text-[80px] xl:text-[150px] text-google-yellow-500 animate-float"
-            style={{ textShadow: "0 4px 0 #432004" }}
-          >
-            ?
-          </div>
+              <h2 className="shrink-0 text-center font-sans text-[28px] font-bold leading-[1.2] text-white sm:text-[32px] md:text-5xl md:leading-[1.15] xl:text-6xl xl:whitespace-nowrap">
+                <span className="block md:inline">Questions? </span>
+                <span className="block text-[#eff6ff] md:inline">We&apos;ve got you.</span>
+              </h2>
 
-          <h2 className="text-center font-bold text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl lg:whitespace-nowrap leading-tight max-w-[280px] sm:max-w-none">
-            Questions? <span className="text-[#fafafa]">We&apos;ve got you.</span>
-          </h2>
-
-          {/* Right Question Mark */}
-          <div
-            className="hidden md:flex items-center justify-center h-[150px] w-[120px] xl:h-[262px] xl:w-[173px] shrink-0 rotate-[13.88deg] font-pixelify font-medium text-[100px] xl:text-[200px] text-google-yellow-500 animate-float"
-            style={{ textShadow: "0 4px 0 #432004", animationDelay: "1s" }}
-          >
-            ?
-          </div>
-        </div>
-
-        {/* FAQ Container Box */}
-        <div className="relative bg-[#202124] border-t-[30px] md:border-t-[50px] border-x-[6px] border-b-[6px] md:border-x-[10px] md:border-b-[10px] border-solid border-google-blue-500 px-3 py-5 md:px-[40px] md:py-[20px] w-full">
-          {/* ghosts peeking on top edge */}
-          <div className="hidden sm:flex sm:absolute -top-9 md:-top-[60px] xl:-top-[90px] desktop:-top-[130px] left-4 md:left-[28px] items-end gap-1 md:gap-2 select-none pointer-events-none z-10">
-            {/* Blue Ghost */}
-            <div className="w-12 h-12 md:w-20 md:h-20 xl:w-28 xl:h-28 desktop:w-[160px] desktop:h-[160px] -rotate-[5.31deg] animate-float shrink-0">
-              <Image src="/assets/faq/blueghost.svg" alt="Blue Ghost" width={160} height={160} className="w-full h-full object-contain pixelated" unoptimized />
+              {/* Right "?" — Pixelify (hidden on mobile) */}
+              <span
+                className="hidden shrink-0 leading-none font-pixelify font-medium text-google-yellow-500 animate-float md:inline-block md:rotate-[13.88deg] md:text-[64px] xl:text-[96px] desktop:text-[120px]"
+                style={{ textShadow: "0 4px 0 #432004", animationDelay: "1s" }}
+                aria-hidden="true"
+              >
+                ?
+              </span>
             </div>
-            {/* Green Ghost */}
+          </div>
+
+          {/* Panel + ghosts — ghosts sit outside panel so bg/border don't clip them */}
+          <div className="relative w-full min-w-0 overflow-visible">
+            {/* Ghost pair perched on the top border */}
             <div
-              className="w-10 h-10 md:w-16 md:h-16 xl:w-22 xl:h-22 desktop:w-[126px] desktop:h-[126px] rotate-[5.06deg] animate-float shrink-0"
-              style={{ animationDelay: "0.5s" }}
+              aria-hidden="true"
+              className="pointer-events-none absolute bottom-full left-2 z-30 flex translate-y-[38%] select-none items-end gap-2 sm:left-3 md:left-6 xl:left-8 xl:gap-4"
             >
-              <Image src="/assets/faq/greenghost.svg" alt="Green Ghost" width={126} height={126} className="w-full h-full object-contain pixelated" unoptimized />
+              <div className="size-20 shrink-0 -rotate-[5deg] animate-float sm:size-28 md:size-44 xl:size-80 desktop:size-96">
+                <img
+                  src="/assets/faq/blueghost.svg"
+                  alt=""
+                  className="pixelated block size-full object-contain"
+                />
+              </div>
+              <div
+                className="size-[72px] shrink-0 rotate-[5deg] animate-float sm:size-24 md:size-40 xl:size-72 desktop:size-80"
+                style={{ animationDelay: "0.5s" }}
+              >
+                <img
+                  src="/assets/faq/greenghost.svg"
+                  alt=""
+                  className="pixelated block size-full object-contain"
+                />
+              </div>
             </div>
-          </div>
 
-          <ul className="flex flex-col gap-[10px] w-full">
-            {FAQS.map((faq, i) => {
-              const isOpen = open === i;
-              return (
-                <li
-                  key={faq.q}
-                  className="w-full rounded-[5px] transition-all duration-300 overflow-hidden"
-                  style={
-                    !isOpen
-                      ? {
-                        backgroundImage:
-                          "linear-gradient(193.682deg, rgba(255, 255, 255, 0) 22.283%, rgba(43, 127, 255, 0) 26.189%, rgba(0, 201, 80, 0.125) 77.633%, rgba(240, 177, 0, 0.125) 86.835%, rgba(251, 44, 54, 0.125) 99.104%)",
-                      }
-                      : {
-                        backgroundColor: "#202124",
-                      }
-                  }
-                >
-                  <button
-                    type="button"
-                    aria-expanded={isOpen}
-                    onClick={() => setOpen(isOpen ? null : i)}
-                    className={`group w-full flex items-center gap-3 md:gap-5 px-4 py-4 md:px-8 md:py-6 text-left cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-google-blue-500 ${isOpen ? "border-b-[3px] border-solid border-google-blue-500" : ""
-                      }`}
+          {/* ── Arcade FAQ panel ────────────────────────────────────────────── */}
+          {/*
+            Border system matches SnapAndFrame:
+              Top bar   (#2b7fff) — thick "header" strip
+              Left/Right (#2b7fff) — light sides
+              Bottom     (#1447e6) — shadow side
+              Box-shadow (#1447e6) — pixel-depth below
+              Inner top  (#eff6ff) — 2 px highlight stripe inside the header bar
+          */}
+          <div
+            className="relative w-full min-w-0 overflow-visible border-solid border-t-[24px] border-x-[5px] border-b-[5px] bg-[#0d1b2e] sm:border-t-[30px] sm:border-x-[6px] sm:border-b-[6px] md:border-t-[50px] md:border-x-[10px] md:border-b-[10px]"
+            style={{
+              borderColor: "#2b7fff",
+              borderBottomColor: "#1447e6",
+              boxShadow: "0 8px 0 0 #1447e6",
+            }}
+          >
+            {/* #eff6ff highlight stripe along the inner top edge */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-x-0 top-0 h-[3px] select-none"
+              style={{ background: "rgba(239,246,255,0.35)" }}
+            />
+
+            {/* ── Accordion list ────────────────────────────────────────────── */}
+            <ul className="flex w-full flex-col gap-[6px] px-3 py-4 sm:px-5 sm:py-5 md:gap-[10px] md:px-10 md:py-6 xl:px-12 xl:py-8">
+              {FAQS.map((faq, i) => {
+                const isOpen = open === i;
+                return (
+                  <li
+                    key={faq.q}
+                    className="w-full overflow-hidden transition-all duration-300"
+                    style={{
+                      background: isOpen
+                        ? "rgba(43,127,255,0.09)"
+                        : "linear-gradient(193deg, rgba(0,201,80,0.08) 0%, rgba(43,127,255,0.04) 50%, rgba(240,177,0,0.08) 100%)",
+                      borderLeft: `3px solid ${isOpen ? "#2b7fff" : "rgba(43,127,255,0.35)"}`,
+                      borderRight: `3px solid ${isOpen ? "#1447e6" : "rgba(20,71,230,0.25)"}`,
+                      borderBottom: `2px solid ${isOpen ? "#1447e6" : "rgba(20,71,230,0.2)"}`,
+                    }}
                   >
-                    <div className="bg-google-blue-500 text-white rounded-[5px] flex items-center justify-center font-pixelify font-medium shrink-0 w-10 h-8 md:w-16 md:h-12 xl:w-20 xl:h-16 text-lg md:text-2xl xl:text-3xl transition-colors duration-300 group-hover:bg-google-green-500">
-                      {(i + 1).toString().padStart(2, "0")}
-                    </div>
-                    <span className="flex-1 text-white font-pixelify font-medium text-sm md:text-lg xl:text-2xl leading-snug">
-                      {faq.q}
-                    </span>
-                    <svg
-                      viewBox="0 0 22 22"
-                      className={`w-4 h-4 md:w-5 md:h-5 fill-google-blue-500 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-180" : ""
-                        }`}
-                      aria-hidden="true"
+                    {/* ── Accordion trigger ───────────────────────────────── */}
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      className={`group flex w-full cursor-pointer items-center gap-4 px-3 py-5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2b7fff] sm:gap-5 sm:px-4 sm:py-6 md:gap-6 md:px-6 md:py-6 xl:gap-7 xl:px-8 xl:py-7 desktop:py-8 ${
+                        isOpen ? "border-b-[2px] border-solid border-[#2b7fff]" : ""
+                      }`}
                     >
-                      <path d="M4 7h14l-7 8z" />
-                    </svg>
-                  </button>
-                  <div
-                    className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      {/* Numbered badge */}
+                      <div
+                        className="flex h-12 w-[72px] shrink-0 items-center justify-center font-pixelify text-2xl font-bold text-white transition-all duration-300 group-hover:brightness-110 sm:h-14 sm:w-20 sm:text-3xl md:h-16 md:w-24 md:text-4xl xl:h-20 xl:w-28 xl:text-5xl desktop:h-24 desktop:w-32 desktop:text-6xl"
+                        style={{
+                          background: isOpen ? "#2b7fff" : "#1447e6",
+                          boxShadow: "0 2px 0 0 rgba(10,20,60,0.6)",
+                        }}
+                      >
+                        {(i + 1).toString().padStart(2, "0")}
+                      </div>
+
+                      {/* Question text */}
+                      <span className="min-w-0 flex-1 font-pixelify text-[20px] font-medium leading-[1.35] text-white sm:text-[22px] md:text-2xl md:leading-[1.3] xl:text-[30px] xl:leading-[1.25] desktop:text-[50px] desktop:leading-[1.2]">
+                        {faq.q}
+                      </span>
+
+                      <Chevron open={isOpen} />
+                    </button>
+
+                    {/* ── Answer panel (animated via CSS grid rows) ────────── */}
+                    <div
+                      className={`grid transition-all duration-300 ease-out ${
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                       }`}
-                  >
-                    <div className="overflow-hidden">
-                      <div className="px-4 py-4 md:px-8 md:py-6 pl-14 md:pl-28 xl:pl-32 pr-4 md:pr-8">
-                        <p className="font-sans text-white text-xs md:text-sm xl:text-lg leading-relaxed md:leading-loose">
-                          {faq.a}
-                        </p>
+                    >
+                      <div className="overflow-hidden">
+                        {/*
+                          Indent the answer to align with question text.
+                          pl offsets: badge width (w-10/w-14/w-16) + gap (gap-3/4/5) + px padding
+                        */}
+                        <div className="px-3 pb-6 pt-5 pl-[88px] pr-3 sm:pl-[100px] md:px-6 md:pb-7 md:pt-6 md:pl-[132px] xl:pl-[156px] desktop:pl-[180px]">
+                          <p className="font-sans text-[17px] leading-[1.55] text-white/90 md:text-lg md:leading-[1.6] xl:text-xl xl:leading-loose desktop:text-2xl">
+                            {faq.a}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-
