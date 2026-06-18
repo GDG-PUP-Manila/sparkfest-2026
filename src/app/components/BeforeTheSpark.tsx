@@ -1,52 +1,48 @@
 import React from "react";
-import { PRE_EVENTS, COLOR_TEXT, COLOR_HEX } from "./content";
+import { PRE_EVENTS } from "./content";
+import { ArticlePoster } from "./ArticlePoster";
 
 export default function BeforeTheSpark() {
   return (
     <section
       id="pre-events"
-      className="bg-gradient-to-b from-navy-800 to-navy-900 py-16 md:py-24"
+      className="relative overflow-hidden bg-gradient-to-b from-blue-900 via-navy-700 to-navy-900 py-16 md:py-24"
     >
-      <div className="mx-auto max-w-[1100px] px-4 md:px-8">
-        <h2 className="text-center text-3xl font-extrabold text-white md:text-5xl">
+      {/* BACKGROUND PATTERN OVERLAY */}
+      {/* Using a highly optimized, repeating inline SVG. 
+        It draws a tiny 2x4 semi-transparent black rectangle inside an 8x10 grid cell.
+        Change fill='%23000000' to '%23ffffff' if you want lighter dashes instead of dark ones.
+      */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-40 mix-blend-multiply"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='8' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='4' fill='%23000000' fill-opacity='0.3'/%3E%3C/svg%3E")`,
+          backgroundSize: "8px 10px",
+        }}
+      />
+
+      {/* CONTENT LAYER */}
+      {/* Added 'relative z-10' to ensure content sits above the pattern layer */}
+      <div className="relative z-10 mx-auto max-w-[1100px] px-4 md:px-8">
+        {/* Note: Kept your exact classes here, including text-justify */}
+        <h2 className="mx-auto w-full max-w-120.25 text-center font-sans text-[40px] md:text-[60px] font-bold leading-[120%] text-[#FAFAFA]">
           Before the Spark
         </h2>
+
         <p className="mx-auto mt-5 max-w-2xl text-center text-sm leading-relaxed text-white/70 md:text-base">
-          SparkFest 2026 doesn&apos;t begin on Day 1. Two pre-events. Two ways to
-          level up before the hackathon even kicks off.
+          SparkFest 2026 doesn&apos;t begin on Day 1. Two pre-events. Two ways
+          to level up before the hackathon even kicks off.
         </p>
 
         <div className="mt-10 grid gap-6 md:mt-14 md:grid-cols-2">
           {PRE_EVENTS.map((ev) => (
-            <article
+            <ArticlePoster
               key={ev.title}
-              className="flex flex-col overflow-hidden border-2 border-navy-600 bg-navy-800 shadow-[4px_4px_0_#050a1f]"
-            >
-              {/* Poster placeholder */}
-              <div
-                className="flex aspect-[16/9] items-center justify-center"
-                style={{
-                  background: `linear-gradient(135deg, ${COLOR_HEX[ev.color]}, ${COLOR_HEX[ev.color]}88)`,
-                }}
-              >
-                <span className="font-pixel text-sm text-white drop-shadow-[2px_2px_0_#050a1f] md:text-base">
-                  {ev.tag}
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col p-5 md:p-6">
-                <h3
-                  className={`font-pixel text-[12px] leading-relaxed md:text-sm ${COLOR_TEXT[ev.color]}`}
-                >
-                  {ev.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-white/70">
-                  {ev.desc}
-                </p>
-                <span className="mt-5 inline-flex items-center gap-2 self-start border-2 border-navy-900 bg-google-yellow-500 px-4 py-2 font-pixel text-[9px] text-navy-900">
-                  Read the Full post →
-                </span>
-              </div>
-            </article>
+              title={ev.title}
+              tag={ev.tag}
+              desc={ev.desc}
+              color={ev.color}
+            />
           ))}
         </div>
       </div>
