@@ -87,7 +87,7 @@ const DESKTOP_RAIL_PATH =
 function TopRail() {
   return (
     <>
-      {/* Mobile — Figma Group 1649 (288×60), stroke only + centered diamond */}
+      {/* Mobile — Figma Group 1649 (288×60), filled bezel + centered diamond */}
       <div className="relative aspect-[288/60] w-full md:hidden">
         <svg
           viewBox="17.5 9.6 286 60"
@@ -95,9 +95,23 @@ function TopRail() {
           className="absolute inset-0 h-full w-full drop-shadow-[0_6px_12px_rgba(0,0,0,0.4)]"
           preserveAspectRatio="xMidYMid meet"
         >
+          <defs>
+            <linearGradient
+              id="snap-rail-fill-mobile"
+              x1="16.1705"
+              y1="82.9569"
+              x2="319.594"
+              y2="59.6973"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#0A162A" />
+              <stop offset="0.5" stopColor="#16315D" />
+              <stop offset="1" stopColor="#0A162A" />
+            </linearGradient>
+          </defs>
           <path
             d={MOBILE_RAIL_PATH}
-            fill="none"
+            fill="url(#snap-rail-fill-mobile)"
             stroke="#EFF6FF"
             strokeWidth="5"
             strokeLinejoin="round"
@@ -114,7 +128,7 @@ function TopRail() {
         </div>
       </div>
 
-      {/* Desktop — Figma Group 1650 (1324×78), stroke only + centered diamond */}
+      {/* Desktop — Figma Group 1650 (1324×78), filled bezel + centered diamond */}
       <div className="relative hidden aspect-[1324/78] w-full md:block">
         <svg
           viewBox="15.5 9.6 1306 78"
@@ -122,9 +136,23 @@ function TopRail() {
           className="absolute inset-0 h-full w-full drop-shadow-[0_9px_16px_rgba(0,0,0,0.5)]"
           preserveAspectRatio="xMidYMid meet"
         >
+          <defs>
+            <linearGradient
+              id="snap-rail-fill-desktop"
+              x1="8.19507"
+              y1="-7.76435"
+              x2="1315.24"
+              y2="346.558"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#0A162A" />
+              <stop offset="0.5" stopColor="#16315D" />
+              <stop offset="1" stopColor="#0A162A" />
+            </linearGradient>
+          </defs>
           <path
             d={DESKTOP_RAIL_PATH}
-            fill="none"
+            fill="url(#snap-rail-fill-desktop)"
             stroke="#EFF6FF"
             strokeWidth="5"
             strokeLinejoin="round"
@@ -267,7 +295,7 @@ export default function SnapAndFrame() {
       />
 
       {/* ── Content ── */}
-      <div className="relative mx-auto max-w-[1440px] px-[35px] pt-10 pb-[34px] md:px-8 md:py-24">
+      <div className="relative mx-auto max-w-7xl px-[35px] pt-10 pb-[34px] md:px-8 md:py-24">
         {/* Heading block */}
         <div className="flex flex-col items-center gap-[26px] text-center">
           <h2 className="font-sans text-[32px] font-bold leading-[1.3] text-white md:text-[48px] md:leading-[1.2]">
