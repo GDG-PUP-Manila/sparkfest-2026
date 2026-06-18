@@ -207,3 +207,24 @@ body {
 .animate-ghost-move {
   animation: ghost-move 2.5s ease-in-out infinite;
 }
+
+/* FAQ mobile header — Figma 563:8039 (scoped palette; promote to @theme via DSD CR) */
+:root {
+  --faq-mobile-navy-top: #2a3c71;
+  --faq-mobile-navy-bottom: #21568b;
+  --faq-mobile-green-tint: #00a63e;
+  --faq-mobile-rail-green: #05df72;
+  --faq-arcade-panel: #202124;
+  --faq-arcade-border: #2b7fff;
+  --faq-arcade-border-dark: #1447e6;
+  --faq-arcade-highlight: rgba(239, 246, 255, 0.35);
+}
+
+.faq-mobile-header-gradient {
+  background: linear-gradient(
+    180deg,
+    var(--faq-mobile-navy-top) 0%,
+    var(--faq-mobile-green-tint) 50%,
+    var(--faq-mobile-navy-bottom) 100%
+  );
+}
