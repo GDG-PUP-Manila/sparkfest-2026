@@ -5,6 +5,58 @@ import { ABOUT } from "./content";
 import { RichText } from "./decor";
 import Image from "next/image";
 
+function Counter({ value }: { value: string }) {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement>(null);
+
+  const target = parseInt(value.replace(/[^0-9]/g, ""), 10) || 0;
+  const suffix = value.replace(/[0-9]/g, "");
+
+  useEffect(() => {
+    let animationFrameId: number;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting) {
+          const duration = 1500;
+          const startTime = performance.now();
+
+          const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = progress * (2 - progress);
+            const currentCount = Math.floor(easeProgress * target);
+
+            setCount(currentCount);
+
+            if (progress < 1) {
+              animationFrameId = requestAnimationFrame(animate);
+            }
+          };
+
+          animationFrameId = requestAnimationFrame(animate);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
+  }, [target]);
+
+  return <span ref={elementRef}>{count}{suffix}</span>;
+}
+
 export default function About() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
@@ -146,7 +198,7 @@ export default function About() {
                   className="flex flex-col items-center rounded-md border border-gray-200 bg-linear-to-b from-[#0159AB]/60 to-[#00355E]/60 to-10% px-4 py-6 text-center"
                 >
                   <span className="font-pixel lg:text-4xl text-sm text-white [text-shadow:0_0_25px_#ffffff]">
-                    {s.value}
+                    <Counter value={s.value} />
                   </span>
                   <span className="mt-3 font-pixel lg:text-[9px] md:text-[7px] text-[6px] uppercase leading-relaxed tracking-widest text-white">
                     {s.label}

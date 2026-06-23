@@ -49,8 +49,10 @@ export default function WhoIsThisFor() {
   useEffect(() => {
     const fullText = "First-timer with zero experience?";
     if (!isVisible) {
-      setTypedText("");
-      return;
+      const resetTimeout = setTimeout(() => {
+        setTypedText("");
+      }, 0);
+      return () => clearTimeout(resetTimeout);
     }
 
     let currentLength = 0;
