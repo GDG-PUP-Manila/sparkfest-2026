@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { NAV_LINKS, REGISTER_URL } from "./content";
-import { SparkLogo } from "./decor";
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
@@ -14,14 +13,23 @@ export default function Nav() {
         className="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-4 md:h-[72px] md:px-8 desktop:max-w-[1600px]"
       >
         {/* Logo */}
-        <a href="#top" className="flex items-center gap-2">
-          <SparkLogo className="h-7 w-7 md:h-8 md:w-8" />
+        <a href="#top" className="flex items-center gap-2.5">
+          <img
+            src="/assets/nav/sparkfest-mascot.png"
+            alt="SparkFest mascot"
+            width={48}
+            height={48}
+            className="h-9 w-auto md:h-11"
+          />
           <span className="leading-none">
-            <span className="block text-sm font-bold text-white md:text-base">
+            <span className="block text-base font-bold tracking-tight text-white md:text-xl">
               SparkFest
             </span>
-            <span className="block font-pixel text-[8px] tracking-widest text-grid-cyan">
-              2026
+            <span className="block text-center text-sm font-bold leading-none tracking-tight md:text-lg">
+              <span className="text-logo-2">2</span>
+              <span className="text-logo-0">0</span>
+              <span className="text-logo-2b">2</span>
+              <span className="text-logo-6">6</span>
             </span>
           </span>
         </a>
