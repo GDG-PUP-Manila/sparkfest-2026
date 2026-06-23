@@ -38,15 +38,18 @@ export default function Judges() {
       ref={sectionRef}
       className={`relative bg-navy-900 py-16 md:py-24 overflow-hidden transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
     >
-      {/* Section Background SVG */}
-      <div className="absolute inset-0 pointer-events-none opacity-30 z-0">
-        <Image
-          src="/assets/judge/background.svg"
-          alt=""
-          fill
-          className="object-cover"
-          unoptimized
-        />
+      {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+      <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none z-0">
+        {/* Section Background SVG */}
+        <div className="absolute inset-0 opacity-30">
+          <Image
+            src="/assets/judge/background.svg"
+            alt=""
+            fill
+            className="object-cover"
+            unoptimized
+          />
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto w-[88.28%] max-w-[1695px]">

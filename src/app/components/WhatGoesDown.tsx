@@ -16,11 +16,13 @@ export default function WhatGoesDown() {
       id="program"
       className="relative overflow-hidden bg-navy-900 py-16 md:py-24"
     >
-      <img
-        src="/assets/key-highlights/background.svg"
-        alt=""
-        className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover object-bottom"
-      />
+      <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none z-0">
+        <img
+          src="/assets/key-highlights/background.svg"
+          alt=""
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-bottom"
+        />
+      </div>
       <div className="relative z-10 mx-auto max-w-[1400px] xl:max-w-[2000px] px-4 md:px-4 desktop:max-w-[1600px]">
         <h2 className="text-center text-3xl font-extrabold text-white md:text-5xl">
           What Goes Down at Sparkfest?

@@ -6,28 +6,28 @@ import SectionBorder from "./SectionBorder";
 
 export default function WhereAndWhen() {
   return (
-    <section className="relative overflow-hidden bg-navy-800 py-16 md:py-24">
-      {/* left */}
-      <SectionBorder />
+    <section className="relative overflow-hidden bg-navy-900 py-16 md:py-24">
+      {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+      <div className="absolute inset-0 mx-auto max-w-480 bg-navy-800 pointer-events-none">
+        {/* Centered wrapper for SectionBorder and ghosts to keep them aligned with the centered content on all screen widths */}
+        <div className="absolute left-1/2 -translate-x-1/2 w-331 h-full pointer-events-none">
+          <SectionBorder />
 
-      {/* Pac-Man dotted maze rails (top & bottom) */}
-      {/* <MazeRail className="top-6" />
-      <MazeRail className="bottom-6 rotate-180" /> */}
-      {/* <WhereAndWhenWall /> */}
-
-      {/* corner ghosts */}
-      <Ghost
-        color="#57caff"
-        className="pointer-events-none absolute left-4 top-1/3 h-7 w-7 opacity-80 md:left-8 animate-float animate-ghost-move"
-      />
-      <Ghost
-        color="#ea4335"
-        className="pointer-events-none absolute right-6 bottom-1/4 h-7 w-7 opacity-80 md:right-10 animate-float"
-      />
-      <Ghost
-        color="#34a853"
-        className="pointer-events-none absolute left-305 bottom-200 h-7 w-7 opacity-80 md:right-10 animate-float"
-      />
+          {/* corner ghosts */}
+          <Ghost
+            color="#57caff"
+            className="pointer-events-none absolute left-4 top-1/3 h-7 w-7 opacity-80 md:left-8 animate-float animate-ghost-move"
+          />
+          <Ghost
+            color="#ea4335"
+            className="pointer-events-none absolute left-321 bottom-25 h-7 w-7 opacity-80 md:right-10 animate-float"
+          />
+          <Ghost
+            color="#34a853"
+            className="pointer-events-none absolute left-305 bottom-200 h-7 w-7 opacity-80 md:right-10 animate-float"
+          />
+        </div>
+      </div>
 
       <div className="relative mx-auto max-w-[940px] px-6 md:px-12">
         <h2 className="text-center text-3xl font-extrabold text-white md:text-5xl">
