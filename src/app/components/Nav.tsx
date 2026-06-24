@@ -34,19 +34,29 @@ export default function Nav() {
           </span>
         </a>
 
-        {/* Desktop links */}
-        <ul className="hidden items-center gap-7 md:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="font-pixel text-[10px] tracking-wide text-white/80 transition-colors hover:text-grid-cyan xl:text-[11px]"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop links + CTA */}
+        <div className="hidden items-center gap-6 md:flex">
+          <ul className="flex items-center gap-7">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="font-pixel text-[10px] tracking-wide text-white/80 transition-colors hover:text-grid-cyan xl:text-[11px]"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={REGISTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-sm border border-grid-cyan/75 bg-google-blue-500 px-4 py-2 font-pixel text-[10px] tracking-wide text-white transition-all hover:-translate-y-0.5 hover:brightness-110 hover:shadow-[0_0_14px_rgba(87,202,255,0.45)] xl:text-[11px]"
+          >
+            Register Now
+          </a>
+        </div>
 
         {/* Mobile toggle */}
         <button
