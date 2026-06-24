@@ -74,9 +74,196 @@ export default function Hero() {
           fetchPriority="high"
         />
 
-        <h1 className="sr-only">
-          SparkFest 2026 — Igniting Innovation, Building Impact, Empowering
-          Communities
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/glitch-red-left.webp"
+          alt=""
+          className="absolute opacity-80 animate-float-horizontal z-10 object-contain pointer-events-none select-none"
+          style={{
+            top: "8%",
+            left: "12.8%",
+            width: "12cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/glitch-yellow-left.webp"
+          alt=""
+          className="absolute opacity-80 animate-float z-11 object-contain pointer-events-none select-none"
+          style={{
+            top: "28%",
+            left: "8%",
+            width: "20cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/sparky.webp"
+          alt="Sparky"
+          className="absolute z-12 animate-float -scale-x-100 object-contain pointer-events-none select-none"
+          style={{
+            top: "63%",
+            left: "12%",
+            width: "8cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/sparky.webp"
+          alt="Sparky Reflection"
+          className="absolute z-11 animate-float -scale-x-100 -scale-y-100 opacity-20 blur-[2px] object-contain pointer-events-none select-none"
+          style={{
+            top: "77%",
+            left: "12%",
+            width: "8cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/cirby-layer.webp"
+          alt="Cirby"
+          className="absolute z-12 animate-float-x rotate-15 -scale-x-100 object-contain pointer-events-none select-none"
+          style={{
+            top: "62%",
+            right: "7.5%",
+            width: "15cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/cirby-layer.webp"
+          alt="Cirby Reflection"
+          className="absolute z-11 animate-float-x -rotate-5 -scale-100 opacity-20 blur-[2px] object-contain pointer-events-none select-none"
+          style={{
+            top: "74%",
+            right: "7.5%",
+            width: "15cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/glitch-red-right.webp"
+          alt=""
+          className="absolute opacity-80 animate-float z-2 object-contain pointer-events-none select-none"
+          style={{
+            top: "15%",
+            right: "15.3%",
+            width: "12cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/glitch-yellow-right.webp"
+          alt=""
+          className="absolute animate-float-horizontal opacity-60 z-10 object-contain pointer-events-none select-none"
+          style={{
+            top: "9%",
+            right: "18.6%",
+            width: "15cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/cross-mark.webp"
+          alt=""
+          className="absolute z-2 object-contain pointer-events-none select-none"
+          style={{
+            top: "45%",
+            right: "12%",
+            width: "2cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/cross-mark-2.webp"
+          alt=""
+          className="absolute z-10 object-contain pointer-events-none select-none"
+          style={{
+            top: "56%",
+            left: "12.5%",
+            width: "2cqw",
+          }}
+          draggable={false}
+        />
+
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/cubeL-layer.webp"
+          alt=""
+          className="hidden md:block absolute z-10 object-contain pointer-events-none select-none"
+          style={{
+            top: "63%",
+            left: "0%",
+            width: "12cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/cubeR-layer.webp"
+          alt=""
+          className="hidden md:block absolute z-10 object-contain pointer-events-none select-none"
+          style={{
+            top: "63%",
+            right: "0%",
+            width: "12cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/thunder-left.webp"
+          alt=""
+          className="absolute z-15 pixelated animate-thunder object-contain pointer-events-none select-none"
+          style={{
+            top: "44%",
+            left: "0%",
+            width: "40cqw",
+          }}
+          draggable={false}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/thunder-right.webp"
+          alt=""
+          className="absolute z-15 pixelated animate-thunder object-contain pointer-events-none select-none"
+          style={{
+            top: "44%",
+            right: "-1%",
+            width: "40cqw",
+          }}
+          draggable={false}
+        />
+
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/logo.webp"
+          alt="SparkFest 2026 Logo"
+          className="absolute animate-float inset-x-0 z-10 scale-80 translate-x-[-1cqw] mx-auto object-contain pointer-events-none select-none"
+          style={{
+            top: "12%",
+            width: "45cqw",
+          }}
+          draggable={false}
+        />
+        <h1
+          className="absolute lg:mx-110 md:mx-50 z-10 inset-x-0 text-center font-sans text-white drop-shadow-lg px-8"
+          style={{
+            top: "50%",
+            fontSize: "1.6cqw",
+            textShadow: "0 0.15cqw 0 rgba(3,8,24,0.6)",
+          }}
+        >
+          Igniting Innovation, Building Impact, Empowering Communities
         </h1>
 
         {/* Live countdown digits over the baked glossy panels */}
@@ -93,24 +280,70 @@ export default function Hero() {
           {CELL_LEFT.map((cl, i) => (
             <div
               key={i}
-              className="absolute top-0 h-full"
+              className="absolute top-0 z-10 h-full"
               style={{ left: `${cl}%`, width: `${CELL_WIDTH}%` }}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/hero/countdown-panel.webp"
+                alt=""
+                className="absolute inset-x-1 h-full w-full object-contain pointer-events-none select-none"
+                draggable={false}
+              />
               <span
-                className="absolute inset-x-0 flex items-center justify-center font-pixel text-white"
+                className="absolute inset-x-0 flex items-center justify-center font-pixel text-white text-[1.8cqw] lg:text-[3cqw] scale-y-[1.3] translate-x-[1.0cqw] md:translate-x-[0.5cqw] lg:translate-x-[0.35cqw]"
                 style={{
-                  top: "40%",
+                  top: "20%",
                   height: "48%",
-                  fontSize: "3cqw",
-                  transform: "translateX(0.35cqw) scaleY(1.3)",
                   textShadow: "0 0.12cqw 0 rgba(3,8,24,0.55)",
                 }}
               >
                 {time ? pad(values[i] ?? 0) : "--"}
               </span>
+              <span
+                className="absolute inset-x-0 flex items-center justify-center font-pixel text-white text-[0.5cqw] lg:text-[0.8cqw] translate-x-[1cqw] md:translate-x-[0.5cqw] lg:translate-x-[0.35cqw]"
+                style={{
+                  top: "70%",
+                  textShadow: "0 0.1cqw 0 rgba(3,8,24,0.55)",
+                }}
+              >
+                {["DAYS", "HOURS", "MINUTES", "SECONDS"][i]}
+              </span>
             </div>
           ))}
         </div>
+
+        {/* Ghost Message */}
+        <div
+          className="absolute z-10 inset-x-0 mx-auto flex flex-row items-center justify-center gap-3 pointer-events-none select-none"
+          style={{
+            top: "75.5%",
+            width: "100%",
+          }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/hero/red-ghost.webp"
+            alt="Red Ghost"
+            className="w-[3cqw] md:w-[24px] xl:w-[36px] h-auto object-contain animate-ghost-move pixelated"
+            draggable={false}
+          />
+          <p className="font-sans text-white text-[1.8cqw] md:text-base lg:text-[20px] drop-shadow-md whitespace-nowrap">
+            Open to all PUP &amp; inter-university students
+          </p>
+        </div>
+
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/hero/glitch-blue.webp"
+          alt=""
+          className="absolute animate-pulse opacity-90 inset-x-0 z-2 mx-auto object-contain pointer-events-none select-none"
+          style={{
+            top: "-2%",
+            width: "100cqw",
+          }}
+          draggable={false}
+        />
 
         {/* Screen-reader announcement of the live countdown */}
         <p className="sr-only" aria-live="polite">
@@ -121,30 +354,55 @@ export default function Hero() {
 
         {/* Clickable links over the baked CTA buttons */}
         <div
-          className="absolute"
-          style={{
-            left: `${BUTTONS.left}%`,
-            top: `${BUTTONS.top}%`,
-            width: `${BUTTONS.width}%`,
-            height: `${BUTTONS.height}%`,
-          }}
+          className="absolute flex flex-col lg:block gap-[1.5cqw] lg:gap-0 w-[25%] lg:w-[var(--desk-width)] left-[37.5%] lg:left-[var(--desk-left)] top-[79%] lg:top-[var(--desk-top)] mt-[2cqw] lg:mt-0 h-auto lg:h-[var(--desk-height)]"
+          style={
+            {
+              "--desk-left": `${BUTTONS.left}%`,
+              "--desk-top": `${BUTTONS.top}%`,
+              "--desk-width": `${BUTTONS.width}%`,
+              "--desk-height": `${BUTTONS.height}%`,
+            } as React.CSSProperties
+          }
         >
           <a
             href={REGISTER_URL}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Register Now – It's Free"
-            className="absolute inset-y-0 left-0 block rounded-md border border-transparent bg-transparent transition-all duration-200 ease-out hover:-translate-y-[0.8px] hover:border-grid-cyan/85 hover:bg-[rgba(87,202,255,0.14)] hover:shadow-[0_0_0_1px_rgba(87,202,255,0.35),0_0_16px_rgba(87,202,255,0.55)] active:translate-y-[0.2px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grid-cyan"
-            style={{ width: "46.85%" }}
-          />
+            className="relative lg:absolute z-10 lg:inset-y-0 lg:left-0 flex items-center justify-center bg-[#2B7FFF] text-white font-pixelify font-medium text-[1.6cqw] lg:text-xs whitespace-nowrap border-t-[4px] border-l-[4px] border-b-[4px] border-r-[4px] border-t-[#BEDBFF] border-l-[#BEDBFF] border-b-[#155DFC] border-r-[#155DFC] transition-all hover:brightness-110 active:translate-x-[3px] active:translate-y-[3px] w-full lg:w-[46.85%] aspect-[335/54] lg:aspect-auto"
+            style={{
+              boxShadow: "3px 3px 0px #0A162A",
+            }}
+          >
+            Register Now — It’s Free
+          </a>
           <a
             href="#program"
             aria-label="See How It Works"
-            className="absolute inset-y-0 block rounded-md border border-transparent bg-transparent transition-all duration-200 ease-out hover:-translate-y-[0.8px] hover:border-grid-cyan/85 hover:bg-[rgba(87,202,255,0.14)] hover:shadow-[0_0_0_1px_rgba(87,202,255,0.35),0_0_16px_rgba(87,202,255,0.55)] active:translate-y-[0.2px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grid-cyan"
-            style={{ left: "53.01%", width: "46.99%" }}
-          />
+            className="relative lg:absolute z-10 lg:inset-y-0 flex items-center justify-center text-[#263b8a] font-pixelify font-medium text-[1.6cqw] lg:text-lg whitespace-nowrap border-t-[4px] border-l-[4px] border-b-[4px] border-r-[4px] border-t-[#2B7FFF] border-l-[#1C398E] border-b-[#155DFC] border-r-[#155DFC] mix-blend-hard-light drop-shadow-[0px_2px_1px_#000000] transition-all hover:brightness-110 active:translate-x-[3px] active:translate-y-[3px] w-full lg:left-[53.01%] lg:w-[46.99%] aspect-[335/54] lg:aspect-auto"
+          >
+            See How It Works
+          </a>
         </div>
       </div>
+
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/assets/hero/glow-effect.webp"
+        alt="glow effect"
+        className="absolute bottom-12 opacity-70 left-0 w-full object-contain pointer-events-none select-none mix-blend-screen"
+        style={{
+          filter: "sepia(1) saturate(3) hue-rotate(140deg) brightness(1.8)",
+        }}
+        draggable={false}
+      />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/assets/hero/perspective-grid.webp"
+        alt="perspective grid"
+        className="absolute -bottom-2 left-0 w-full scale-105 opacity-20 object-contain pointer-events-none select-none"
+        draggable={false}
+      />
     </section>
   );
 }
