@@ -8,6 +8,7 @@ import HeroLightning from "./components/HeroLightning";
 import Judges from "./components/Judges";
 import Nav from "./components/Nav";
 import RoadToDemo from "./components/RoadToDemo";
+import ScaleToFill from "./components/ScaleToFill";
 import SnapAndFrame from "./components/SnapAndFrame";
 import UnderConstruction from "./components/UnderConstruction";
 import WhatGoesDown from "./components/WhatGoesDown";
@@ -18,22 +19,24 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main className="bg-navy-900">
-        <div className="relative">
-          <Hero />
-          <HeroLightning />
-        </div>
-        <About />
-        <WhatGoesDown />
-        <WhoIsThisFor />
-        <Judges />
-        <RoadToDemo />
-        <WhereAndWhen />
-        <Faq />
-        <SnapAndFrame />
-        <BeforeTheSpark />
-        <FinalCta />
-      </main>
+      <ScaleToFill>
+        <main className="bg-navy-900">
+          <div className="relative">
+            <Hero />
+            <HeroLightning />
+          </div>
+          <About />
+          <WhatGoesDown />
+          <WhoIsThisFor />
+          <Judges />
+          <RoadToDemo />
+          <WhereAndWhen />
+          <Faq />
+          <SnapAndFrame />
+          <BeforeTheSpark />
+          <FinalCta />
+        </main>
+      </ScaleToFill>
       <Footer />
     </>
   );
