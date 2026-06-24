@@ -34,9 +34,9 @@ export const ABOUT = {
   ],
   quote: "“This isn't a competition for prizes. It's a movement for impact.”",
   stats: [
-    { value: "67+", label: "Participants" },
-    { value: "67", label: "Teams" },
-    { value: "67", label: "Communities reached" },
+    { value: "?", label: "Participants" },
+    { value: "?", label: "Teams" },
+    { value: "?", label: "Communities reached" },
   ],
 };
 

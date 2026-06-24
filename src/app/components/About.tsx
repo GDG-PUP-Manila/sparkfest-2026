@@ -9,6 +9,8 @@ function Counter({ value }: { value: string }) {
   const [count, setCount] = useState(0);
   const elementRef = useRef<HTMLSpanElement>(null);
 
+  const numericPart = value.replace(/[^0-9]/g, "");
+  const hasNumericPart = numericPart.length > 0;
   const target = parseInt(value.replace(/[^0-9]/g, ""), 10) || 0;
   const suffix = value.replace(/[0-9]/g, "");
 
@@ -56,8 +58,7 @@ function Counter({ value }: { value: string }) {
 
   return (
     <span ref={elementRef}>
-      {count}
-      {suffix}
+      {hasNumericPart ? `${count}${suffix}` : value}
     </span>
   );
 }

@@ -134,13 +134,13 @@ export default function Hero() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Register Now – It's Free"
-            className="absolute inset-y-0 left-0 block rounded-md transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="absolute inset-y-0 left-0 block rounded-md border border-transparent bg-transparent transition-all duration-200 ease-out hover:-translate-y-[0.8px] hover:border-grid-cyan/85 hover:bg-[rgba(87,202,255,0.14)] hover:shadow-[0_0_0_1px_rgba(87,202,255,0.35),0_0_16px_rgba(87,202,255,0.55)] active:translate-y-[0.2px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grid-cyan"
             style={{ width: "46.85%" }}
           />
           <a
             href="#program"
             aria-label="See How It Works"
-            className="absolute inset-y-0 block rounded-md transition-[filter] hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="absolute inset-y-0 block rounded-md border border-transparent bg-transparent transition-all duration-200 ease-out hover:-translate-y-[0.8px] hover:border-grid-cyan/85 hover:bg-[rgba(87,202,255,0.14)] hover:shadow-[0_0_0_1px_rgba(87,202,255,0.35),0_0_16px_rgba(87,202,255,0.55)] active:translate-y-[0.2px] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-grid-cyan"
             style={{ left: "53.01%", width: "46.99%" }}
           />
         </div>
