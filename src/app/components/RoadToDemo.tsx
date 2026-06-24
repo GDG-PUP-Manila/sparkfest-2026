@@ -4,8 +4,7 @@ import { ROADMAP } from "./content";
 import RocketParallax from "./RocketParallax";
 
 const assets = {
-  bgPattern:
-    "https://www.figma.com/api/mcp/asset/3e41c6f0-2e6b-4538-bb05-80f4e96c967c",
+  bgPattern: "/assets/road-to-demo/program-flow-bg.webp",
   vectorPattern:
     "https://www.figma.com/api/mcp/asset/cc53c2af-8a2a-4d98-a305-5358074467a7",
   xlBlueRectangle: "/assets/road-to-demo/xl-blue-rectangle.svg",
@@ -32,8 +31,7 @@ const assets = {
     "https://www.figma.com/api/mcp/asset/4d6bdf1b-dfcd-4b99-8d66-5bdf649d8c9b",
   sparky:
     "https://www.figma.com/api/mcp/asset/a8e11ab5-354e-4e42-92d8-362400941212",
-  ladder:
-    "https://www.figma.com/api/mcp/asset/ee29edca-a766-4b25-aa99-f1a5354c0554",
+  ladder: "/assets/road-to-demo/ladder.svg",
   grid5: "/assets/road-to-demo/blue-top-left.svg",
   grid2:
     "https://www.figma.com/api/mcp/asset/7116c4fe-8bde-4ee2-abd7-38090e629ee8",
@@ -94,7 +92,7 @@ const RoadmapCard = ({
   baseClass,
   rectangleSrc,
   xlRectangleSrc,
-  xlHeightClass = "xl:h-[7.79%]",
+  xlHeightClass = "xl:h-[5.8%]",
   variant,
   leftCornerBlend = "mix-blend-plus-lighter",
   largeCornerClass = "w-[12.26%] h-[52.03%]",
@@ -112,7 +110,7 @@ const RoadmapCard = ({
 }) => {
   return (
     <div
-      className={`absolute w-[50.93%] md:w-[54.63%] xl:w-[48.05%] h-[7.88%] md:h-[10.09%] ${xlHeightClass} ${baseClass}`}
+      className={`absolute w-[50.93%] md:w-[44%] xl:w-[36%] h-[7.88%] md:h-[7.5%] ${xlHeightClass} ${baseClass}`}
     >
       <div className="relative w-full h-full overflow-hidden">
         <div className="absolute inset-0 pointer-events-none xl:hidden">
@@ -194,15 +192,15 @@ const RoadmapCard = ({
           </>
         )}
         <div
-          className={`relative py-[7%] text-white flex flex-col h-full ${variant === "left-large" ? "text-right items-end pr-[7%] pl-[15%] md:pl-[20%] xl:pl-[15%]" : "text-left items-start pl-[7%] pr-[15%] md:pr-[20%] xl:pr-[20%]"}`}
+          className={`relative py-[5%] text-white flex flex-col h-full ${variant === "left-large" ? "text-right items-end pr-[7%] pl-[12%] md:pl-[14%] xl:pl-[12%]" : "text-left items-start pl-[7%] pr-[12%] md:pr-[14%] xl:pr-[12%]"}`}
         >
-          <p className="mt-[0.2%] uppercase tracking-widest text-white/85 text-[clamp(7px,2.5vw,19px)] leading-[clamp(11px,5vw,35px)] md:text-[clamp(19px,2vw,25px)] xl:text-[clamp(25px,1.5vw,35px)] xl:leading-[clamp(35px,2.5vw,45px)]">
+          <p className="mt-[0.2%] uppercase tracking-widest text-white/85 text-[clamp(11px,2.2vw,14px)] leading-normal md:text-[clamp(14px,1.8vw,16px)] md:leading-relaxed xl:text-[clamp(15px,1.2vw,18px)] xl:leading-relaxed">
             {ROADMAP[index].date}
           </p>
-          <h3 className="mt-[2%] font-pixel text-white text-[clamp(9px,3vw,25px)] leading-[clamp(11px,4vw,27px)] md:text-[clamp(25px,2.5vw,31px)] md:leading-[clamp(27px,4.5vw,51px)] xl:text-[clamp(31px,2vw,45px)] xl:leading-[clamp(51px,4vw,65px)]">
+          <h3 className="mt-[2%] font-pixel text-white text-[clamp(13px,2.8vw,18px)] leading-snug md:text-[clamp(18px,2vw,24px)] md:leading-snug xl:text-[clamp(22px,1.5vw,28px)] xl:leading-snug">
             {ROADMAP[index].title}
           </h3>
-          <p className="whitespace-pre-line mt-[2%] text-white/90 text-[clamp(7px,2.5vw,19px)] leading-[clamp(11px,5vw,35px)] md:text-[clamp(19px,2vw,25px)] xl:text-[clamp(25px,1.5vw,35px)] xl:leading-[clamp(35px,2.5vw,45px)]">
+          <p className="whitespace-pre-line mt-[2%] text-white/90 text-[clamp(11px,2.2vw,14px)] leading-normal md:text-[clamp(14px,1.8vw,16px)] md:leading-relaxed xl:text-[clamp(15px,1.2vw,18px)] xl:leading-relaxed">
             {ROADMAP[index].desc}
           </p>
         </div>
@@ -511,7 +509,7 @@ export default function RoadToDemo() {
           baseClass="left-[35.78%] md:left-[34.21%] xl:left-[40.28%] top-[54.59%] md:top-[52.15%] xl:top-[56.64%]"
           rectangleSrc={assets.greenRectangle}
           xlRectangleSrc={assets.xlGreenRectangle}
-          xlHeightClass="xl:h-[6.78%]"
+          xlHeightClass="xl:h-[5.0%]"
           variant="left-large"
           leftCornerBlend="mix-blend-plus-lighter"
           largeCornerClass="w-[12.26%] h-[52.03%] xl:w-[8.1%] xl:h-[90.9%] xl:!-left-2 xl:!top-0"

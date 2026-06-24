@@ -68,7 +68,7 @@ All links open in separate tabs with standard security references (`target="_bla
 
 | Identifier | CTA | Direct Destination | Fallback / Behavior |
 |------------|-----|--------------------|---------------------|
-| Registration | Register Now | `https://forms.gle/RvTz12mqGWmVX9mn8` | Active immediately. |
+| Registration | Register Now | `https://forms.gle/yJntfLmxigG75zSt5` | Active immediately. |
 | Photobooth | Open Photobooth | `#` | Triggers warning prompt indicating link is pending. |
 | DP Blast | Generate DP Blast | `#` | Triggers warning prompt indicating link is pending. |
 

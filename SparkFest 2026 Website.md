@@ -41,7 +41,7 @@ SparkFest is open to **college students from all disciplines at PUP and other un
 | :---- | :---- |
 | June 1 – June 18, 2026 | Pre-Event Promotions |
 | June 19, 2026 | Registration Opens |
-| June 25, 2026 | Kick-Off Program |
+| June 28, 2026 | Kick-Off Program |
 | July 2, 2026 | First Submission Deadline |
 | July 3 – July 6, 2026 | Workshops & Mentorship Sessions |
 | July 9, 2026 | Pitching, Judging & Awarding |
@@ -49,4 +49,4 @@ SparkFest is open to **college students from all disciplines at PUP and other un
 ## Join SparkFest 2026
 
 Build. Collaborate. Innovate. Create impact beyond the screen.  
-Registration Link: https://forms.gle/RvTz12mqGWmVX9mn8  
+Registration Link: https://forms.gle/yJntfLmxigG75zSt5  

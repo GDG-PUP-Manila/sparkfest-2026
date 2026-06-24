@@ -80,7 +80,15 @@
   --color-logo-0: var(--logo-0);
   --color-logo-2b: var(--logo-2b);
   --color-logo-6: var(--logo-6);
-  
+
+  /* Mobile hero (Figma node 638-19846) — Token Mapping */
+  --color-blue-50: #eff6ff;
+  --color-brand-blue: #2b7fff;
+  --color-blue-950: #162456;
+  --color-countdown-card-top: #2761bf;
+  --color-countdown-card-bottom: #0d2b5c;
+  --color-pixel-shadow: #0a162a;
+
   --shadow-retro: 4px 4px 0px 0px var(--black-02);
   --shadow-retro-hover: 6px 6px 0px 0px var(--black-02);
   --shadow-neon: 0 0 0 2px rgba(87, 202, 255, 0.6), 0 0 24px rgba(87, 202, 255, 0.45);
@@ -89,6 +97,22 @@
   --breakpoint-md: 768px;
   --breakpoint-xl: 1280px;
   --breakpoint-desktop: 1920px;
+
+  --animate-float-horizontal: float-horizontal 4s ease-in-out infinite;
+  @keyframes float-horizontal {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-3vw); }
+  }
+
+  --animate-thunder: thunder-flash 3s infinite;
+  @keyframes thunder-flash {
+    0%, 80%, 100% { opacity: 0.05; filter: brightness(1); }
+    82% { opacity: 1; filter: brightness(1.5); }
+    84% { opacity: 0.05; filter: brightness(1); }
+    86% { opacity: 1; filter: brightness(1.5); }
+    88% { opacity: 0.05; filter: brightness(1); }
+    89% { opacity: 1; filter: brightness(1.5); }
+  }
 }
 
 body {
@@ -157,12 +181,44 @@ body {
   animation: float-y 4s ease-in-out infinite;
 }
 
+@keyframes float-x {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-15px); }
+}
+.animate-float-x {
+  animation: float-x 4s ease-in-out infinite;
+}
+
+
+@keyframes float-y-flip {
+  0%, 100% { transform: translateY(0) scaleX(-1); }
+  50% { transform: translateY(-10px) scaleX(-1); }
+}
+.animate-float-y-flip {
+  animation: float-y-flip 4s ease-in-out infinite;
+}
+
+
 @keyframes blink-soft {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.55; }
 }
 .animate-blink {
   animation: blink-soft 1.8s steps(2, jump-none) infinite;
+}
+
+/* Hovering UFO: gentle side-to-side sway with a slight bob and tilt. */
+@keyframes ufo-sway {
+  0%   { transform: translate(-9px, 2px) rotate(-5deg); }
+  25%  { transform: translate(-3px, -5px) rotate(-1deg); }
+  50%  { transform: translate(9px, 2px) rotate(5deg); }
+  75%  { transform: translate(3px, -5px) rotate(1deg); }
+  100% { transform: translate(-9px, 2px) rotate(-5deg); }
+}
+.animate-ufo-sway {
+  animation: ufo-sway 5.5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
 }
 
 /* Twinkling pixel-star / sparkle: fades and shrinks then pops back. */
@@ -200,6 +256,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-blink,
+  .animate-ufo-sway,
   .animate-twinkle,
   .animate-loading-pulse {
     animation: none;

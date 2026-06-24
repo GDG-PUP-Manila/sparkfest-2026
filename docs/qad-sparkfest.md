@@ -67,8 +67,8 @@
 
 | ID | Scenario | Steps | Expected Result | Trace |
 |----|----------|-------|-----------------|-------|
-| H-01 | Registration CTA | Click "Register Now – It's Free" (Hero and Final CTA) | Opens `https://forms.gle/RvTz12mqGWmVX9mn8` in a **new tab** | US-01 / PRD-F1 |
-| H-02 | Live countdown | Load page | Days/Hours/Minutes/Seconds render and tick every second toward 2026-06-25 09:00 (+08:00); no hydration mismatch in console | US-01 / PRD-F1 |
+| H-01 | Registration CTA | Click "Register Now – It's Free" (Hero and Final CTA) | Opens `https://forms.gle/yJntfLmxigG75zSt5` in a **new tab** | US-01 / PRD-F1 |
+| H-02 | Live countdown | Load page | Days/Hours/Minutes/Seconds render and tick every second toward 2026-06-28 09:00 (+08:00); no hydration mismatch in console | US-01 / PRD-F1 |
 | H-03 | Photobooth placeholder | Click "Try the Photobooth" | Dismissible toast ("Coming soon…") appears; **no navigation** | US-02 / PRD-F4 |
 | H-04 | DP Frame placeholder | Click "Get Your DP Frame" | Dismissible toast appears; **no navigation** | US-02 / PRD-F5 |
 | H-05 | FAQ accordion | Click a question | Panel expands with smooth height transition; `aria-expanded` flips; others behave per chosen single/multi-open rule | PRD-F2 |
@@ -79,7 +79,7 @@
 
 | ID | Scenario | Input / Trigger | Expected Behavior |
 |----|----------|-----------------|-------------------|
-| S-01 | Countdown after target date | System clock past 2026-06-25 09:00 | Shows a graceful expired/zero state — never negative numbers or `NaN` |
+| S-01 | Countdown after target date | System clock past 2026-06-28 09:00 | Shows a graceful expired/zero state — never negative numbers or `NaN` |
 | S-02 | JavaScript disabled | Load with JS off | Static content (copy, layout, links) still readable; countdown/accordion degrade without breaking layout |
 | S-03 | Rapid toast spam | Click a placeholder CTA repeatedly | Toast doesn't stack/duplicate uncontrollably; auto-dismiss timer (6s) still resolves |
 | S-04 | Very narrow viewport (320px) | Resize to 320 | No horizontal scrollbar; tap targets ≥ 48px; text legible |
