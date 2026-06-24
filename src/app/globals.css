@@ -165,9 +165,21 @@ body {
   animation: blink-soft 1.8s steps(2, jump-none) infinite;
 }
 
+/* Twinkling pixel-star / sparkle: fades and shrinks then pops back. */
+@keyframes twinkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.15; transform: scale(0.55); }
+}
+.animate-twinkle {
+  animation: twinkle 2.6s ease-in-out infinite;
+  transform-origin: center;
+  will-change: opacity, transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
-  .animate-blink {
+  .animate-blink,
+  .animate-twinkle {
     animation: none;
   }
 }

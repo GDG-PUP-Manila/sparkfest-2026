@@ -25,14 +25,22 @@ function PhotoStripMockup({ className = "" }: { className?: string }) {
       </g>
       {/* Sparkle crosses around the strips */}
       <g fill="white">
-        <rect x="2" y="60" width="6" height="2" opacity="0.7" />
-        <rect x="4" y="57" width="2" height="8" opacity="0.7" />
-        <rect x="214" y="92" width="6" height="2" opacity="0.6" />
-        <rect x="216" y="89" width="2" height="8" opacity="0.6" />
-        <rect x="206" y="210" width="5" height="2" opacity="0.55" />
-        <rect x="208" y="207" width="2" height="7" opacity="0.55" />
-        <rect x="40" y="248" width="4" height="2" opacity="0.5" />
-        <rect x="42" y="246" width="2" height="6" opacity="0.5" />
+        <g className="animate-twinkle" style={{ transformBox: "fill-box", transformOrigin: "center", animationDelay: "0ms" }}>
+          <rect x="2" y="60" width="6" height="2" opacity="0.7" />
+          <rect x="4" y="57" width="2" height="8" opacity="0.7" />
+        </g>
+        <g className="animate-twinkle" style={{ transformBox: "fill-box", transformOrigin: "center", animationDelay: "450ms" }}>
+          <rect x="214" y="92" width="6" height="2" opacity="0.6" />
+          <rect x="216" y="89" width="2" height="8" opacity="0.6" />
+        </g>
+        <g className="animate-twinkle" style={{ transformBox: "fill-box", transformOrigin: "center", animationDelay: "900ms" }}>
+          <rect x="206" y="210" width="5" height="2" opacity="0.55" />
+          <rect x="208" y="207" width="2" height="7" opacity="0.55" />
+        </g>
+        <g className="animate-twinkle" style={{ transformBox: "fill-box", transformOrigin: "center", animationDelay: "1350ms" }}>
+          <rect x="40" y="248" width="4" height="2" opacity="0.5" />
+          <rect x="42" y="246" width="2" height="6" opacity="0.5" />
+        </g>
       </g>
     </svg>
   );
@@ -68,10 +76,14 @@ function DPFrameAvatars({ className = "" }: { className?: string }) {
         </g>
       ))}
       <g fill="white">
-        <rect x="2" y="14" width="4" height="2" opacity="0.6" />
-        <rect x="3" y="12" width="2" height="6" opacity="0.6" />
-        <rect x="356" y="6" width="4" height="2" opacity="0.5" />
-        <rect x="357" y="4" width="2" height="6" opacity="0.5" />
+        <g className="animate-twinkle" style={{ transformBox: "fill-box", transformOrigin: "center", animationDelay: "600ms" }}>
+          <rect x="2" y="14" width="4" height="2" opacity="0.6" />
+          <rect x="3" y="12" width="2" height="6" opacity="0.6" />
+        </g>
+        <g className="animate-twinkle" style={{ transformBox: "fill-box", transformOrigin: "center", animationDelay: "1150ms" }}>
+          <rect x="356" y="6" width="4" height="2" opacity="0.5" />
+          <rect x="357" y="4" width="2" height="6" opacity="0.5" />
+        </g>
       </g>
     </svg>
   );

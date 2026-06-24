@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { ROADMAP } from "./content";
+import RocketParallax from "./RocketParallax";
 
 const assets = {
   bgPattern:
@@ -54,15 +55,26 @@ const DecAsset = ({
   src,
   imageClass = "object-contain",
   containerOpacity = "",
+  twinkle = false,
+  delayMs,
+  style,
 }: {
   posClass: string;
   sizeClass: string;
   src: string;
   imageClass?: string;
   containerOpacity?: string;
+  twinkle?: boolean;
+  delayMs?: number;
+  style?: React.CSSProperties;
 }) => (
   <div
-    className={`absolute pointer-events-none ${posClass} ${sizeClass} ${containerOpacity}`}
+    className={`absolute pointer-events-none ${posClass} ${sizeClass} ${containerOpacity} ${
+      twinkle ? "animate-twinkle" : ""
+    }`}
+    style={
+      twinkle ? { animationDelay: `${delayMs ?? 0}ms`, ...style } : style
+    }
     aria-hidden
   >
     <Image src={src} alt="" fill unoptimized className={imageClass} />
@@ -250,60 +262,80 @@ export default function RoadToDemo() {
           sizeClass="w-[1.25%] xl:w-[0.41%] h-[0.25%] xl:h-[0.15%] bg-white rounded-full"
           src={assets.whitedot}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={0}
         />
         <DecAsset
           posClass="left-[87.5%] xl:left-[25%] top-[7.69%] xl:top-[5%]"
           sizeClass="w-[2.5%] xl:w-[0.83%] h-[0.51%] xl:h-[0.3%]"
           src={assets.cross}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={320}
         />
         <DecAsset
           posClass="left-[10%] xl:left-[15%] top-[10.25%] xl:top-[25%]"
           sizeClass="w-[2.5%] xl:w-[0.83%] h-[0.51%] xl:h-[0.3%]"
           src={assets.cross}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={640}
         />
         <DecAsset
           posClass="left-[67.5%] xl:left-[75%] top-[26.15%] xl:top-[40%]"
           sizeClass="w-[1.25%] xl:w-[0.41%] h-[0.25%] xl:h-[0.15%] bg-white rounded-full"
           src={assets.whitedot}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={960}
         />
         <DecAsset
           posClass="left-[18.75%] xl:left-[90%] top-[33.33%] xl:top-[50%]"
           sizeClass="w-[2.5%] xl:w-[0.83%] h-[0.51%] xl:h-[0.3%]"
           src={assets.cross}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={1280}
         />
         <DecAsset
           posClass="left-[57.5%] xl:left-[15%] top-[49.23%] xl:top-[62%]"
           sizeClass="w-[1.25%] xl:w-[0.41%] h-[0.25%] xl:h-[0.15%] bg-white rounded-full"
           src={assets.whitedot}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={480}
         />
         <DecAsset
           posClass="left-[91.25%] xl:left-[85%] top-[49.23%] xl:top-[72%]"
           sizeClass="w-[2.5%] xl:w-[0.83%] h-[0.51%] xl:h-[0.3%]"
           src={assets.cross}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={800}
         />
         <DecAsset
           posClass="left-[11.25%] xl:left-[20%] top-[56.41%] xl:top-[85%]"
           sizeClass="w-[2.5%] xl:w-[0.83%] h-[0.51%] xl:h-[0.3%]"
           src={assets.cross}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={1120}
         />
         <DecAsset
           posClass="left-[7.5%] xl:left-[55%] top-[62.82%] xl:top-[18%]"
           sizeClass="w-[2.5%] xl:w-[0.83%] h-[0.51%] xl:h-[0.3%]"
           src={assets.cross}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={1600}
         />
         <DecAsset
           posClass="left-[90%] xl:left-[40%] top-[73.07%] xl:top-[48%]"
           sizeClass="w-[2.5%] xl:w-[0.83%] h-[0.51%] xl:h-[0.3%]"
           src={assets.cross}
           containerOpacity="opacity-60"
+          twinkle
+          delayMs={2000}
         />
 
         <DecAsset
@@ -351,7 +383,7 @@ export default function RoadToDemo() {
           src={assets.sideSmoke}
           imageClass="object-cover"
         />
-        <DecAsset
+        <RocketParallax
           posClass="left-[75%] md:left-[75.83%] xl:left-[76.2%] top-[22.90%] md:top-[19.18%] xl:top-[14.35%]"
           sizeClass="w-[17.03%] md:w-[15.60%] xl:w-[10.83%] h-[4.36%] md:h-[4.68%] xl:h-[7.33%]"
           src={assets.rocket}

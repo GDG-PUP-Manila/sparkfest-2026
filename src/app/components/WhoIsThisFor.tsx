@@ -137,7 +137,30 @@ export default function WhoIsThisFor() {
       <div
         className={`relative z-30 mx-auto max-w-[1280px] px-4 pt-20 md:px-8 md:pt-28 desktop:max-w-[1600px] transition-opacity duration-1000 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
       >
-        <h2 className="text-center text-4xl font-extrabold text-white md:text-5xl lg:text-[50px] leading-tight">
+        {/* Twinkling pixel-star sparkles around the heading */}
+        <div className="pointer-events-none absolute inset-x-0 top-12 z-0 hidden md:block" aria-hidden>
+          {[
+            { left: "14%", top: "8px", delay: "0ms", size: 16 },
+            { left: "26%", top: "64px", delay: "520ms", size: 12 },
+            { left: "72%", top: "0px", delay: "260ms", size: 14 },
+            { left: "84%", top: "56px", delay: "880ms", size: 12 },
+            { left: "50%", top: "-8px", delay: "1200ms", size: 10 },
+          ].map((s, i) => (
+            <svg
+              key={i}
+              className="animate-twinkle absolute text-[#7BF1A8]"
+              style={{ left: s.left, top: s.top, animationDelay: s.delay }}
+              width={s.size}
+              height={s.size}
+              viewBox="0 0 12 12"
+              fill="currentColor"
+            >
+              <rect x="5" y="0" width="2" height="12" />
+              <rect x="0" y="5" width="12" height="2" />
+            </svg>
+          ))}
+        </div>
+        <h2 className="relative z-10 text-center text-4xl font-extrabold text-white md:text-5xl lg:text-[50px] leading-tight">
           Who&apos;s This For?
           <br className="md:hidden" />
           <span className="hidden md:inline"> </span>
