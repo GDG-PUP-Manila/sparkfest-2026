@@ -223,7 +223,7 @@ export default function Hero() {
         <img
           src="/assets/hero/thunder-left.webp"
           alt=""
-          className="absolute z-15 pixelated animate-thunder object-contain pointer-events-none select-none"
+          className="absolute z-20 pixelated animate-thunder object-contain pointer-events-none select-none"
           style={{
             top: "44%",
             left: "0%",
@@ -235,7 +235,7 @@ export default function Hero() {
         <img
           src="/assets/hero/thunder-right.webp"
           alt=""
-          className="absolute z-15 pixelated animate-thunder object-contain pointer-events-none select-none"
+          className="absolute z-20 pixelated animate-thunder object-contain pointer-events-none select-none"
           style={{
             top: "44%",
             right: "-1%",
