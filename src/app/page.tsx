@@ -4,6 +4,7 @@ import Faq from "./components/Faq";
 import FinalCta from "./components/FinalCta";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
+import HeroLightning from "./components/HeroLightning";
 import Judges from "./components/Judges";
 import Nav from "./components/Nav";
 import RoadToDemo from "./components/RoadToDemo";
@@ -18,7 +19,10 @@ export default function Home() {
     <>
       <Nav />
       <main className="bg-navy-900">
-        <Hero />
+        <div className="relative">
+          <Hero />
+          <HeroLightning />
+        </div>
         <About />
         <WhatGoesDown />
         <WhoIsThisFor />

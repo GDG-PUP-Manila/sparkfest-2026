@@ -99,9 +99,9 @@ export default function Hero() {
               <span
                 className="absolute inset-x-0 flex items-center justify-center font-pixel text-white"
                 style={{
-                  top: "4%",
+                  top: "27%",
                   height: "42%",
-                  fontSize: "2.7cqw",
+                  fontSize: "3cqw",
                   transform: "scaleY(1.3)",
                   textShadow: "0 0.12cqw 0 rgba(3,8,24,0.55)",
                 }}

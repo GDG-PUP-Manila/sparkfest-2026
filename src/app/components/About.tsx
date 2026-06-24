@@ -122,24 +122,6 @@ export default function About() {
             className="object-cover object-top"
           />
         </div>
-
-        {/* Thunder decorations */}
-        <div className="absolute top-0 -right-4 w-[40%] max-w-145 aspect-1458/903 z-10">
-          <Image
-            src="/assets/about/thunder-right.webp"
-            alt="Thunder Left"
-            fill
-            className="object-contain object-top-right"
-          />
-        </div>
-        <div className="absolute top-0 left-0 w-[40%] max-w-145 aspect-1458/903 z-10">
-          <Image
-            src="/assets/about/thunder-left.webp"
-            alt="Thunder Right"
-            fill
-            className="object-contain object-top-left"
-          />
-        </div>
       </div>
 
       <div className="relative mx-auto max-w-[1280px] px-4 pt-12 md:px-8 md:pt-16 desktop:max-w-[1600px]">
