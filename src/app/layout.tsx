@@ -1,32 +1,32 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const OG_IMAGE = "/assets/under-construction/sparkypoints-cirby-denied.png";
+const OG_IMAGE = "/assets/hero/hero-bg.webp";
 
 export const metadata: Metadata = {
-  title: "SparkFest 2026 | Under Construction",
+  title: "SparkFest 2026 | GDG on Campus PUP",
   description:
-    "SparkFest 2026 is under construction. GDG on Campus PUP — launching soon.",
+    "SparkFest 2026 by GDG on Campus PUP: Igniting Innovation. Building Impact. Empowering Communities.",
   icons: {
     icon: "/assets/nav/sparkfest-mascot.png",
     apple: "/assets/nav/sparkfest-mascot.png",
   },
   openGraph: {
-    title: "SparkFest 2026 | Under Construction",
+    title: "SparkFest 2026 | GDG on Campus PUP",
     description:
-      "SparkFest 2026 is under construction. GDG on Campus PUP — launching soon.",
+      "SparkFest 2026 by GDG on Campus PUP: Igniting Innovation. Building Impact. Empowering Communities.",
     images: [
       {
         url: OG_IMAGE,
-        alt: "SparkFest 2026 — under construction",
+        alt: "SparkFest 2026 event banner",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "SparkFest 2026 | Under Construction",
+    title: "SparkFest 2026 | GDG on Campus PUP",
     description:
-      "SparkFest 2026 is under construction. GDG on Campus PUP — launching soon.",
+      "SparkFest 2026 by GDG on Campus PUP: Igniting Innovation. Building Impact. Empowering Communities.",
     images: [OG_IMAGE],
   },
 };

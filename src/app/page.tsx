@@ -10,7 +10,6 @@ import Nav from "./components/Nav";
 import RoadToDemo from "./components/RoadToDemo";
 import ScaleToFill from "./components/ScaleToFill";
 import SnapAndFrame from "./components/SnapAndFrame";
-import UnderConstruction from "./components/UnderConstruction";
 import WhatGoesDown from "./components/WhatGoesDown";
 import WhereAndWhen from "./components/WhereAndWhen";
 import WhoIsThisFor from "./components/WhoIsThisFor";
