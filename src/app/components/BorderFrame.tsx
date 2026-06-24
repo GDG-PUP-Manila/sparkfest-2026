@@ -12,7 +12,7 @@ export default function BorderFrame({
       viewBox="0 0 23 23"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`pointer-events-none absolute inset-0 ${className}`}
+      className={`pointer-events-none absolute ${className}`}
       aria-hidden="true"
     >
       <g opacity="0.9">

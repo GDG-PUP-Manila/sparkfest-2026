@@ -105,30 +105,33 @@ export default function WhoIsThisFor() {
     <section
       ref={sectionRef}
       id="highlights"
-      className="relative overflow-hidden bg-gradient-to-b from-navy-600 via-navy-700 to-navy-800 pb-16 pt-0 md:pb-24"
+      className="relative overflow-hidden bg-navy-900 pb-16 pt-0 md:pb-24"
     >
-      {/* Top Transition Pixel Edge */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full min-w-[768px] md:min-w-[1280px] lg:min-w-[1920px] h-[24px] md:h-[42px] lg:h-[64px] z-10 pointer-events-none">
-        <Image
-          src="/assets/whoisthisfor/pixel transition.svg"
-          alt=""
-          fill
-          className="object-cover object-top"
-          unoptimized
-        />
-      </div>
+      {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+      <div className="absolute inset-0 mx-auto max-w-480 bg-gradient-to-b from-navy-600 via-navy-700 to-navy-800 pointer-events-none">
+        {/* Top Transition Pixel Edge */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full min-w-[768px] md:min-w-[1280px] lg:min-w-[1920px] h-[24px] md:h-[42px] lg:h-[64px] z-10 pointer-events-none">
+          <Image
+            src="/assets/whoisthisfor/pixel transition.svg"
+            alt=""
+            fill
+            className="object-cover object-top"
+            unoptimized
+          />
+        </div>
 
-      {/* Background SVG - positioned above color, not stretched */}
-      <div
-        className={`absolute top-[10%] left-1/2 -translate-x-1/2 w-[1280px] h-[849px] z-20 pointer-events-none mix-blend-screen transition-opacity duration-1000 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
-      >
-        <Image
-          src="/assets/whoisthisfor/background.svg"
-          alt=""
-          fill
-          className="object-contain object-top"
-          unoptimized
-        />
+        {/* Background SVG - positioned above color, not stretched */}
+        <div
+          className={`absolute top-[10%] left-1/2 -translate-x-1/2 w-[1280px] h-[849px] z-20 pointer-events-none mix-blend-screen transition-opacity duration-1000 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
+        >
+          <Image
+            src="/assets/whoisthisfor/background.svg"
+            alt=""
+            fill
+            className="object-contain object-top"
+            unoptimized
+          />
+        </div>
       </div>
 
       <div

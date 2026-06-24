@@ -285,14 +285,16 @@ export default function SnapAndFrame() {
   const { photobooth, dpFrame } = SNAP_FRAME;
 
   return (
-    <section id="snap-and-frame" className="relative overflow-hidden bg-[#091725]">
-      {/* ── Full background (gradient + dot-matrix + ships + sparkles, baked) ── */}
-      <img
-        src="/assets/snap/section-bg.png"
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
-      />
+    <section id="snap-and-frame" className="relative overflow-hidden bg-navy-900">
+      {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+      <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none z-0">
+        <img
+          src="/assets/snap/section-bg.png"
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover"
+        />
+      </div>
 
       {/* ── Content ── */}
       <div className="relative mx-auto max-w-7xl px-[35px] pt-10 pb-[34px] md:px-8 md:py-24">

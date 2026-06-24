@@ -39,7 +39,7 @@ function Counter({ value }: { value: string }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (elementRef.current) {
@@ -54,7 +54,12 @@ function Counter({ value }: { value: string }) {
     };
   }, [target]);
 
-  return <span ref={elementRef}>{count}{suffix}</span>;
+  return (
+    <span ref={elementRef}>
+      {count}
+      {suffix}
+    </span>
+  );
 }
 
 export default function About() {
@@ -102,34 +107,39 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative overflow-hidden bg-[url('/assets/about/about-bg.webp')] bg-cover bg-center bg-no-repeat pb-0 md:pb-10 pt-0 lg:pb-16"
+      className="relative overflow-hidden bg-navy-900 pb-0 md:pb-10 pt-0 lg:pb-16"
     >
-      {/* Green pixel skyline transition at the very top */}
-      <div className="relative w-full h-4 md:h-8 pointer-events-none">
-        <Image
-          src="/assets/about/pixel-transition.svg"
-          alt="Skyline transition"
-          fill
-          className="object-cover object-top"
-        />
-      </div>
+      {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+      <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none">
+        <div className="absolute inset-0 bg-[url('/assets/about/about-bg.webp')] bg-cover bg-center bg-no-repeat" />
 
-      {/* Thunder decorations */}
-      <div className="absolute top-0 -right-4 w-[40%] max-w-145 aspect-1458/903 pointer-events-none z-10">
-        <Image
-          src="/assets/about/thunder-right.webp"
-          alt="Thunder Left"
-          fill
-          className="object-contain object-top-right"
-        />
-      </div>
-      <div className="absolute top-0 left-0 w-[40%] max-w-145 aspect-1458/903 pointer-events-none z-10">
-        <Image
-          src="/assets/about/thunder-left.webp"
-          alt="Thunder Right"
-          fill
-          className="object-contain object-top-left"
-        />
+        {/* Green pixel skyline transition at the very top */}
+        <div className="relative w-full h-4 md:h-8">
+          <Image
+            src="/assets/about/pixel-transition.svg"
+            alt="Skyline transition"
+            fill
+            className="object-cover object-top"
+          />
+        </div>
+
+        {/* Thunder decorations */}
+        <div className="absolute top-0 -right-4 w-[40%] max-w-145 aspect-1458/903 z-10">
+          <Image
+            src="/assets/about/thunder-right.webp"
+            alt="Thunder Left"
+            fill
+            className="object-contain object-top-right"
+          />
+        </div>
+        <div className="absolute top-0 left-0 w-[40%] max-w-145 aspect-1458/903 z-10">
+          <Image
+            src="/assets/about/thunder-left.webp"
+            alt="Thunder Right"
+            fill
+            className="object-contain object-top-left"
+          />
+        </div>
       </div>
 
       <div className="relative mx-auto max-w-[1280px] px-4 pt-12 md:px-8 md:pt-16 desktop:max-w-[1600px]">
