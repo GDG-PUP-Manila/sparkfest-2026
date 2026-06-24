@@ -183,7 +183,7 @@ Four Figma frames define the layout at four target widths. Build mobile-first an
 - [ ] **T3.2** FAQ accordion open/close with smooth height transition + a11y attributes.
 - [ ] **T3.3** Mobile nav drawer toggle.
 - [ ] **T3.4** Placeholder CTA modal/toast for Photobooth & DP Frame (pending real URLs).
-- [ ] **T3.5** Register CTA → `https://forms.gle/RvTz12mqGWmVX9mn8` (new tab), per PRD US-01.
+- [ ] **T3.5** Register CTA → `https://forms.gle/yJntfLmxigG75zSt5` (new tab), per PRD US-01.
 - [ ] **T3.6** Scroll-triggered / hover micro-interactions per [DSD §5](docs/dsd-sparkfest.md) (keep MOTION_INTENSITY modest).
 
 ---

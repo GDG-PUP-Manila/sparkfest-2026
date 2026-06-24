@@ -10,7 +10,7 @@
 
 ---
 
-> **Scope reality:** this is a **static site on Cloudflare Pages** — no server, no database, no runtime backend ([SDD §1–§3](sdd-sparkfest.md)). The operational surface is therefore small: keep the CDN-served page up and fast, keep the build pipeline green, and watch the two **external dependencies** (the registration Google Form and the third-party font CDNs). The real operational risk is not "the server falls over" — it's a **bad deploy** or a **traffic spike at the two event moments** (Kick-Off June 25, Demo Day July 9, 2026).
+> **Scope reality:** this is a **static site on Cloudflare Pages** — no server, no database, no runtime backend ([SDD §1–§3](sdd-sparkfest.md)). The operational surface is therefore small: keep the CDN-served page up and fast, keep the build pipeline green, and watch the two **external dependencies** (the registration Google Form and the third-party font CDNs). The real operational risk is not "the server falls over" — it's a **bad deploy** or a **traffic spike at the two event moments** (Kick-Off June 28, Demo Day July 9, 2026).
 
 ---
 
@@ -24,7 +24,7 @@ Targets pulled from [SDD §7](sdd-sparkfest.md) NFRs; this is where we commit to
 | First Contentful Paint | < 1.0s | Cloudflare Web Analytics (Core Web Vitals / RUM) + Lighthouse | If p75 > 1.0s, profile assets (font CDN, image weight) |
 | Largest Contentful Paint | < 2.5s (Good) | Cloudflare Web Analytics | Optimize hero image / lazy-load below-fold art |
 | Build success rate | 100% on `main` | Cloudflare Pages build dashboard | Block promotion; fix build before it reaches prod |
-| Registration link reachable | 100% | Manual/synthetic check of `forms.gle/RvTz12mqGWmVX9mn8` | If Google Form down, post notice; escalate to organizers |
+| Registration link reachable | 100% | Manual/synthetic check of `forms.gle/yJntfLmxigG75zSt5` | If Google Form down, post notice; escalate to organizers |
 
 > No API latency / error-rate / cost SLIs — there is no server runtime to measure them on.
 

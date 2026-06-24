@@ -1,9 +1,9 @@
 // Shared content + types for the SparkFest 2026 landing page.
 
-export const REGISTER_URL = "https://forms.gle/RvTz12mqGWmVX9mn8";
+export const REGISTER_URL = "https://forms.gle/yJntfLmxigG75zSt5";
 
-// Kick-off: June 25, 2026 at 9:00 AM (UTC+8, Manila)
-export const KICKOFF_ISO = "2026-06-25T09:00:00+08:00";
+// Kick-off: June 28, 2026 at 9:00 AM (UTC+8, Manila)
+export const KICKOFF_ISO = "2026-06-28T09:00:00+08:00";
 
 export type GoogleColor = "blue" | "red" | "yellow" | "green";
 
@@ -108,7 +108,7 @@ export const ROADMAP: {
     color: "red",
   },
   {
-    date: "June 25, 2026",
+    date: "June 28, 2026",
     title: "Kick-Off Program",
     desc: "The starting gun. Briefings, team-ups, and the challenge drop.",
     color: "yellow",
@@ -136,7 +136,7 @@ export const ROADMAP: {
 export const WHERE_WHEN = {
   venue: "Bulwagang Bonifacio",
   address: "Polytechnic University of the Philippines (PUP) — Manila",
-  dates: "June 25 – July 9, 2026",
+  dates: "June 28 – July 9, 2026",
   format: "On-site / In-person",
   mapEmbed:
     "https://www.google.com/maps?q=Polytechnic+University+of+the+Philippines+Manila&output=embed",
@@ -161,7 +161,7 @@ export const FAQS = [
   },
   {
     q: "Where and when does it happen?",
-    a: "The hackathon runs June 25 – July 9, 2026 at Bulwagang Bonifacio, PUP Manila, with hybrid pre-events leading up to it.",
+    a: "The hackathon runs June 28 – July 9, 2026 at Bulwagang Bonifacio, PUP Manila, with hybrid pre-events leading up to it.",
   },
 ];
 

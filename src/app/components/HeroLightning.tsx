@@ -16,7 +16,7 @@ export default function HeroLightning() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute bottom-0 left-1/2 z-20 h-0 w-full max-w-480 -translate-x-1/2"
+      className="pointer-events-none absolute bottom-0 left-1/2 z-20 hidden h-0 w-full max-w-480 -translate-x-1/2 md:block"
     >
       {/* Left bolt — strikes from the Hero floor into the skyline (left side) */}
       <div

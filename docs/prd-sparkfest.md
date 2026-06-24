@@ -31,7 +31,7 @@ The SparkFest 2026 Website is a 1-page static marketing website designed to capt
 
 | ID | Feature | Description | Priority |
 |----|---------|-------------|----------|
-| PRD-F1 | Hero & Main CTA | Introduction header, theme, dates, and primary registration button with a countdown to the event start (June 25, 2026). | Must-Have |
+| PRD-F1 | Hero & Main CTA | Introduction header, theme, dates, and primary registration button with a countdown to the event start (June 28, 2026). | Must-Have |
 | PRD-F2 | Event Overview | Clear details about the event, rationale, objectives, venue, and eligibility rules. | Must-Have |
 | PRD-F3 | Visual Timeline | Layout mapping event phases from promotions (June 1) through the final pitches/awards (July 9). | Must-Have |
 | PRD-F4 | Photobooth Redirection | Button directing user to the GDG Photobooth. Since URL is pending, it shows a developer warning/modal notification. | Must-Have |
@@ -46,8 +46,8 @@ The SparkFest 2026 Website is a 1-page static marketing website designed to capt
 > As a prospective participant, I want to see a countdown to the event and click a registration CTA to join.
 
 Acceptance Criteria:
-- Given the event date is set to June 25, 2026, the countdown component must display remaining Days, Hours, Minutes, and Seconds.
-- When the registration button is clicked, it redirects the user to `https://forms.gle/RvTz12mqGWmVX9mn8` in a new tab.
+- Given the event date is set to June 28, 2026, the countdown component must display remaining Days, Hours, Minutes, and Seconds.
+- When the registration button is clicked, it redirects the user to `https://forms.gle/yJntfLmxigG75zSt5` in a new tab.
 
 **US-02 — Interactive Placeholders**
 > As a developer or early user, I want to click Photobooth or DP Blast and receive a notification that it's a placeholder.
@@ -81,7 +81,7 @@ flowchart TD
     Hero --> About[Read About & Objectives]
     About --> Timeline[Check Event Timeline]
     Timeline --> CTAs{Choose Engagement}
-    CTAs -->|Registration| GoogleForm[forms.gle/RvTz12mqGWmVX9mn8]
+    CTAs -->|Registration| GoogleForm[forms.gle/yJntfLmxigG75zSt5]
     CTAs -->|Photobooth| PhotoPrompt[Dev Modal / Placeholder Notification]
     CTAs -->|DP Blast| DpPrompt[Dev Modal / Placeholder Notification]
     GoogleForm --> Exit((Exit))
