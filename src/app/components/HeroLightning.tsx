@@ -19,22 +19,28 @@ export default function HeroLightning() {
       className="pointer-events-none absolute bottom-0 left-1/2 z-20 h-0 w-full max-w-480 -translate-x-1/2"
     >
       {/* Left bolt — strikes from the Hero floor into the skyline (left side) */}
-      <div className="absolute top-0 left-0 aspect-1458/903 w-[40%]">
+      <div
+        className="absolute top-0 left-0 aspect-1458/903 w-[40%] animate-thunder"
+        style={{ animationDelay: "0.11s" }}
+      >
         <Image
           src="/assets/about/thunder-left.webp"
           alt=""
           fill
-          className="object-contain object-top-left"
+          className="object-contain object-top-left pixelated"
         />
       </div>
 
       {/* Right bolt — strikes from the Hero floor into the skyline (right side) */}
-      <div className="absolute top-0 left-[61.31%] aspect-1458/903 w-[40%]">
+      <div
+        className="absolute top-0 left-[61.31%] aspect-1458/903 w-[40%] animate-thunder"
+        style={{ animationDelay: "0.11s" }}
+      >
         <Image
           src="/assets/about/thunder-right.webp"
           alt=""
           fill
-          className="object-contain object-top-right"
+          className="object-contain object-top-right pixelated"
         />
       </div>
     </div>
