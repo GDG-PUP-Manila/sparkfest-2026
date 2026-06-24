@@ -35,6 +35,12 @@
   --grid-cyan: #57caff;
   --neon-blue: #2f7bff;
   --lightning: #eaf6ff;
+
+  /* SparkFest "2026" logo letters */
+  --logo-2: #ffd339;
+  --logo-0: #58c9fc;
+  --logo-2b: #5dda6c;
+  --logo-6: #ff7dae;
 }
 
 @theme {
@@ -69,6 +75,11 @@
   --color-grid-cyan: var(--grid-cyan);
   --color-neon-blue: var(--neon-blue);
   --color-lightning: var(--lightning);
+
+  --color-logo-2: var(--logo-2);
+  --color-logo-0: var(--logo-0);
+  --color-logo-2b: var(--logo-2b);
+  --color-logo-6: var(--logo-6);
   
   --shadow-retro: 4px 4px 0px 0px var(--black-02);
   --shadow-retro-hover: 6px 6px 0px 0px var(--black-02);
@@ -154,9 +165,25 @@ body {
   animation: blink-soft 1.8s steps(2, jump-none) infinite;
 }
 
+/* Twinkling pixel-star / sparkle: fades and shrinks then pops back. */
+@keyframes twinkle {
+  0%,
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  25% { opacity: 0.9; transform: translate3d(-0.6px, 0.4px, 0) scale(1.12); }
+  50% { opacity: 0.18; transform: translate3d(0.7px, -0.5px, 0) scale(0.52); }
+  75% { opacity: 0.82; transform: translate3d(0.3px, 0.2px, 0) scale(1.05); }
+}
+.animate-twinkle {
+  animation: twinkle 2.6s ease-in-out infinite;
+  transform-origin: center;
+  will-change: opacity, transform;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.38));
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
-  .animate-blink {
+  .animate-blink,
+  .animate-twinkle {
     animation: none;
   }
 }

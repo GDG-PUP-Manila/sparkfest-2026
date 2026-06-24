@@ -222,6 +222,12 @@ export const FINAL_CTA = {
   cta: "Register Now – It's Free",
 };
 
+export const FOOTER = {
+  title: "SparkFest 2026",
+  tagline: "Bridging the gap between theory and practice.",
+  org: "Google Developer Groups on Campus - Polytechnic University of the Philippines",
+};
+
 // Tailwind class maps for the four Google colors.
 export const COLOR_TEXT: Record<GoogleColor, string> = {
   blue: "text-google-blue-500",

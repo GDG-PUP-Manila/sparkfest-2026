@@ -117,12 +117,15 @@ function RegisterButton() {
 export default function FinalCta() {
   return (
     <section className="relative overflow-hidden bg-navy-900 py-16 md:py-24">
-      {/* Dot-grid background */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-15"
-        style={ARCADE_GRID_STYLE}
-      />
+      {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+      <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none z-0">
+        {/* Dot-grid background */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-15"
+          style={ARCADE_GRID_STYLE}
+        />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-340 px-4 pb-40 md:px-40 md:pt-5 md:pb-[200px]">
         <div className="relative w-full">

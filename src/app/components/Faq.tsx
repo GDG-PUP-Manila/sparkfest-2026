@@ -150,14 +150,17 @@ export default function Faq() {
 
       {/* Tablet / desktop — bg covers full content height (no black gap on open) */}
       <div className="relative hidden w-full md:block md:min-h-[1000px] xl:min-h-[1180px] desktop:min-h-[1300px]">
-        <Image
-          src="/assets/faq/background.png"
-          alt=""
-          aria-hidden="true"
-          fill
-          className="pointer-events-none select-none object-cover object-top"
-          sizes="100vw"
-        />
+        {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+        <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none z-0">
+          <Image
+            src="/assets/faq/background.png"
+            alt=""
+            aria-hidden="true"
+            fill
+            className="pointer-events-none select-none object-cover object-top"
+            sizes="100vw"
+          />
+        </div>
 
         <div className="relative z-10 mx-auto flex w-[82%] min-w-0 max-w-[1200px] flex-col justify-center overflow-visible py-10 pb-16 xl:w-full xl:px-20 xl:py-12 xl:pb-24 desktop:px-24 desktop:py-14 desktop:pb-28">
           <div className="mb-6 pb-0 lg:pb-6  flex w-full items-center justify-center gap-1.5 xl:mb-8 xl:gap-2">

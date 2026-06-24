@@ -6,20 +6,19 @@ export default function BeforeTheSpark() {
   return (
     <section
       id="pre-events"
-      className="relative overflow-hidden bg-gradient-to-b from-blue-900 via-navy-700 to-navy-900 py-16 md:py-24"
+      className="relative overflow-hidden bg-navy-900 py-16 md:py-24"
     >
-      {/* BACKGROUND PATTERN OVERLAY */}
-      {/* Using a highly optimized, repeating inline SVG. 
-        It draws a tiny 2x4 semi-transparent black rectangle inside an 8x10 grid cell.
-        Change fill='%23000000' to '%23ffffff' if you want lighter dashes instead of dark ones.
-      */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-40 mix-blend-multiply"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='8' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='4' fill='%23000000' fill-opacity='0.3'/%3E%3C/svg%3E")`,
-          backgroundSize: "8px 10px",
-        }}
-      />
+      {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
+      <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-900 via-navy-700 to-navy-900" />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-40 mix-blend-multiply"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='8' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='2' height='4' fill='%23000000' fill-opacity='0.3'/%3E%3C/svg%3E")`,
+            backgroundSize: "8px 10px",
+          }}
+        />
+      </div>
 
       {/* CONTENT LAYER */}
       {/* Added 'relative z-10' to ensure content sits above the pattern layer */}
