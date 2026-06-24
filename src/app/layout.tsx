@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import ThemeLoadingScreen from "./components/ThemeLoadingScreen";
 
-const OG_IMAGE = "/assets/hero/hero-bg.webp";
+const OG_IMAGE = "/og-image.png";
 
 export const metadata: Metadata = {
   title: "SparkFest 2026 | GDG on Campus PUP",
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: OG_IMAGE,
+        width: 1200,
+        height: 630,
         alt: "SparkFest 2026 event banner",
       },
     ],
