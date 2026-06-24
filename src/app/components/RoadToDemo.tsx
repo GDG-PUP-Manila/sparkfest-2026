@@ -57,6 +57,7 @@ const DecAsset = ({
   containerOpacity = "",
   twinkle = false,
   delayMs,
+  durationMs,
   style,
 }: {
   posClass: string;
@@ -66,6 +67,7 @@ const DecAsset = ({
   containerOpacity?: string;
   twinkle?: boolean;
   delayMs?: number;
+  durationMs?: number;
   style?: React.CSSProperties;
 }) => (
   <div
@@ -73,7 +75,13 @@ const DecAsset = ({
       twinkle ? "animate-twinkle" : ""
     }`}
     style={
-      twinkle ? { animationDelay: `${delayMs ?? 0}ms`, ...style } : style
+      twinkle
+        ? {
+            animationDelay: `${delayMs ?? 0}ms`,
+            animationDuration: `${durationMs ?? 2600}ms`,
+            ...style,
+          }
+        : style
     }
     aria-hidden
   >
@@ -264,6 +272,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={0}
+          durationMs={2100}
         />
         <DecAsset
           posClass="left-[87.5%] xl:left-[25%] top-[7.69%] xl:top-[5%]"
@@ -272,6 +281,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={320}
+          durationMs={2800}
         />
         <DecAsset
           posClass="left-[10%] xl:left-[15%] top-[10.25%] xl:top-[25%]"
@@ -280,6 +290,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={640}
+          durationMs={2300}
         />
         <DecAsset
           posClass="left-[67.5%] xl:left-[75%] top-[26.15%] xl:top-[40%]"
@@ -288,6 +299,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={960}
+          durationMs={3000}
         />
         <DecAsset
           posClass="left-[18.75%] xl:left-[90%] top-[33.33%] xl:top-[50%]"
@@ -296,6 +308,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={1280}
+          durationMs={2400}
         />
         <DecAsset
           posClass="left-[57.5%] xl:left-[15%] top-[49.23%] xl:top-[62%]"
@@ -304,6 +317,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={480}
+          durationMs={3200}
         />
         <DecAsset
           posClass="left-[91.25%] xl:left-[85%] top-[49.23%] xl:top-[72%]"
@@ -312,6 +326,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={800}
+          durationMs={2200}
         />
         <DecAsset
           posClass="left-[11.25%] xl:left-[20%] top-[56.41%] xl:top-[85%]"
@@ -320,6 +335,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={1120}
+          durationMs={2900}
         />
         <DecAsset
           posClass="left-[7.5%] xl:left-[55%] top-[62.82%] xl:top-[18%]"
@@ -328,6 +344,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={1600}
+          durationMs={2500}
         />
         <DecAsset
           posClass="left-[90%] xl:left-[40%] top-[73.07%] xl:top-[48%]"
@@ -336,6 +353,7 @@ export default function RoadToDemo() {
           containerOpacity="opacity-60"
           twinkle
           delayMs={2000}
+          durationMs={3100}
         />
 
         <DecAsset
@@ -377,17 +395,15 @@ export default function RoadToDemo() {
         {/* <DecAsset posClass="left-[21.87%] md:left-[20.32%] xl:left-[30%] top-[83.52%] md:top-[84.15%] xl:top-[90.87%]" sizeClass="w-[20%] md:w-[19.24%] xl:w-[25%] h-[1.53%] md:h-[1.52%] xl:h-[3.06%]" src={assets.grid6} imageClass="object-contain" /> */}
 
         {/* Other Decorative */}
-        <DecAsset
-          posClass="left-[75.20%] md:left-[76.01%] xl:left-[74%] top-[26.62%] md:top-[22.89%] xl:top-[20.24%]"
-          sizeClass="w-[16.63%] md:w-[15.22%] xl:w-[15.3%] h-[2.09%] md:h-[2.38%] xl:h-[3.83%]"
-          src={assets.sideSmoke}
-          imageClass="object-cover"
-        />
         <RocketParallax
           posClass="left-[75%] md:left-[75.83%] xl:left-[76.2%] top-[22.90%] md:top-[19.18%] xl:top-[14.35%]"
           sizeClass="w-[17.03%] md:w-[15.60%] xl:w-[10.83%] h-[4.36%] md:h-[4.68%] xl:h-[7.33%]"
           src={assets.rocket}
           imageClass="object-cover"
+          trailPosClass="left-[75.20%] md:left-[76.01%] xl:left-[74%] top-[26.62%] md:top-[22.89%] xl:top-[20.24%]"
+          trailSizeClass="w-[16.63%] md:w-[15.22%] xl:w-[15.3%] h-[2.09%] md:h-[2.38%] xl:h-[3.83%]"
+          trailSrc={assets.sideSmoke}
+          trailImageClass="object-cover"
         />
         <DecAsset
           posClass="left-[14.17%] md:left-[11.57%] xl:left-[23.93%] top-[37.91%] md:top-[34.29%] xl:top-[43.40%]"

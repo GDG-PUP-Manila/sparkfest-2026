@@ -13,11 +13,19 @@ export default function RocketParallax({
   sizeClass,
   src,
   imageClass = "object-contain",
+  trailPosClass,
+  trailSizeClass,
+  trailSrc,
+  trailImageClass = "object-contain",
 }: {
   posClass: string;
   sizeClass: string;
   src: string;
   imageClass?: string;
+  trailPosClass?: string;
+  trailSizeClass?: string;
+  trailSrc?: string;
+  trailImageClass?: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [offsetY, setOffsetY] = useState(0);
@@ -54,18 +62,37 @@ export default function RocketParallax({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const sharedStyle = {
+    transform: `translateY(${offsetY}px)`,
+    transition: "transform 0.1s linear",
+    willChange: "transform",
+  } as const;
+
   return (
-    <div
-      ref={ref}
-      className={`absolute pointer-events-none ${posClass} ${sizeClass}`}
-      style={{
-        transform: `translateY(${offsetY}px)`,
-        transition: "transform 0.1s linear",
-        willChange: "transform",
-      }}
-      aria-hidden
-    >
-      <Image src={src} alt="" fill unoptimized className={imageClass} />
-    </div>
+    <>
+      {trailSrc && trailPosClass && trailSizeClass ? (
+        <div
+          className={`absolute pointer-events-none ${trailPosClass} ${trailSizeClass}`}
+          style={sharedStyle}
+          aria-hidden
+        >
+          <Image
+            src={trailSrc}
+            alt=""
+            fill
+            unoptimized
+            className={trailImageClass}
+          />
+        </div>
+      ) : null}
+      <div
+        ref={ref}
+        className={`absolute pointer-events-none ${posClass} ${sizeClass}`}
+        style={sharedStyle}
+        aria-hidden
+      >
+        <Image src={src} alt="" fill unoptimized className={imageClass} />
+      </div>
+    </>
   );
 }

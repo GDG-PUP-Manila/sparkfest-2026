@@ -167,13 +167,17 @@ body {
 
 /* Twinkling pixel-star / sparkle: fades and shrinks then pops back. */
 @keyframes twinkle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.15; transform: scale(0.55); }
+  0%,
+  100% { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+  25% { opacity: 0.9; transform: translate3d(-0.6px, 0.4px, 0) scale(1.12); }
+  50% { opacity: 0.18; transform: translate3d(0.7px, -0.5px, 0) scale(0.52); }
+  75% { opacity: 0.82; transform: translate3d(0.3px, 0.2px, 0) scale(1.05); }
 }
 .animate-twinkle {
   animation: twinkle 2.6s ease-in-out infinite;
   transform-origin: center;
   will-change: opacity, transform;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.38));
 }
 
 @media (prefers-reduced-motion: reduce) {
