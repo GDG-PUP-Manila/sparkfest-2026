@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ThemeLoadingScreen from "./components/ThemeLoadingScreen";
 
 const OG_IMAGE = "/assets/hero/hero-bg.webp";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
       className="h-full scroll-smooth antialiased [scroll-padding-top:5rem]"
     >
       <body className="min-h-full flex flex-col bg-navy-900">
+        <ThemeLoadingScreen />
         {children}
       </body>
     </html>
