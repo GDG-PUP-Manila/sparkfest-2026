@@ -55,7 +55,10 @@ export default function Hero() {
   const values = [time?.days, time?.hours, time?.minutes, time?.seconds];
 
   return (
-    <section id="top" className="relative w-full overflow-hidden bg-[#050a1f]">
+    <section
+      id="top"
+      className="relative w-full overflow-hidden bg-[#050a1f] mt-20 lg:mt-0"
+    >
       <div
         className="relative mx-auto w-full"
         style={{
