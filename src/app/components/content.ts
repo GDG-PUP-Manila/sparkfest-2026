@@ -26,7 +26,7 @@ export const ABOUT = {
   title: "Build the Spark. Become the Impact.",
   paragraphs: [
     {
-      text: "SparkFest 2026 is the flagship hackathon of *Google Developer Groups on Campus – PUP*. For three intense weeks, students from technical, creative, and managerial backgrounds team up to mirror a real startup environment — designing, building, and pitching solutions to challenges that actually matter.",
+      text: "SparkFest 2026 is the flagship hackathon of *Google Developer Groups on Campus*. For three intense weeks, students from technical, creative, and managerial backgrounds team up to mirror a real startup environment — designing, building, and pitching solutions to challenges that actually matter.",
     },
     {
       text: "But we don't stop at the screen. Every build connects to a community. Through our *Community Impact Initiative*, the winning team's solution directly supports an underserved sector — from jeepney drivers to security personnel to your local barangay.",
@@ -139,7 +139,7 @@ export const WHERE_WHEN = {
   dates: "June 28 – July 9, 2026",
   format: "On-site / In-person",
   mapEmbed:
-    "https://www.google.com/maps?q=Polytechnic+University+of+the+Philippines+Manila&output=embed",
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.13509793409537!2d121.01160318848683!3d14.59910131565349!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9dd97a1439b%3A0x44e1b969e7f1f67a!2sPUP%20Main%20-%20A.%20Mabini%20Campus%2C%20Sta.%20Mesa%2C%20Manila!5e1!3m2!1sen!2sph!4v1782567551853!5m2!1sen!2sph",
 };
 
 export const FAQS = [

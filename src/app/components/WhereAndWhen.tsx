@@ -40,7 +40,7 @@ export default function WhereAndWhen() {
             title="SparkFest 2026 venue — PUP Manila"
             src={WHERE_WHEN.mapEmbed}
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerPolicy="strict-origin-when-cross-origin"
             className="aspect-[4/3] w-full"
           />
         </div>
