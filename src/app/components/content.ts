@@ -26,7 +26,7 @@ export const ABOUT = {
   title: "Build the Spark. Become the Impact.",
   paragraphs: [
     {
-      text: "SparkFest 2026 is the flagship hackathon of *Google Developer Groups on Campus*. For three intense weeks, students from technical, creative, and managerial backgrounds team up to mirror a real startup environment — designing, building, and pitching solutions to challenges that actually matter.",
+      text: "SparkFest 2026 is the flagship hackathon of *Google Developer Groups on Campus PUP*. For three intense weeks, students from technical, creative, and managerial backgrounds team up to mirror a real startup environment — designing, building, and pitching solutions to challenges that actually matter.",
     },
     {
       text: "But we don't stop at the screen. Every build connects to a community. Through our *Community Impact Initiative*, the winning team's solution directly supports an underserved sector — from jeepney drivers to security personnel to your local barangay.",
