@@ -2,9 +2,6 @@
 
 export const REGISTER_URL = "https://forms.gle/yJntfLmxigG75zSt5";
 
-// Kick-off: June 28, 2026 at 9:00 AM (UTC+8, Manila)
-export const KICKOFF_ISO = "2026-06-28T09:00:00+08:00";
-
 export type GoogleColor = "blue" | "red" | "yellow" | "green";
 
 export const NAV_LINKS = [
