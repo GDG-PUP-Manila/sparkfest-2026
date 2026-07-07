@@ -3,14 +3,15 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 export default function Judges() {
-  const cards = ["red", "green", "yellow", "blue"];
-  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
+  const judges = [
+    "armielyn-obinguar",
+    "francis-chuaunsu",
+    "kyne-domerei-laggui",
+    "niel-riego",
+    "randy-carlo-lorenzo"
+  ];
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
-
-  const toggleReveal = (color: string) => {
-    setRevealed((prev) => ({ ...prev, [color]: !prev[color] }));
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -83,27 +84,60 @@ export default function Judges() {
               Judges
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-[2%] w-full max-w-[200px] md:max-w-[85%]">
-              {cards.map((color) => {
-                const isRevealed = revealed[color];
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-[2%] w-full max-w-[200px] md:max-w-[95%]">
+              {judges.map((judge, index) => {
+                const colors = ["red", "green", "yellow", "blue"];
+                const hexColors: Record<string, string> = {
+                  red: '#ea4335',
+                  green: '#34a853',
+                  yellow: '#fbbc04',
+                  blue: '#4285f4'
+                };
+                const color = colors[index % colors.length];
+                const judgeName = judge.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                
                 return (
                   <div
-                    key={color}
-                    onClick={() => toggleReveal(color)}
-                    className={`group relative w-full aspect-[337/421] cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-2 md:hover:-translate-y-4 ${!isRevealed ? 'animate-shimmer' : ''}`}
+                    key={judge}
+                    className="group relative w-full aspect-[337/421] cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-2 md:hover:-translate-y-4 animate-shimmer hover:animate-none"
                   >
+                    {/* Layer 1: Background */}
+                    <Image
+                      src={`/assets/judge/${color}-bg.webp`}
+                      alt={`Background ${color}`}
+                      fill
+                      className="absolute inset-0 object-contain transition-opacity duration-500 ease-out pointer-events-none opacity-0 group-hover:opacity-100"
+                      unoptimized
+                    />
+                    {/* Layer 2: Portrait */}
+                    <Image
+                      src={`/assets/judge/${judge}.webp`}
+                      alt={`Judge ${judgeName}`}
+                      fill
+                      className="absolute inset-0 object-contain transition-opacity duration-500 ease-out opacity-0 group-hover:opacity-100"
+                      unoptimized
+                    />
+                    {/* Layer 3: Frame Overlay */}
+                    <div
+                      className="absolute inset-0 transition-opacity duration-500 ease-out pointer-events-none opacity-0 group-hover:opacity-100"
+                      style={{
+                        backgroundColor: hexColors[color],
+                        maskImage: 'url(/assets/judge/border.webp)',
+                        maskSize: '100% 100%',
+                        maskPosition: 'center',
+                        maskRepeat: 'no-repeat',
+                        WebkitMaskImage: 'url(/assets/judge/border.webp)',
+                        WebkitMaskSize: '100% 100%',
+                        WebkitMaskPosition: 'center',
+                        WebkitMaskRepeat: 'no-repeat',
+                      }}
+                    />
+                    {/* Layer 4: Mystery Default (Base state) */}
                     <Image
                       src={`/assets/judge/mystery-judge-${color}.svg`}
                       alt={`Mystery Judge ${color}`}
                       fill
-                      className={`object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-0' : 'opacity-100 group-hover:opacity-0'}`}
-                      unoptimized
-                    />
-                    <Image
-                      src={`/assets/judge/mystery-judge-${color}-reveal.svg`}
-                      alt={`Mystery Judge ${color} Reveal`}
-                      fill
-                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
+                      className="absolute inset-0 object-contain transition-opacity duration-500 ease-out opacity-100 group-hover:opacity-0"
                       unoptimized
                     />
                   </div>
