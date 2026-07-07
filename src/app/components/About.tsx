@@ -199,24 +199,40 @@ export default function About() {
             </div>
 
             {/* Partners & Sponsors */}
-            <div className="mt-12 max-w-2xl md:mt-16 lg:mr-0 md:mr-23 -mr-10">
+            <div className="mt-12 max-w-2xl md:mt-16 lg:mr-0 md:mr-5 -mr-10">
               <h3 className="mb-6 font-pixel text-lg text-white md:text-xl [text-shadow:0_0_15px_rgba(255,255,255,0.3)]">
                 Partners & Sponsors
               </h3>
               <div className="grid grid-cols-1 gap-y-8 md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:gap-x-12">
                 {ABOUT.partnersAndSponsors.map((group) => (
-                  <div key={group.tier} className="flex flex-col space-y-3">
-                    <h4 className="font-pixel text-[8px] uppercase tracking-widest text-google-yellow-500 md:text-[10px] [text-shadow:0_0_10px_rgba(251,188,4,0.3)]">
+                  <div
+                    key={group.tier}
+                    className="relative flex flex-col h-full space-y-4 px-6 py-6 md:px-8 md:py-8"
+                  >
+                    <div className="absolute inset-0 z-0 pointer-events-none">
+                      <Image
+                        src="/assets/about/Text Container.webp"
+                        alt="Sponsor tier background"
+                        fill
+                        className="object-fill"
+                      />
+                    </div>
+                    <h4 className="relative z-10 font-pixel text-[8px] uppercase tracking-widest text-google-yellow-500 md:text-[10px] [text-shadow:0_0_10px_rgba(251,188,4,0.3)]">
                       {group.tier}
                     </h4>
-                    <div className="flex flex-wrap gap-x-6 gap-y-3">
+                    <div
+                      className={`relative z-10 ${group.entities.length > 1 ? "grid grid-cols-2 md:grid-cols-3" : "flex"} items-center gap-x-6 gap-y-4`}
+                    >
                       {group.entities.map((entity) => (
-                        <div
-                          key={entity.name}
-                          className="flex items-center"
-                        >
+                        <div key={entity.name} className="flex items-center">
                           {entity.logo ? (
-                            <div className="relative h-10 w-32 md:h-12 md:w-40">
+                            <div
+                              className={`relative ${
+                                entity.name === "Seekers Guild"
+                                  ? "h-14 w-40 md:h-16 md:w-52"
+                                  : "h-10 w-32 md:h-12 md:w-40"
+                              }`}
+                            >
                               <Image
                                 src={entity.logo}
                                 alt={`${entity.name} logo`}
