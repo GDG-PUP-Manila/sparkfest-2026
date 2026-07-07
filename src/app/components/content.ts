@@ -35,6 +35,28 @@ export const ABOUT = {
     { value: "53", label: "Teams" },
     { value: "8", label: "Communities reached" },
   ],
+  partnersAndSponsors: [
+    {
+      tier: "In Collaboration With",
+      entities: [{ name: "PUP PYLON TBI", logo: "/assets/about/pup-pylon-tbi.webp" }],
+    },
+    {
+      tier: "Long Term Diamond Sponsor",
+      entities: [{ name: "OpsWerks", logo: "/assets/about/ops-werks.webp" }],
+    },
+    {
+      tier: "Event Gold Sponsor",
+      entities: [
+        { name: "Emapta", logo: "/assets/about/emapta.webp" },
+        { name: "Circuitrocks", logo: "/assets/about/circuit-rocks.webp" },
+        { name: "Ms. Armielyn Obinguar", logo: "/assets/about/Ms.-armielyn-obinguar.webp" },
+      ],
+    },
+    {
+      tier: "Long Term Community Partner",
+      entities: [{ name: "Seekers Guild", logo: "/assets/about/seekers-guild.webp" }],
+    },
+  ],
 };
 
 export const WHAT_GOES_DOWN: { title: string; desc: string; color: GoogleColor }[] = [

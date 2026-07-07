@@ -57,9 +57,7 @@ function Counter({ value }: { value: string }) {
   }, [target]);
 
   return (
-    <span ref={elementRef}>
-      {hasNumericPart ? `${count}${suffix}` : value}
-    </span>
+    <span ref={elementRef}>{hasNumericPart ? `${count}${suffix}` : value}</span>
   );
 }
 
@@ -199,6 +197,45 @@ export default function About() {
                 </div>
               ))}
             </div>
+
+            {/* Partners & Sponsors */}
+            <div className="mt-12 max-w-2xl md:mt-16 lg:mr-0 md:mr-23 -mr-10">
+              <h3 className="mb-6 font-pixel text-lg text-white md:text-xl [text-shadow:0_0_15px_rgba(255,255,255,0.3)]">
+                Partners & Sponsors
+              </h3>
+              <div className="grid grid-cols-1 gap-y-8 md:grid-cols-2 md:gap-x-8 md:gap-y-10 lg:gap-x-12">
+                {ABOUT.partnersAndSponsors.map((group) => (
+                  <div key={group.tier} className="flex flex-col space-y-3">
+                    <h4 className="font-pixel text-[8px] uppercase tracking-widest text-google-yellow-500 md:text-[10px] [text-shadow:0_0_10px_rgba(251,188,4,0.3)]">
+                      {group.tier}
+                    </h4>
+                    <div className="flex flex-wrap gap-x-6 gap-y-3">
+                      {group.entities.map((entity) => (
+                        <div
+                          key={entity.name}
+                          className="flex items-center"
+                        >
+                          {entity.logo ? (
+                            <div className="relative h-10 w-32 md:h-12 md:w-40">
+                              <Image
+                                src={entity.logo}
+                                alt={`${entity.name} logo`}
+                                fill
+                                className="object-contain object-left"
+                              />
+                            </div>
+                          ) : (
+                            <span className="text-sm font-bold text-white/90 md:text-base">
+                              {entity.name}
+                            </span>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Right column: pixel earth + rocket smoke + pills */}
@@ -261,7 +298,7 @@ export default function About() {
             {/* GDG graphic */}
             <div
               style={{ transform: `translateY(${offsetY * 2.0}px)` }}
-              className="absolute lg:top-20 lg:right-5 md:top-30 md:right-0 -top-105 right-10 lg:h-62 lg:w-62 md:h-42 md:w-42 h-22 w-22 pointer-events-none z-20 transition-transform duration-100 ease-out"
+              className="absolute bottom-80 right-10 md:top-auto md:bottom-120 md:right-0 lg:bottom-90 lg:right-5 lg:h-62 lg:w-62 md:h-42 md:w-42 h-22 w-22 pointer-events-none z-20 transition-transform duration-100 ease-out"
             >
               <div className="w-full h-full animate-float">
                 <Image
