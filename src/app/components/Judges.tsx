@@ -10,8 +10,13 @@ export default function Judges() {
     "niel-riego",
     "randy-carlo-lorenzo"
   ];
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  const toggleReveal = (judge: string) => {
+    setRevealed((prev) => ({ ...prev, [judge]: !prev[judge] }));
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,18 +100,20 @@ export default function Judges() {
                 };
                 const color = colors[index % colors.length];
                 const judgeName = judge.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+                const isRevealed = revealed[judge];
                 
                 return (
                   <div
                     key={judge}
-                    className="group relative w-full aspect-[337/421] cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-2 md:hover:-translate-y-4 animate-shimmer hover:animate-none"
+                    onClick={() => toggleReveal(judge)}
+                    className={`group relative w-full aspect-[337/421] cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-2 md:hover:-translate-y-4 ${!isRevealed ? 'animate-shimmer' : ''} hover:animate-none`}
                   >
                     {/* Layer 1: Background */}
                     <Image
                       src={`/assets/judge/${color}-bg.webp`}
                       alt={`Background ${color}`}
                       fill
-                      className="absolute inset-0 object-contain transition-opacity duration-500 ease-out pointer-events-none opacity-0 group-hover:opacity-100"
+                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out pointer-events-none ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                       unoptimized
                     />
                     {/* Layer 2: Portrait */}
@@ -114,12 +121,12 @@ export default function Judges() {
                       src={`/assets/judge/${judge}.webp`}
                       alt={`Judge ${judgeName}`}
                       fill
-                      className="absolute inset-0 object-contain transition-opacity duration-500 ease-out opacity-0 group-hover:opacity-100"
+                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                       unoptimized
                     />
                     {/* Layer 3: Frame Overlay */}
                     <div
-                      className="absolute inset-0 transition-opacity duration-500 ease-out pointer-events-none opacity-0 group-hover:opacity-100"
+                      className={`absolute inset-0 transition-opacity duration-500 ease-out pointer-events-none ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
                       style={{
                         backgroundColor: hexColors[color],
                         maskImage: 'url(/assets/judge/border.webp)',
@@ -137,7 +144,7 @@ export default function Judges() {
                       src={`/assets/judge/mystery-judge-${color}.svg`}
                       alt={`Mystery Judge ${color}`}
                       fill
-                      className="absolute inset-0 object-contain transition-opacity duration-500 ease-out opacity-100 group-hover:opacity-0"
+                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-0 pointer-events-none' : 'opacity-100 group-hover:opacity-0'}`}
                       unoptimized
                     />
                   </div>
