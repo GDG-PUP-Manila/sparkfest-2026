@@ -69,30 +69,3 @@ export default function WhereAndWhen() {
   );
 }
 
-// Horizontal Pac-Man dotted rail with a blue pipe in the middle.
-function MazeRail({ className = "" }: { className?: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`pointer-events-none absolute inset-x-0 flex items-center justify-center gap-3 ${className}`}
-    >
-      <div className="flex flex-1 items-center gap-3 px-6">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <span
-            key={i}
-            className="h-1.5 w-1.5 shrink-0 rounded-full bg-google-yellow-500"
-          />
-        ))}
-      </div>
-      <div className="h-4 w-28 shrink-0 rounded-sm bg-gradient-to-b from-grid-cyan to-google-blue-500" />
-      <div className="flex flex-1 items-center gap-3 px-6">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <span
-            key={i}
-            className="h-1.5 w-1.5 shrink-0 rounded-full bg-google-yellow-500"
-          />
-        ))}
-      </div>
-    </div>
-  );
-}

@@ -2,9 +2,6 @@
 
 export const REGISTER_URL = "https://forms.gle/yJntfLmxigG75zSt5";
 
-// Kick-off: June 28, 2026 at 9:00 AM (UTC+8, Manila)
-export const KICKOFF_ISO = "2026-06-28T09:00:00+08:00";
-
 export type GoogleColor = "blue" | "red" | "yellow" | "green";
 
 export const NAV_LINKS = [
@@ -34,9 +31,31 @@ export const ABOUT = {
   ],
   quote: "“This isn't a competition for prizes. It's a movement for impact.”",
   stats: [
-    { value: "?", label: "Participants" },
-    { value: "?", label: "Teams" },
-    { value: "?", label: "Communities reached" },
+    { value: "177", label: "Participants" },
+    { value: "53", label: "Teams" },
+    { value: "8", label: "Communities reached" },
+  ],
+  partnersAndSponsors: [
+    {
+      tier: "In Collaboration With",
+      entities: [{ name: "PUP PYLON TBI", logo: "/assets/about/pup-pylon-tbi.webp" }],
+    },
+    {
+      tier: "Long Term Diamond Sponsor",
+      entities: [{ name: "OpsWerks", logo: "/assets/about/ops-werks.webp" }],
+    },
+    {
+      tier: "Event Gold Sponsor",
+      entities: [
+        { name: "Emapta", logo: "/assets/about/emapta.webp" },
+        { name: "Circuitrocks", logo: "/assets/about/circuit-rocks.webp" },
+        { name: "Ms. Armielyn Obinguar", logo: "/assets/about/Ms.-armielyn-obinguar.webp" },
+      ],
+    },
+    {
+      tier: "Long Term Community Partner",
+      entities: [{ name: "Seekers Guild", logo: "/assets/about/seekers-guild.webp" }],
+    },
   ],
 };
 
