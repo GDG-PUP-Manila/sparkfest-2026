@@ -3,13 +3,77 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 export default function Judges() {
-  const judges = [
-    "armielyn-obinguar",
-    "francis-chuaunsu",
+  const firstRoundJudges = [
     "kyne-domerei-laggui",
-    "niel-riego",
-    "randy-carlo-lorenzo"
+    "francis-chuaunsu",
+    "randy-carlo-lorenzo",
   ];
+
+  const finalRoundJudges = ["armielyn-obinguar", "niel-riego", "sharon-labado"];
+
+  const renderJudgeCard = (judge: string, index: number) => {
+    const colors = ["red", "green", "yellow", "blue"];
+    const hexColors: Record<string, string> = {
+      red: "#ea4335",
+      green: "#34a853",
+      yellow: "#fbbc04",
+      blue: "#4285f4",
+    };
+    const color = colors[index % colors.length];
+    const judgeName = judge
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    const isRevealed = revealed[judge];
+
+    return (
+      <div
+        key={judge}
+        onClick={() => toggleReveal(judge)}
+        className={`group relative w-full aspect-[337/421] cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-2 md:hover:-translate-y-4 ${!isRevealed ? "animate-shimmer" : ""} hover:animate-none`}
+      >
+        {/* Layer 1: Background */}
+        <Image
+          src={`/assets/judge/${color}-bg.webp`}
+          alt={`Background ${color}`}
+          fill
+          className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out pointer-events-none ${isRevealed ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+          unoptimized
+        />
+        {/* Layer 2: Portrait */}
+        <Image
+          src={`/assets/judge/${judge}.webp`}
+          alt={`Judge ${judgeName}`}
+          fill
+          className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+          unoptimized
+        />
+        {/* Layer 3: Frame Overlay */}
+        <div
+          className={`absolute inset-0 transition-opacity duration-500 ease-out pointer-events-none ${isRevealed ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+          style={{
+            backgroundColor: hexColors[color],
+            maskImage: "url(/assets/judge/border.webp)",
+            maskSize: "100% 100%",
+            maskPosition: "center",
+            maskRepeat: "no-repeat",
+            WebkitMaskImage: "url(/assets/judge/border.webp)",
+            WebkitMaskSize: "100% 100%",
+            WebkitMaskPosition: "center",
+            WebkitMaskRepeat: "no-repeat",
+          }}
+        />
+        {/* Layer 4: Mystery Default (Base state) */}
+        <Image
+          src={`/assets/judge/mystery-judge-${color}.svg`}
+          alt={`Mystery Judge ${color}`}
+          fill
+          className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? "opacity-0 pointer-events-none" : "opacity-100 group-hover:opacity-0"}`}
+          unoptimized
+        />
+      </div>
+    );
+  };
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
@@ -29,7 +93,7 @@ export default function Judges() {
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 },
     );
 
     if (sectionRef.current) {
@@ -42,7 +106,7 @@ export default function Judges() {
     <section
       id="judges"
       ref={sectionRef}
-      className={`relative bg-navy-900 py-16 md:py-24 overflow-hidden transition-opacity duration-1000 ease-in-out ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+      className={`relative bg-navy-900 py-16 md:py-24 overflow-hidden transition-opacity duration-1000 ease-in-out ${isVisible ? "opacity-100" : "opacity-0"}`}
     >
       {/* Centered background container restricted to max width of 1920px to prevent sticking/enlarging when zoomed out */}
       <div className="absolute inset-0 mx-auto max-w-480 pointer-events-none z-0">
@@ -59,7 +123,6 @@ export default function Judges() {
       </div>
 
       <div className="relative z-10 mx-auto w-[88.28%] max-w-[1695px]">
-
         {/* Container for background logic */}
         <div className="relative w-full aspect-auto md:aspect-[1672/891] overflow-hidden bg-[#0A162A] rounded-none md:rounded-[22px]">
           {/* Mobile background */}
@@ -84,72 +147,35 @@ export default function Judges() {
           </div>
 
           {/* Content Wrapper Overlay */}
-          <div className="relative z-10 flex flex-col items-center justify-start pt-16 pb-12 md:pt-[10%] md:pb-[10%] px-4 md:px-8 h-full">
-            <h2 className="font-bold font-sans text-white text-[34px] md:text-[40px] mb-8 md:mb-[4%] text-center leading-[1.3] tracking-normal">
+          <div className="relative z-10 flex flex-col items-center justify-start pt-16 pb-12 md:pt-[3%] lg:pt-[5%] md:pb-[3%] lg:pb-[5%] px-4 md:px-8 h-full">
+            <h2 className="font-bold font-sans text-white text-[34px] md:text-[28px] lg:text-[40px] mb-8 md:mb-[1%] lg:mb-[2%] text-center leading-[1.3] tracking-normal">
               Judges
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-[2%] w-full max-w-[200px] md:max-w-[95%]">
-              {judges.map((judge, index) => {
-                const colors = ["red", "green", "yellow", "blue"];
-                const hexColors: Record<string, string> = {
-                  red: '#ea4335',
-                  green: '#34a853',
-                  yellow: '#fbbc04',
-                  blue: '#4285f4'
-                };
-                const color = colors[index % colors.length];
-                const judgeName = judge.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-                const isRevealed = revealed[judge];
-                
-                return (
-                  <div
-                    key={judge}
-                    onClick={() => toggleReveal(judge)}
-                    className={`group relative w-full aspect-[337/421] cursor-pointer transition-transform duration-500 ease-out hover:-translate-y-2 md:hover:-translate-y-4 ${!isRevealed ? 'animate-shimmer' : ''} hover:animate-none`}
-                  >
-                    {/* Layer 1: Background */}
-                    <Image
-                      src={`/assets/judge/${color}-bg.webp`}
-                      alt={`Background ${color}`}
-                      fill
-                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out pointer-events-none ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
-                      unoptimized
-                    />
-                    {/* Layer 2: Portrait */}
-                    <Image
-                      src={`/assets/judge/${judge}.webp`}
-                      alt={`Judge ${judgeName}`}
-                      fill
-                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
-                      unoptimized
-                    />
-                    {/* Layer 3: Frame Overlay */}
-                    <div
-                      className={`absolute inset-0 transition-opacity duration-500 ease-out pointer-events-none ${isRevealed ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}
-                      style={{
-                        backgroundColor: hexColors[color],
-                        maskImage: 'url(/assets/judge/border.webp)',
-                        maskSize: '100% 100%',
-                        maskPosition: 'center',
-                        maskRepeat: 'no-repeat',
-                        WebkitMaskImage: 'url(/assets/judge/border.webp)',
-                        WebkitMaskSize: '100% 100%',
-                        WebkitMaskPosition: 'center',
-                        WebkitMaskRepeat: 'no-repeat',
-                      }}
-                    />
-                    {/* Layer 4: Mystery Default (Base state) */}
-                    <Image
-                      src={`/assets/judge/mystery-judge-${color}.svg`}
-                      alt={`Mystery Judge ${color}`}
-                      fill
-                      className={`absolute inset-0 object-contain transition-opacity duration-500 ease-out ${isRevealed ? 'opacity-0 pointer-events-none' : 'opacity-100 group-hover:opacity-0'}`}
-                      unoptimized
-                    />
-                  </div>
-                );
-              })}
+            <div className="flex flex-col gap-10 md:gap-[2%] lg:gap-[4%] w-full items-center">
+              {/* First Round Judges */}
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-bold font-pixelify text-[#F7B035] text-[20px] md:text-[18px] lg:text-[24px] mb-6 md:mb-2 lg:mb-4 text-center leading-[1.3] tracking-normal">
+                  First Round Judges
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[2%] lg:gap-[3%] w-full max-w-[140px] md:max-w-[40%] lg:max-w-[35%]">
+                  {firstRoundJudges.map((judge, index) =>
+                    renderJudgeCard(judge, index),
+                  )}
+                </div>
+              </div>
+
+              {/* Final Round Judges */}
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-bold font-pixelify text-[#F7B035] text-[20px] md:text-[18px] lg:text-[24px] mb-6 md:mb-2 lg:mb-4 text-center leading-[1.3] tracking-normal">
+                  Final Round Judges
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[2%] lg:gap-[3%] w-full max-w-[140px] md:max-w-[40%] lg:max-w-[35%]">
+                  {finalRoundJudges.map((judge, index) =>
+                    renderJudgeCard(judge, index + 3),
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
