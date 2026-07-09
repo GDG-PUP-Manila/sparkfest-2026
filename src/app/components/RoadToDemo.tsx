@@ -20,17 +20,13 @@ const assets = {
   blueTopRight: "/assets/road-to-demo/blue-top-right.svg",
   blueTopLeft: "/assets/road-to-demo/blue-left.svg",
   redTopLeft: "/assets/road-to-demo/red-top-left.svg",
-  rocket:
-    "https://www.figma.com/api/mcp/asset/c9f5380b-3c17-4954-b754-f1f6ddf3ab38",
+  rocket: "/assets/road-to-demo/rocket.svg",
   sideSmoke: "/assets/road-to-demo/side-smoke.svg",
-  cirby:
-    "https://www.figma.com/api/mcp/asset/674148b8-a595-426f-a1ff-e208d28eccf0",
-  bluePlus:
-    "https://www.figma.com/api/mcp/asset/1dc0dd45-bb94-4a47-b523-fbf943cc1477",
-  emptyHeart:
-    "https://www.figma.com/api/mcp/asset/4d6bdf1b-dfcd-4b99-8d66-5bdf649d8c9b",
-  sparky:
-    "https://www.figma.com/api/mcp/asset/a8e11ab5-354e-4e42-92d8-362400941212",
+  cirby: "/assets/road-to-demo/cirby.svg",
+  blueCross: "/assets/road-to-demo/blue-cross.svg",
+  emptyHeart: "/assets/road-to-demo/half-heart.svg",
+  sparky: "/assets/road-to-demo/sparky.svg",
+  yellowCross: "/assets/road-to-demo/yellow-cross.svg",
   ladder: "/assets/road-to-demo/ladder.svg",
   grid5: "/assets/road-to-demo/blue-top-left.svg",
   grid2:
@@ -403,12 +399,28 @@ export default function RoadToDemo() {
           trailSrc={assets.sideSmoke}
           trailImageClass="object-cover"
         />
-        <DecAsset
-          posClass="left-[14.17%] md:left-[11.57%] xl:left-[23.93%] top-[37.91%] md:top-[34.29%] xl:top-[43.40%]"
-          sizeClass="w-[16.21%] md:w-[14.85%] xl:w-[9.95%] h-[3.32%] md:h-[3.56%] xl:h-[3.60%]"
-          src={assets.cirby}
-          imageClass="object-cover"
-        />
+        {/* Cirby & Blue Crosses Group */}
+        <div className="absolute left-[10%] md:left-[8%] xl:left-[14%] top-[37.60%] md:top-[34.25%] xl:top-[38.54%] w-[16.21%] md:w-[14.85%] xl:w-[9.95%] h-[3.32%] md:h-[3.56%] xl:h-[3.60%] pointer-events-none">
+          <Image src={assets.cirby} alt="" fill unoptimized className="object-contain animate-ufo-sway" />
+          <DecAsset
+            posClass="-left-[20%] top-[10%]"
+            sizeClass="w-[12%] aspect-square"
+            src={assets.blueCross}
+            twinkle
+            delayMs={100}
+            durationMs={2200}
+            imageClass="object-contain"
+          />
+          <DecAsset
+            posClass="left-[105%] top-[60%]"
+            sizeClass="w-[10%] aspect-square"
+            src={assets.blueCross}
+            twinkle
+            delayMs={500}
+            durationMs={1800}
+            imageClass="object-contain"
+          />
+        </div>
         <DecAsset
           posClass="left-[27.5%] md:left-[25.36%] xl:left-[35.29%] top-[74.37%] md:top-[74.30%] xl:top-[78.46%]"
           sizeClass="w-[5.67%] md:w-[5.20%] xl:w-[5.48%] h-[9.20%] md:h-[9.85%] xl:h-[12.39%]"
@@ -416,12 +428,33 @@ export default function RoadToDemo() {
           imageClass="object-cover"
           containerOpacity="opacity-80"
         />
-        <DecAsset
-          posClass="left-[62.5%] md:left-[64.29%] xl:left-[65%] top-[75.33%] md:top-[74.44%] xl:top-[80.55%]"
-          sizeClass="w-[19.23%] md:w-[17.60%] xl:w-[17%] h-[4.30%] md:h-[4.61%] xl:h-[5.47%]"
-          src={assets.sparky}
-          imageClass="object-cover"
-        />
+        <div className="absolute left-[62.5%] md:left-[64.29%] xl:left-[65%] top-[75.33%] md:top-[74.44%] xl:top-[80.55%] w-[19.23%] md:w-[17.60%] xl:w-[17%] h-[4.30%] md:h-[4.61%] xl:h-[5.47%] pointer-events-none">
+          <Image
+            src={assets.sparky}
+            alt=""
+            fill
+            unoptimized
+            className="object-cover"
+          />
+          <DecAsset
+            posClass="-left-[10%] top-[25%]"
+            sizeClass="w-[15%] aspect-square"
+            src={assets.yellowCross}
+            twinkle
+            delayMs={200}
+            durationMs={2000}
+            imageClass="object-contain"
+          />
+          <DecAsset
+            posClass="left-[90%] -top-[10%]"
+            sizeClass="w-[22%] aspect-square"
+            src={assets.yellowCross}
+            twinkle
+            delayMs={700}
+            durationMs={2500}
+            imageClass="object-contain"
+          />
+        </div>
         <DecAsset
           posClass="hidden xl:block xl:left-[83.05%] xl:top-[28.23%]"
           sizeClass="xl:w-[2.55%] xl:h-[7.55%]"
@@ -446,7 +479,10 @@ export default function RoadToDemo() {
           className="absolute left-[42.38%] md:left-[48.89%] xl:left-[33.28%] top-[65.38%] md:top-[63.72%] xl:top-[68.68%] pointer-events-none flex gap-[2vw] md:gap-[1.5vw] xl:gap-[1vw]"
           aria-hidden
         >
-          <div className="relative w-[4.31vw] md:w-[3vw] xl:w-[4.5vw] aspect-square">
+          <div
+            className="relative w-[4.31vw] md:w-[3vw] xl:w-[4.5vw] aspect-square animate-heartbeat"
+            style={{ animationDelay: "0ms" }}
+          >
             <Image
               src={assets.emptyHeart}
               alt=""
@@ -455,7 +491,10 @@ export default function RoadToDemo() {
               className="object-cover"
             />
           </div>
-          <div className="relative w-[4.31vw] md:w-[3vw] xl:w-[4.5vw] aspect-square">
+          <div
+            className="relative w-[4.31vw] md:w-[3vw] xl:w-[4.5vw] aspect-square animate-heartbeat"
+            style={{ animationDelay: "150ms" }}
+          >
             <Image
               src={assets.emptyHeart}
               alt=""
@@ -464,7 +503,10 @@ export default function RoadToDemo() {
               className="object-cover"
             />
           </div>
-          <div className="relative w-[4.31vw] md:w-[3vw] xl:w-[4.5vw] aspect-square">
+          <div
+            className="relative w-[4.31vw] md:w-[3vw] xl:w-[4.5vw] aspect-square animate-heartbeat"
+            style={{ animationDelay: "300ms" }}
+          >
             <Image
               src={assets.emptyHeart}
               alt=""

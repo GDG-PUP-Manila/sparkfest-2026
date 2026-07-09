@@ -124,14 +124,14 @@ export default function Judges() {
 
       <div className="relative z-10 mx-auto w-[88.28%] max-w-[1695px]">
         {/* Container for background logic */}
-        <div className="relative w-full aspect-auto md:aspect-[1672/891] overflow-hidden bg-[#0A162A] rounded-none md:rounded-[22px]">
+        <div className="relative w-full aspect-[548/2392] md:aspect-[1672/891] overflow-hidden bg-[#0A162A] rounded-none md:rounded-[22px]">
           {/* Mobile background */}
           <div className="absolute inset-0 pointer-events-none md:hidden">
             <Image
               src="/assets/judge/judge-background-mobile.svg"
               alt=""
               fill
-              className="object-fill"
+              className="object-cover object-center"
               unoptimized
             />
           </div>
@@ -147,7 +147,7 @@ export default function Judges() {
           </div>
 
           {/* Content Wrapper Overlay */}
-          <div className="relative z-10 flex flex-col items-center justify-start pt-16 pb-12 md:pt-[3%] lg:pt-[5%] md:pb-[3%] lg:pb-[5%] px-4 md:px-8 h-full">
+          <div className="relative z-10 flex flex-col items-center justify-start pt-10 pb-12 md:pt-[3%] lg:pt-[5%] md:pb-[3%] lg:pb-[5%] px-4 md:px-8 h-full">
             <h2 className="font-bold font-sans text-white text-[34px] md:text-[28px] lg:text-[40px] mb-8 md:mb-[1%] lg:mb-[2%] text-center leading-[1.3] tracking-normal">
               Judges
             </h2>
@@ -158,7 +158,7 @@ export default function Judges() {
                 <h3 className="font-bold font-pixelify text-[#F7B035] text-[20px] md:text-[18px] lg:text-[24px] mb-6 md:mb-2 lg:mb-4 text-center leading-[1.3] tracking-normal">
                   First Round Judges
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[2%] lg:gap-[3%] w-full max-w-[140px] md:max-w-[40%] lg:max-w-[35%]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-[2%] lg:gap-[3%] w-[75%] max-w-[calc(48vw-43px)] md:w-full md:max-w-[40%] lg:max-w-[35%]">
                   {firstRoundJudges.map((judge, index) =>
                     renderJudgeCard(judge, index),
                   )}
@@ -170,7 +170,7 @@ export default function Judges() {
                 <h3 className="font-bold font-pixelify text-[#F7B035] text-[20px] md:text-[18px] lg:text-[24px] mb-6 md:mb-2 lg:mb-4 text-center leading-[1.3] tracking-normal">
                   Final Round Judges
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-[2%] lg:gap-[3%] w-full max-w-[140px] md:max-w-[40%] lg:max-w-[35%]">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-[2%] lg:gap-[3%] w-[75%] max-w-[calc(48vw-43px)] md:w-full md:max-w-[40%] lg:max-w-[35%]">
                   {finalRoundJudges.map((judge, index) =>
                     renderJudgeCard(judge, index + 3),
                   )}
