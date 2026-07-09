@@ -255,7 +255,7 @@ export default function Hero() {
           <div
             className="absolute z-10 inset-x-0 mx-auto flex flex-row items-center justify-center gap-3 pointer-events-none select-none"
             style={{
-              top: "64%",
+              top: "59%",
               width: "100%",
             }}
           >

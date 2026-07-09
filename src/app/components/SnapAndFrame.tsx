@@ -266,6 +266,7 @@ function ArcadeButton({
   darkBorder,
   textColor,
   shadowColor,
+  href,
 }: {
   label: string;
   feature: string;
@@ -274,23 +275,35 @@ function ArcadeButton({
   darkBorder: string;
   textColor: string;
   shadowColor: string;
+  href?: string;
 }) {
-  return (
-    <PlaceholderCta
-      label={label}
-      feature={feature}
-      className="relative shrink-0 px-5 py-2.5 font-pixelify text-[16px] font-medium leading-[1.5] transition-transform hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 md:text-[18px] md:leading-[1.4]"
-      style={{
-        background: accentColor,
-        color: textColor,
-        borderTop: `4px solid ${lightBorder}`,
-        borderLeft: `4px solid ${lightBorder}`,
-        borderBottom: `4px solid ${darkBorder}`,
-        borderRight: `4px solid ${darkBorder}`,
-        boxShadow: `3px 3px 0px 0px ${shadowColor}`,
-      }}
-    />
-  );
+  const classes =
+    "relative shrink-0 px-5 py-2.5 font-pixelify text-[16px] font-medium leading-[1.5] transition-transform hover:-translate-y-px active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 md:text-[18px] md:leading-[1.4]";
+  const style: React.CSSProperties = {
+    background: accentColor,
+    color: textColor,
+    borderTop: `4px solid ${lightBorder}`,
+    borderLeft: `4px solid ${lightBorder}`,
+    borderBottom: `4px solid ${darkBorder}`,
+    borderRight: `4px solid ${darkBorder}`,
+    boxShadow: `3px 3px 0px 0px ${shadowColor}`,
+  };
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+        style={style}
+      >
+        {label}
+      </a>
+    );
+  }
+
+  return <PlaceholderCta label={label} feature={feature} className={classes} style={style} />;
 }
 
 export default function SnapAndFrame() {
@@ -399,6 +412,7 @@ export default function SnapAndFrame() {
                   darkBorder="#00a63e"
                   textColor="#032e15"
                   shadowColor="#032e15"
+                  href="https://frame.gdgpup.org/events/sparkfest"
                 />
               </div>
             </div>
