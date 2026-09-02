@@ -1,11 +1,11 @@
-# Documentation Index — SparkFest 2026 Website
+﻿# Documentation Index â€” SparkFest 2026 Website
 
 **Project slug:** `sparkfest`
 **Maintained by:** GDG PUP Technology (incoming CTO)
 **Last updated:** 2026-09-02
-**Built on FMD philosophy** (suite already present; reconciled in place, not regenerated)
+**Built on FMD v1.31.0** (suite present; reconciled in place against shipped code; engine not re-installed).
 
-**Operating position:** [state.md](state.md) — read that first.
+**Operating position:** [state.md](state.md) â€” read that first.
 
 ---
 
@@ -23,20 +23,20 @@
 | BUILD - Build Guide | [build-sparkfest.md](build-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
 | OPS - Ops & Observability | [ops-sparkfest.md](ops-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A (verify CF dashboard) |
 
-> **Suite scope:** BRD, RFC, CLR, and GTM stay out. See [§5 Notes](#5-notes).
+> **Suite scope:** BRD, RFC, CLR, and GTM stay out. See [Â§5 Notes](#5-notes).
 
 ### Reference Guides
 
 | Guide | File | Purpose | Last Updated |
 |-------|------|---------|--------------|
-| Figma MCP — Dev IDE Setup | [figma-mcp-setup.md](figma-mcp-setup.md) | Connect Antigravity / VS Code / Cursor / Kiro to the Figma MCP server | 2026-06-17 |
+| Figma MCP â€” Dev IDE Setup | [figma-mcp-setup.md](figma-mcp-setup.md) | Connect Antigravity / VS Code / Cursor / Kiro to the Figma MCP server | 2026-06-17 |
 
 ### Materialized artifacts
 
 | Artifact | Canonical source |
 |----------|------------------|
-| [`../AGENTS.md`](../AGENTS.md) + [`../CLAUDE.md`](../CLAUDE.md) | [build-sparkfest.md](build-sparkfest.md) (AGENTS read order: state → index → FLAGS → task docs) |
-| `../.claude/agents/` - `figma-section-builder`, `responsive-qa-runner`, `design-token-auditor`, `a11y-auditor` | [sad-sparkfest.md](sad-sparkfest.md) §3 |
+| [`../AGENTS.md`](../AGENTS.md) + [`../CLAUDE.md`](../CLAUDE.md) | [build-sparkfest.md](build-sparkfest.md) (AGENTS read order: state â†’ index â†’ FLAGS â†’ task docs) |
+| `../.claude/agents/` - `figma-section-builder`, `responsive-qa-runner`, `design-token-auditor`, `a11y-auditor` | [sad-sparkfest.md](sad-sparkfest.md) Â§3 |
 
 ### Archived (historical only; do not load as current truth)
 
@@ -80,10 +80,10 @@ No incidents recorded yet.
 
 ### Suite scope (unchanged from 2026-06-17)
 
-- **BRD** — not needed; event already committed.
-- **RFC** — no open architectural fork.
-- **CLR** — site collects no PII; registration is Google Forms. Revisit if in-repo capture of photos/PII lands.
-- **GTM** — chapter marketing channels own launch.
+- **BRD** â€” not needed; event already committed.
+- **RFC** â€” no open architectural fork.
+- **CLR** â€” site collects no PII; registration is Google Forms. Revisit if in-repo capture of photos/PII lands.
+- **GTM** â€” chapter marketing channels own launch.
 
 ### Operating notes
 

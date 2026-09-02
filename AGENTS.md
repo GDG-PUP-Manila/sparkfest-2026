@@ -46,3 +46,9 @@ Fast-moving — verify live before coding: **Next.js, React, Tailwind.** Full re
 
 ## Definition of Done (a section)
 Implements its `PRD-F#`/`US-##` · matches Figma at all four tiers · no stale APIs (§ register) · `npm run lint` + `npm run build` clean · copy from `content.ts`, colors from tokens, a11y passes ([QAD](docs/qad-sparkfest.md)).
+
+## FMD
+
+**Built on FMD v1.31.0** (suite present; reconciled in place against shipped code; engine not re-installed).
+
+Read order stays: docs/state.md then docs/index.md then FLAGS.md then task docs.
