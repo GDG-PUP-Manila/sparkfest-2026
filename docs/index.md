@@ -13,14 +13,15 @@
 
 | Document | File | Version | Status | Last Updated | Last Reconciled |
 |----------|------|---------|--------|--------------|-----------------|
-| STATE — Operating position | [state.md](state.md) | 1.0 | Current | 2026-09-02 | 2026-09-02 |
-| PRD — Product Requirements | [prd-sparkfest.md](prd-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
-| DSD — Design System | [dsd-sparkfest.md](dsd-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
-| SDD — System Design | [sdd-sparkfest.md](sdd-sparkfest.md) | 0.1 | Draft | 2026-06-07 | 2026-09-02 |
-| QAD — QA & Test Plan | [qad-sparkfest.md](qad-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A |
-| SAD — Subagents | [sad-sparkfest.md](sad-sparkfest.md) | 0.1 | Draft | 2026-06-17 | 2026-09-02 |
-| BUILD — Build Guide | [build-sparkfest.md](build-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
-| OPS — Ops & Observability | [ops-sparkfest.md](ops-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A (verify CF dashboard) |
+| STATE - Operating position | [state.md](state.md) | 1.0 | Current | 2026-09-02 | 2026-09-02 |
+| FLAGS - Improvement register | [../FLAGS.md](../FLAGS.md) | 1.0 | Current | 2026-09-02 | 2026-09-02 |
+| PRD - Product Requirements | [prd-sparkfest.md](prd-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
+| DSD - Design System | [dsd-sparkfest.md](dsd-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
+| SDD - System Design | [sdd-sparkfest.md](sdd-sparkfest.md) | 0.1 | Draft | 2026-06-07 | 2026-09-02 |
+| QAD - QA & Test Plan | [qad-sparkfest.md](qad-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A (not fully reconciled) |
+| SAD - Subagents | [sad-sparkfest.md](sad-sparkfest.md) | 0.1 | Draft | 2026-06-17 | 2026-09-02 |
+| BUILD - Build Guide | [build-sparkfest.md](build-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
+| OPS - Ops & Observability | [ops-sparkfest.md](ops-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A (verify CF dashboard) |
 
 > **Suite scope:** BRD, RFC, CLR, and GTM stay out. See [§5 Notes](#5-notes).
 
@@ -34,8 +35,8 @@
 
 | Artifact | Canonical source |
 |----------|------------------|
-| `../AGENTS.md` + `../CLAUDE.md` | [build-sparkfest.md](build-sparkfest.md) |
-| `../.claude/agents/` — `figma-section-builder`, `responsive-qa-runner`, `design-token-auditor`, `a11y-auditor` | [sad-sparkfest.md](sad-sparkfest.md) §3 |
+| [`../AGENTS.md`](../AGENTS.md) + [`../CLAUDE.md`](../CLAUDE.md) | [build-sparkfest.md](build-sparkfest.md) (AGENTS read order: state → index → FLAGS → task docs) |
+| `../.claude/agents/` - `figma-section-builder`, `responsive-qa-runner`, `design-token-auditor`, `a11y-auditor` | [sad-sparkfest.md](sad-sparkfest.md) §3 |
 
 ### Archived (historical only; do not load as current truth)
 
@@ -49,6 +50,7 @@
 
 | Date | Change | Docs touched |
 |------|--------|--------------|
+| 2026-09-02 | Docs handover: FLAGS register; Contributors cosmos format; AGENTS/index FLAGS pointer. | FLAGS, README, AGENTS, index |
 | 2026-09-02 | CTO handover: added `state.md`; reconciled PRD/DSD/index/AGENTS against shipped pixel-arcade site; archived event brief + dead task tracker. | state, index, prd, dsd, AGENTS, README, archive |
 | 2026-06-17 | Added BUILD + OPS; finalized suite scope (no BRD/RFC/CLR/GTM). | index, build, ops, AGENTS, CLAUDE, README |
 | 2026-06-17 | Added QAD, SAD, Figma MCP guide, section DRIs. | index, qad, sad, tasks, README, figma-mcp-setup |

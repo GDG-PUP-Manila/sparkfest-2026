@@ -5,9 +5,12 @@
 SparkFest 2026 is a **one-page static marketing site** (retro pixel-arcade theme) for GDG on Campus – PUP. Next.js 16 App Router exported to static HTML, hosted on Cloudflare Pages.
 
 ## Read order (every session)
-1. [`docs/state.md`](docs/state.md) — operating position (Operate), gaps, freshness.
-2. [`docs/index.md`](docs/index.md) — what docs exist.
-3. [PRD](docs/prd-sparkfest.md) → [SDD](docs/sdd-sparkfest.md) → [DSD](docs/dsd-sparkfest.md) → [QAD](docs/qad-sparkfest.md) → this guide.
+1. [`docs/state.md`](docs/state.md) - operating position (Operate), gaps, freshness.
+2. [`docs/index.md`](docs/index.md) - what docs exist.
+3. [`FLAGS.md`](FLAGS.md) - open improvement register (docs handover; not treated as fixed).
+4. [PRD](docs/prd-sparkfest.md) → [SDD](docs/sdd-sparkfest.md) → [DSD](docs/dsd-sparkfest.md) → [QAD](docs/qad-sparkfest.md) → this guide.
+
+Do not auto-load [`docs/archive/`](docs/archive/2026-09-02-pre-handover/); archive is historical only.
 
 The site is **shipped** (pixel-arcade static export on Cloudflare Pages). Docs are Draft but reconciled 2026-09-02. Prefer code + `state.md` over archived `tasks.md`.
 
