@@ -1,144 +1,99 @@
 # Design System Document (DSD)
 
 **System Name:** SparkFest 2026 Visual System
-**Date:** 2026-06-07
-**Version:** 0.1
-**Owner:** GDG PUP Manila
+**Date:** 2026-09-02
+**Version:** 0.2
+**Owner:** GDG PUP Technology (incoming CTO)
 **Status:** Draft
-**Last reconciled:** N/A - first draft
+**Last reconciled:** 2026-09-02 — against `src/app/globals.css` and shipped sections
 **PRD:** [prd-sparkfest.md](prd-sparkfest.md)
+
+> v0.1 (2026-06-07) described a light GDG aesthetic that the shipped site does not use. This revision documents the **dark pixel-arcade** system that is live.
 
 ---
 
 ## 1. Design Philosophy & Vision
 
-**Core aesthetic:** Minimal, playful yet structured, utilizing the Google developer color palette in combination with retro/modern halftone and pastel accents. Clean, bold layouts with clear typography.
+**Core aesthetic:** Retro pixel-arcade on a deep navy field. Google brand accents (red, yellow, green, blue) plus neon cyan grid lines, lightning highlights, and pixel fonts for display moments. Marketing energy without cluttering the registration CTA.
 
-**Emotional intent:** Inspire innovation, action, and local community contribution among student creators without cluttering their focus.
-
-**Aesthetic references:** Google I/O landing pages, Stripe-like clean layouts, modern developer portals.
+**Emotional intent:** Excitement and play for student hackers; still readable on mobile.
 
 **What this system explicitly avoids:**
-- Dense tables of text without visual hierarchy.
-- Heavy gradients and dark-mode neon glows that mismatch the GDG light-themed style guidelines.
-- Unnecessary parallax or scrolling animations that delay page loading.
+
+- Treating the old light / pastel card system as current (v0.1 draft).
+- Raw hex in components; use `globals.css` `@theme` tokens and `content.ts` `COLOR_*` maps.
+- Heavy scroll-jacking that blocks registration.
 
 ---
 
 ## 2. Brand Primitives
 
-### Colors
-
-These color tokens must be registered in the codebase (e.g. within CSS variables or Tailwind configs) to maintain design alignment.
+### Surfaces and neon (primary shipped palette)
 
 | Name | Token | Value | Primary Usage |
 |------|-------|-------|---------------|
-| Google Red 500 | `--color-google-red-500` | `#ea4335` | Accents, Red Alerts, active states |
-| Google Yellow 500 | `--color-google-yellow-500` | `#fbbc04` | Accents, warning/timeline markers |
-| Google Green 500 | `--color-google-green-500` | `#34a853` | Accents, successful actions |
-| Google Blue 500 | `--color-google-blue-500` | `#4285f4` | Primary branding accents, headers |
-| Halftone Red | `--color-halftone-red` | `#ff7daf` | Highlight cards, retro styling |
-| Halftone Yellow | `--color-halftone-yellow` | `#ffd427` | Highlight cards, secondary details |
-| Halftone Green | `--color-halftone-green` | `#5cdb6d` | Highlight borders, timeline active lines |
-| Halftone Blue | `--color-halftone-blue` | `#57caff` | Highlight badges, link underlines |
-| Pastel Red | `--color-pastel-red` | `#f8d8d8` | Soft card background, alert backdrops |
-| Pastel Yellow | `--color-pastel-yellow` | `#ffe7a5` | Soft card background, timeline panels |
-| Pastel Green | `--color-pastel-green` | `#ccf6c5` | Soft card background |
-| Pastel Blue | `--color-pastel-blue` | `#c3ecf6` | Soft card background, info banners |
-| Off White | `--color-off-white` | `#f0f0f0` | General background sections |
-| Black 02 | `--color-black-02` | `#1e1e1e` | Typography, main container background/borders |
+| Navy 900 | `--navy-900` | `#050a1f` | Page background |
+| Navy 800 | `--navy-800` | `#0a1330` | Elevated panels |
+| Navy 700 | `--navy-700` | `#112151` | Section bands |
+| Navy 600 | `--navy-600` | `#1a3170` | Borders / depth |
+| Panel Blue | `--panel-blue` | `#16357a` | Card panels |
+| Grid Cyan | `--grid-cyan` | `#57caff` | Grid / accent lines |
+| Neon Blue | `--neon-blue` | `#2f7bff` | CTA glow |
+| Lightning | `--lightning` | `#eaf6ff` | Hero lightning accents |
+
+### Google + logo accents (still required)
+
+| Name | Token | Value |
+|------|-------|-------|
+| Google Red 500 | `--google-red-500` | `#ea4335` |
+| Google Yellow 500 | `--google-yellow-500` | `#fbbc04` |
+| Google Green 500 | `--google-green-500` | `#34a853` |
+| Google Blue 500 | `--google-blue-500` | `#4285f4` |
+| Logo Yellow | `--logo-2` | `#ffd339` |
+| Logo Cyan | `--logo-0` | `#58c9fc` |
+| Logo Green | `--logo-2b` | `#5dda6c` |
+| Logo Pink | `--logo-6` | `#ff7dae` |
+
+Halftone and pastel tokens remain in `@theme` for secondary accents; they are not the page foundation.
 
 ### Typography
 
-| Role | Font | Weight | Size | Line Height |
-|------|------|--------|------|-------------|
-| Display H1 | Google Sans, sans-serif | 700 (Bold) | 3rem (48px) | 1.15 |
-| Heading 2 | Google Sans, sans-serif | 600 (Semi-bold) | 2rem (32px) | 1.25 |
-| Heading 3 | Google Sans, sans-serif | 600 (Semi-bold) | 1.5rem (24px) | 1.3 |
-| Body Text | Google Sans, sans-serif | 400 (Regular) | 1rem (16px) | 1.6 |
-| Buttons / Badges | Google Sans, sans-serif | 500 (Medium) | 0.875rem (14px) | 1.25 |
+| Role | Font token | Notes |
+|------|------------|-------|
+| UI / body | `--font-sans` (`Google Sans`, fallbacks) | Primary readable copy |
+| Pixel display | `--font-pixel` (`Press Start 2P`) | Arcade headers, badges |
+| Pixelify | `--font-pixelify` (`Pixelify Sans`) | Secondary pixel moments |
 
-**Font loading:** Dynamic loading via Google Fonts API in `<head>` (or loaded via Next.js `next/font/google`).
+### Breakpoints (mobile-first)
 
-### Elevation & Depth
-
-| Level | CSS Value | Usage |
-|-------|-----------|-------|
-| `--shadow-retro` | `4px 4px 0px 0px var(--color-black-02)` | Flat neobrutalist/retro shadows on cards & CTA buttons |
-| `--shadow-sm` | `0 2px 4px rgba(0,0,0,0.05)` | Regular cards |
-| `--shadow-md` | `0 4px 12px rgba(0,0,0,0.08)` | Timeline panels / popups |
+Base → `md:` → `xl:` → `desktop:` (`--breakpoint-desktop: 1920px`). Figma fidelity targets: 320 / 768 / 1280 / 1920.
 
 ---
 
-## 3. Layout & Spatial System
+## 3. Layout & Motion
 
-**Base unit:** `8px` — all margin, padding, and gaps are multiples of 8px.
-
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--space-1` | `8px` | Badge padding, small inline gaps |
-| `--space-2` | `16px` | Component padding, button gaps |
-| `--space-4` | `32px` | Card internal layout, default section margins |
-| `--space-6` | `48px` | Desktop grid gaps |
-| `--space-8` | `64px` | Section margins, outer container padding |
-
-**Breakpoints:**
-- Mobile: `375px`
-- Tablet: `768px`
-- Desktop: `1024px` / `1280px`
+- Section composition is Figma-driven baked art plus React overlays (especially Hero).
+- Prefer CSS and light client interactivity (`HeroLightning`, placeholder toasts) over heavy JS animation.
+- Honor `prefers-reduced-motion` for non-essential loops.
 
 ---
 
-## 4. Core Component Specs
+## 4. Component rules
 
-### CTA Buttons
-
-- **Primary Button (Registration):**
-  - Background: `--color-google-blue-500`
-  - Text: `#ffffff`
-  - Border: `2px solid --color-black-02`
-  - Shadow: `--shadow-retro` using `--color-google-red-500` or `--color-black-02`
-  - Hover: translate up/left by 2px, shadow expands slightly
-
-- **Secondary Actions (Photobooth & DP Blast):**
-  - Background: White or `--color-off-white`
-  - Text: `--color-black-02`
-  - Border: `2px solid --color-black-02`
-  - Hover: translate up/left by 2px, shadow expands with pastel background highlights
+- Copy and structured data: `src/app/components/content.ts` only.
+- Colors: `COLOR_TEXT` / `COLOR_BG` / `COLOR_BORDER` / `COLOR_HEX` or Tailwind tokens from `@theme`. Never invent a one-off hex in a section file.
+- External links: `target="_blank" rel="noopener noreferrer"`.
+- Photobooth / DP Frame CTAs still use `PlaceholderCta` until live URLs ship.
 
 ---
 
-## 5. Motion & Micro-interactions
+## 5. Source of truth
 
-**Transition default:** `all 200ms cubic-bezier(0.16, 1, 0.3, 1)`
+| Concern | File |
+|---------|------|
+| Tokens | `src/app/globals.css` `@theme` |
+| Copy / colors maps | `src/app/components/content.ts` |
+| Section composition | `src/app/page.tsx` + `src/app/components/*` |
+| Figma MCP | [figma-mcp-setup.md](figma-mcp-setup.md) |
 
-| Interaction | Duration | Notes |
-|-------------|----------|-------|
-| CTA Button Hover | 150ms | Translates `translate-y-[-2px] translate-x-[-2px]` with a shadow adjustment |
-| Timeline Node Hover | 200ms | Highlights line node to designated Google colors |
-
----
-
-## 6. Accessibility (a11y)
-
-- **Contrast minimum:** WCAG AA compliance (contrast ratio at least 4.5:1 for standard body copy, e.g. Black 02 text over white, pastel, or off-white backdrops).
-- **Focus ring:** Always show focus rings for keyboard navigation.
-- **Touch targets:** Interactive elements are kept at a minimum of `48px` height/width.
-
----
-
-## 7. Taste-Skill Settings
-
-```
-DESIGN_VARIANCE:    5
-MOTION_INTENSITY:   3
-VISUAL_DENSITY:     4
-```
-
----
-
-## Self-Check
-
-- [x] Colors mapped with accurate HEX values.
-- [x] Spacing scale is consistent (multiples of 8px).
-- [x] Contrast guidelines verified for primary elements.
+When design and code disagree, **code wins**, then update this DSD in the same turn.

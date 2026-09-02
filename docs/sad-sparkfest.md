@@ -3,11 +3,11 @@
 **Project:** SparkFest 2026 Website
 **Date:** 2026-06-17
 **Version:** 0.1
-**Owner:** GDG PUP Manila
+**Owner:** GDG PUP Technology (incoming CTO)
 **Status:** Draft
-**Last reconciled:** N/A — not yet reconciled with code
+**Last reconciled:** 2026-09-02 — roster matches `.claude/agents/`; build phase largely done, agents still useful for polish
 **PRD:** [prd-sparkfest.md](prd-sparkfest.md)
-**SDD:** [sdd-sparkfest.md](sdd-sparkfest.md) · **DSD:** [dsd-sparkfest.md](dsd-sparkfest.md) · **QAD:** [qad-sparkfest.md](qad-sparkfest.md) · **Tasks:** [../tasks.md](../tasks.md)
+**SDD:** [sdd-sparkfest.md](sdd-sparkfest.md) · **DSD:** [dsd-sparkfest.md](dsd-sparkfest.md) · **QAD:** [qad-sparkfest.md](qad-sparkfest.md) · **STATE:** [state.md](state.md)
 
 ---
 

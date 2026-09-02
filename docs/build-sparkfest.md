@@ -1,12 +1,12 @@
 # Project Build Guide
 
 **Project:** SparkFest 2026 Website
-**Date:** 2026-06-17
-**Version:** 0.1
-**Owner:** GDG PUP Manila
+**Date:** 2026-09-02
+**Version:** 0.2
+**Owner:** GDG PUP Technology (incoming CTO)
 **Status:** Draft
-**Last reconciled:** 2026-06-17 (against repo `package.json`, `next.config.ts`, `globals.css`, `eslint.config.mjs`)
-**PRD:** [prd-sparkfest.md](prd-sparkfest.md) · **SDD:** [sdd-sparkfest.md](sdd-sparkfest.md) · **DSD:** [dsd-sparkfest.md](dsd-sparkfest.md) · **QAD:** [qad-sparkfest.md](qad-sparkfest.md) · **SAD:** [sad-sparkfest.md](sad-sparkfest.md) · **Tasks:** [../tasks.md](../tasks.md)
+**Last reconciled:** 2026-09-02 (against repo `package.json`, `next.config.ts`, `globals.css`, `eslint.config.mjs`)
+**PRD:** [prd-sparkfest.md](prd-sparkfest.md) · **SDD:** [sdd-sparkfest.md](sdd-sparkfest.md) · **DSD:** [dsd-sparkfest.md](dsd-sparkfest.md) · **QAD:** [qad-sparkfest.md](qad-sparkfest.md) · **SAD:** [sad-sparkfest.md](sad-sparkfest.md) · **STATE:** [state.md](state.md)
 
 ---
 
@@ -18,23 +18,23 @@
 
 The documentation suite is the source of truth. Read in this order before writing code:
 
-1. **[`docs/index.md`](index.md)** — what exists, each doc's status, what's stale. Start here every session.
-2. **[PRD](prd-sparkfest.md)** — what to build and why (features `PRD-F1…F6`, user stories, flows).
-3. **[SDD](sdd-sparkfest.md)** — architecture (static export, redirects, security, NFRs).
-4. **[DSD](dsd-sparkfest.md)** — visual/UX rules (palette, fonts, motion).
-5. **[QAD](qad-sparkfest.md)** — the test scenarios and release gate each section must pass.
-6. **This guide** — stack conventions, patterns, guardrails.
-7. **[tasks.md](../tasks.md)** — the live build tracker and **per-section ownership (DRIs)**.
+1. **[`docs/state.md`](state.md)** — operating position (Operate), open gaps, doc freshness.
+2. **[`docs/index.md`](index.md)** — what exists and what is archived.
+3. **[PRD](prd-sparkfest.md)** — features `PRD-F1…F6`, user stories, flows.
+4. **[SDD](sdd-sparkfest.md)** — architecture (static export, NFRs).
+5. **[DSD](dsd-sparkfest.md)** — dark pixel-arcade tokens and rules.
+6. **[QAD](qad-sparkfest.md)** — test scenarios and release gate.
+7. **This guide** — stack conventions, patterns, guardrails.
 
-> **Doc status note:** the suite is currently **Draft** (pre-implementation). Treat each doc as the best-available source; when a section is built and reality is settled, its owner moves the relevant doc toward `Locked`. If reality diverges from a doc, don't silently code around it — flag it and (once a doc is Locked) open a Change Record (`docs/cr-sparkfest-NNN.md`).
+> **Doc status note:** the site is **shipped**. Suite status remains Draft until owners Lock after review. Prefer code + `state.md` over archived `tasks.md`. If reality diverges from a Locked doc, open a Change Record (`docs/cr-sparkfest-NNN.md`).
 
 ### Traceability map — "to build X, read Y"
 
 | To implement… | Read | Then verify against |
 |---------------|------|---------------------|
 | A feature `PRD-F#` | [PRD](prd-sparkfest.md) §3/§4 → [SDD](sdd-sparkfest.md) components it touches | [QAD](qad-sparkfest.md) scenarios tagged with its `US-##` |
-| A page section (2.1–2.11) | [tasks.md](../tasks.md) Phase 2 (the section + its owner) → [DSD](dsd-sparkfest.md) palette/type → Figma frame via [figma-mcp-setup.md](figma-mcp-setup.md) | [QAD §3](qad-sparkfest.md) H-07 responsive + [DSD](dsd-sparkfest.md) a11y |
-| The countdown / an interactive bit | [SDD §1](sdd-sparkfest.md) (client-side, hydration-safe) → [PRD](prd-sparkfest.md) US-01 | [QAD](qad-sparkfest.md) H-02 / S-01 |
+| A page section | [state.md](state.md) section inventory → [DSD](dsd-sparkfest.md) → Figma via [figma-mcp-setup.md](figma-mcp-setup.md) | [QAD §3](qad-sparkfest.md) H-07 responsive + [DSD](dsd-sparkfest.md) a11y |
+| Registration / Hero CTA | [PRD](prd-sparkfest.md) US-01 → `Hero.tsx` / `REGISTER_URL` | Live Register link opens Forms |
 | A placeholder CTA (Photobooth/DP Frame) | [PRD](prd-sparkfest.md) PRD-F4/F5 → [`PlaceholderCta.tsx`](../src/app/components/PlaceholderCta.tsx) | [QAD](qad-sparkfest.md) H-03/H-04 |
 | A new/changed design token | [DSD](dsd-sparkfest.md) → [`globals.css`](../src/app/globals.css) `@theme` | [QAD](qad-sparkfest.md) AB-02 + `design-token-auditor` |
 

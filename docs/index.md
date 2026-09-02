@@ -1,52 +1,58 @@
 # Documentation Index — SparkFest 2026 Website
 
 **Project slug:** `sparkfest`
-**Maintained by:** GDG PUP Manila
-**Last updated:** 2026-06-17
+**Maintained by:** GDG PUP Technology (incoming CTO)
+**Last updated:** 2026-09-02
+**Built on FMD philosophy** (suite already present; reconciled in place, not regenerated)
+
+**Operating position:** [state.md](state.md) — read that first.
 
 ---
 
-## 1. Document Suite
+## 1. Artifact Inventory
 
 | Document | File | Version | Status | Last Updated | Last Reconciled |
 |----------|------|---------|--------|--------------|-----------------|
-| PRD — Product Requirements | [prd-sparkfest.md](prd-sparkfest.md) | 0.1 | Draft | 2026-06-07 | N/A |
-| DSD — Design System | [dsd-sparkfest.md](dsd-sparkfest.md) | 0.1 | Draft | 2026-06-07 | N/A |
-| SDD — System Design | [sdd-sparkfest.md](sdd-sparkfest.md) | 0.1 | Draft | 2026-06-07 | N/A |
+| STATE — Operating position | [state.md](state.md) | 1.0 | Current | 2026-09-02 | 2026-09-02 |
+| PRD — Product Requirements | [prd-sparkfest.md](prd-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
+| DSD — Design System | [dsd-sparkfest.md](dsd-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
+| SDD — System Design | [sdd-sparkfest.md](sdd-sparkfest.md) | 0.1 | Draft | 2026-06-07 | 2026-09-02 |
 | QAD — QA & Test Plan | [qad-sparkfest.md](qad-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A |
-| SAD — Subagents | [sad-sparkfest.md](sad-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A |
-| BUILD — Build Guide | [build-sparkfest.md](build-sparkfest.md) | 0.1 | Draft | 2026-06-17 | 2026-06-17 |
-| OPS — Ops & Observability | [ops-sparkfest.md](ops-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A |
+| SAD — Subagents | [sad-sparkfest.md](sad-sparkfest.md) | 0.1 | Draft | 2026-06-17 | 2026-09-02 |
+| BUILD — Build Guide | [build-sparkfest.md](build-sparkfest.md) | 0.2 | Draft | 2026-09-02 | 2026-09-02 |
+| OPS — Ops & Observability | [ops-sparkfest.md](ops-sparkfest.md) | 0.1 | Draft | 2026-06-17 | N/A (verify CF dashboard) |
 
-> **Suite scope:** BRD, RFC, CLR, and GTM are intentionally **not part of this suite** — see [§5 Notes](#5-notes) for why. This is the complete set of documents for the project.
+> **Suite scope:** BRD, RFC, CLR, and GTM stay out. See [§5 Notes](#5-notes).
 
-### Reference Guides (supporting, non-FMD)
+### Reference Guides
 
 | Guide | File | Purpose | Last Updated |
 |-------|------|---------|--------------|
 | Figma MCP — Dev IDE Setup | [figma-mcp-setup.md](figma-mcp-setup.md) | Connect Antigravity / VS Code / Cursor / Kiro to the Figma MCP server | 2026-06-17 |
-| Implementation Tasks + Section Ownership | [../tasks.md](../tasks.md) | Build tracker; per-section DRIs and QA owners | 2026-06-17 |
 
 ### Materialized artifacts
 
-These are **generated from canonical docs** — edit the doc and re-materialize; never hand-edit the artifact as the source of truth.
-
 | Artifact | Canonical source |
 |----------|------------------|
-| `../AGENTS.md` (project-root build rules) + `../CLAUDE.md` (pointer) | [build-sparkfest.md](build-sparkfest.md) |
+| `../AGENTS.md` + `../CLAUDE.md` | [build-sparkfest.md](build-sparkfest.md) |
 | `../.claude/agents/` — `figma-section-builder`, `responsive-qa-runner`, `design-token-auditor`, `a11y-auditor` | [sad-sparkfest.md](sad-sparkfest.md) §3 |
+
+### Archived (historical only; do not load as current truth)
+
+| Path | Why archived |
+|------|----------------|
+| [archive/2026-09-02-pre-handover/](archive/2026-09-02-pre-handover/) | Pre-handover event brief + `tasks.md` (0/95 checkboxes; superseded by `state.md` for progress) |
 
 ---
 
 ## 2. Change Log
 
-Formal Change Records (`cr-sparkfest-NNN.md`) are required only when a **Locked** doc changes. All docs are still **Draft**, so no CR is needed yet. Suite-level changes are logged here:
-
 | Date | Change | Docs touched |
 |------|--------|--------------|
-| 2026-06-17 | Added **BUILD** guide (materialized to root `AGENTS.md` + `CLAUDE.md`) and **OPS** runbook. Finalized suite scope: removed BRD/RFC/CLR/GTM from the index (out of scope). | index, build, ops, AGENTS.md, CLAUDE.md, README |
-| 2026-06-17 | Expanded suite: added **QAD** (owners Keith & Ge) and **SAD** (+ materialized 4 agents in `.claude/agents/`). Added the **Figma MCP setup guide**. Added per-section DRIs and QA owners to `tasks.md`. | index, qad, sad, tasks, README, figma-mcp-setup |
-| 2026-06-07 | Initial draft suite created (PRD, DSD, SDD). | prd, dsd, sdd, index |
+| 2026-09-02 | CTO handover: added `state.md`; reconciled PRD/DSD/index/AGENTS against shipped pixel-arcade site; archived event brief + dead task tracker. | state, index, prd, dsd, AGENTS, README, archive |
+| 2026-06-17 | Added BUILD + OPS; finalized suite scope (no BRD/RFC/CLR/GTM). | index, build, ops, AGENTS, CLAUDE, README |
+| 2026-06-17 | Added QAD, SAD, Figma MCP guide, section DRIs. | index, qad, sad, tasks, README, figma-mcp-setup |
+| 2026-06-07 | Initial draft suite (PRD, DSD, SDD). | prd, dsd, sdd, index |
 
 ---
 
@@ -58,34 +64,27 @@ No incidents recorded yet.
 
 ## 4. Health Check
 
-Quick triage an agent runs at the start of a session. Anything that fails gets surfaced to the user.
-
-- [ ] Every Locked doc's **Last Reconciled** date is newer than the last code change to its area.
-- [ ] No doc has been in `Draft` longer than expected without movement.
-- [ ] Every open Change Record has propagated to all docs listed in its "Docs touched" column.
-- [ ] Feature IDs (`PRD-F#`) referenced by SDD / QAD / SAD / BUILD still exist in the PRD.
-- [ ] The SAD roster matches the materialized agent files in `.claude/agents/` (no orphans, no missing).
-- [ ] `AGENTS.md` / `CLAUDE.md` still reflect [build-sparkfest.md](build-sparkfest.md) (re-materialize if the Build Guide changed).
-- [ ] The BUILD guide's pinned versions and golden-path samples have been re-verified recently against the live deps (stale samples = stale code).
-- [ ] Every open Postmortem's action items are closed (or tracked somewhere durable).
+- [x] Cold-start position exists (`state.md`).
+- [x] Index lists only artifacts that exist.
+- [x] SAD roster matches `.claude/agents/` (four agents).
+- [x] Stack pins in BUILD/AGENTS match `package.json` (Next 16.2.7, React 19.2.4, Tailwind v4).
+- [ ] OPS claims verified against Cloudflare dashboard (analytics, uptime, `_headers`, Dependabot).
+- [ ] Photobooth / DP Frame live URLs wired (still PlaceholderCta).
+- [ ] Judges TBA replaced with real copy.
 
 ---
 
 ## 5. Notes
 
-### FMD review — suite scope (finalized 2026-06-17)
+### Suite scope (unchanged from 2026-06-17)
 
-Project scale is **Small→Medium** (a 2–4 week, public-facing static site). The suite is now **complete** for this scale: PRD, DSD, SDD, QAD, SAD, BUILD, OPS, plus the Figma MCP guide and the `tasks.md` tracker.
-
-**Deliberately excluded** (removed from the suite, not just "unwritten"):
-
-- **BRD** — the project is already committed and resourced; no business case to justify.
-- **RFC** — no feature has real architectural trade-offs (static page, client-only countdown/accordion/toast). The SDD covers the design adequately.
-- **CLR** — the site itself collects **no** personal data; registration PII is handled entirely inside Google Forms (a third party with its own privacy controls). The lightweight privacy obligation lives with the Google Form, not this codebase. *If the Photobooth/DP Frame ever go live in-repo and capture images/PII, revisit this with a Change Record.*
-- **GTM** — launch/marketing is handled by GDG PUP's existing event channels, outside this repo's scope.
+- **BRD** — not needed; event already committed.
+- **RFC** — no open architectural fork.
+- **CLR** — site collects no PII; registration is Google Forms. Revisit if in-repo capture of photos/PII lands.
+- **GTM** — chapter marketing channels own launch.
 
 ### Operating notes
 
-- The **SAD is canonical** for the four `.claude/agents/`; other IDEs (Antigravity/Cursor/Kiro/VS Code) adopt the cards as named roles — see [sad-sparkfest.md](sad-sparkfest.md) §5.
-- **"About" section ownership** is currently grouped under Rhandie's *Key Highlights* in [../tasks.md](../tasks.md#section-ownership-dris) — confirm or reassign.
-- FMD templates live in the untracked `FMD/` submodule; instantiated docs live here in `docs/`.
+- Milestone is **Operate**, not pre-implementation. AGENTS.md and older Draft headers that said "pre-implementation" are stale; prefer `state.md`.
+- SAD agents remain useful for polish (Figma fidelity, a11y, tokens), not for a greenfield section build.
+- Do not trust archived `tasks.md` checkboxes as progress.

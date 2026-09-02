@@ -2,30 +2,34 @@
 
 The official 1-page static marketing website for SparkFest 2026, a flagship hackathon organized by **Google Developer Groups on Campus - Polytechnic University of the Philippines (GDG PUP)**.
 
-This innovation challenge mirrors real-world startup environments, bringing together developers, designers, and managers to build solutions that drive tangible social impact.
+Live: [sparkfest.gdgpup.org](https://sparkfest.gdgpup.org)
 
-## 🚀 Technology Stack
+Retro pixel-arcade theme. Static Next.js export on Cloudflare Pages. Registration is a Google Form; Photobooth and DP Blast CTAs still show "Coming soon" until live URLs land.
 
-- **Core Framework**: Next.js 16 (Static HTML Export) + React 19
-- **Styling**: Tailwind CSS v4 + Google Fonts (Google Sans)
-- **Deployment Target**: Cloudflare Pages
+**Status (2026-09-02 handover):** Operate. Read [docs/state.md](docs/state.md) first for gaps, ownership, and doc freshness.
 
-## 📂 Documentation (FMD)
+## Technology Stack
 
-The project specifications and blueprints are managed under the **Foundational Document Matrix (FMD)** in the `docs/` folder. Start at the index:
-- [index.md](docs/index.md): Document suite status tracker, health check, and what to add next.
-- [prd-sparkfest.md](docs/prd-sparkfest.md): Product Requirements Document specifying features, personas, and roadmap goals.
-- [dsd-sparkfest.md](docs/dsd-sparkfest.md): Design System Document specifying color palettes (Google colors, Halftones, Pastels) and fonts.
-- [sdd-sparkfest.md](docs/sdd-sparkfest.md): System Design Document detailing static architecture and export rules.
-- [qad-sparkfest.md](docs/qad-sparkfest.md): QA & Test Plan — test scenarios and the release gate (QA owners: Keith & Ge).
-- [sad-sparkfest.md](docs/sad-sparkfest.md): Subagents Document — the dev-helper agent roster, materialized in `.claude/agents/`.
-- [build-sparkfest.md](docs/build-sparkfest.md): Build Guide — pinned stack, deprecations register, and golden-path patterns (materialized to [AGENTS.md](AGENTS.md)).
-- [ops-sparkfest.md](docs/ops-sparkfest.md): Ops & Observability Runbook — SLOs, monitoring, rollback, and the event-window watch plan.
+- **Core Framework**: Next.js 16.2.7 (static HTML export) + React 19.2.4
+- **Styling**: Tailwind CSS v4 + Google Sans / Press Start 2P
+- **Deployment**: Cloudflare Pages (`npm run build` → `out/`)
 
-### 🧭 Guides & Tracker
-- [AGENTS.md](AGENTS.md) / [CLAUDE.md](CLAUDE.md): Materialized build rules every agent/IDE reads first (canonical source: the Build Guide).
-- [tasks.md](tasks.md): Implementation tracker with **per-section ownership (DRIs)** and QA owners.
-- [docs/figma-mcp-setup.md](docs/figma-mcp-setup.md): Connect your IDE (**Antigravity, VS Code, Cursor, Kiro**) to the **Figma MCP** server.
+## Documentation
+
+Engineering docs live under `docs/`. Start here:
+
+- [state.md](docs/state.md): Where the project stands (cold start for agents and the incoming CTO).
+- [index.md](docs/index.md): Inventory of every doc that exists.
+- [prd-sparkfest.md](docs/prd-sparkfest.md): Product requirements and section inventory.
+- [dsd-sparkfest.md](docs/dsd-sparkfest.md): Dark pixel-arcade design tokens.
+- [sdd-sparkfest.md](docs/sdd-sparkfest.md): Static architecture and export rules.
+- [qad-sparkfest.md](docs/qad-sparkfest.md): QA & release scenarios.
+- [sad-sparkfest.md](docs/sad-sparkfest.md): Subagent roster (`.claude/agents/`).
+- [build-sparkfest.md](docs/build-sparkfest.md): Build guide (materialized to [AGENTS.md](AGENTS.md)).
+- [ops-sparkfest.md](docs/ops-sparkfest.md): Ops notes (verify Cloudflare dashboard claims).
+- [figma-mcp-setup.md](docs/figma-mcp-setup.md): Figma MCP for IDE fidelity work.
+
+[AGENTS.md](AGENTS.md) / [CLAUDE.md](CLAUDE.md) are the always-loaded agent entrypoints. Pre-handover leftovers sit in [docs/archive/](docs/archive/2026-09-02-pre-handover/).
 
 ## 🛠️ Local Development
 
