@@ -1,20 +1,20 @@
 # Product Requirements Document (PRD)
 
 **Project:** SparkFest 2026 Landing Page
-**Date:** 2026-06-07
-**Version:** 0.1
-**Owner:** GDG PUP Manila
+**Date:** 2026-09-02
+**Version:** 0.2
+**Owner:** GDG PUP Technology (incoming CTO)
 **Status:** Draft
-**Last reconciled:** N/A - first draft
+**Last reconciled:** 2026-09-02 — against shipped `src/app/page.tsx` and `content.ts`
 **BRD:** N/A
 
 ---
 
 ## 1. Product Purpose & Value Proposition
 
-SparkFest 2026 is a flagship hackathon organized by Google Developer Groups on Campus Polytechnic University of the Philippines (GDG PUP). This immersive innovation challenge mirrors real-world startup environments, bringing together students from diverse technical, creative, and managerial backgrounds. 
+SparkFest 2026 is a flagship hackathon organized by Google Developer Groups on Campus Polytechnic University of the Philippines (GDG PUP). This immersive innovation challenge mirrors real-world startup environments, bringing together students from diverse technical, creative, and managerial backgrounds.
 
-The SparkFest 2026 Website is a 1-page static marketing website designed to capture student registrations, display event timeline/information, and provide direct routes to interactive event features (GDG Photobooth and DP Blast). The design is clean, minimal, and optimized for speed and conversion without overwhelming the visitor.
+The SparkFest 2026 Website is a 1-page static marketing site (retro pixel-arcade theme) that captures registrations via Google Forms, explains the event, shows the roadmap, and routes visitors toward Photobooth and DP Blast when those URLs are live. Live site: https://sparkfest.gdgpup.org.
 
 ---
 
@@ -31,7 +31,7 @@ The SparkFest 2026 Website is a 1-page static marketing website designed to capt
 
 | ID | Feature | Description | Priority |
 |----|---------|-------------|----------|
-| PRD-F1 | Hero & Main CTA | Introduction header, theme, dates, and primary registration button with a countdown to the event start (June 28, 2026). | Must-Have |
+| PRD-F1 | Hero & Main CTA | Introduction header, theme, dates, and primary registration button. A live Days/Hours/Minutes/Seconds countdown was the original Must-Have; the shipped Hero is a baked Figma scene plus Register CTA (countdown deferred unless product restores it). | Must-Have |
 | PRD-F2 | Event Overview | Clear details about the event, rationale, objectives, venue, and eligibility rules. | Must-Have |
 | PRD-F3 | Visual Timeline | Layout mapping event phases from promotions (June 1) through the final pitches/awards (July 9). | Must-Have |
 | PRD-F4 | Photobooth Redirection | Button directing user to the GDG Photobooth. Since URL is pending, it shows a developer warning/modal notification. | Must-Have |
@@ -42,12 +42,12 @@ The SparkFest 2026 Website is a 1-page static marketing website designed to capt
 
 ## 4. User Stories & Acceptance Criteria
 
-**US-01 — Registration & Countdown**
-> As a prospective participant, I want to see a countdown to the event and click a registration CTA to join.
+**US-01 — Registration (countdown deferred)**
+> As a prospective participant, I want a clear registration CTA on the Hero so I can join.
 
 Acceptance Criteria:
-- Given the event date is set to June 28, 2026, the countdown component must display remaining Days, Hours, Minutes, and Seconds.
-- When the registration button is clicked, it redirects the user to `https://forms.gle/yJntfLmxigG75zSt5` in a new tab.
+- When the registration button is clicked, it redirects to `https://forms.gle/yJntfLmxigG75zSt5` in a new tab (`REGISTER_URL` in `content.ts`).
+- Optional / deferred: a live countdown to Kick-Off (June 28, 2026). Not present in the current Hero implementation; restoring it is a product call, not silent scope creep.
 
 **US-02 — Interactive Placeholders**
 > As a developer or early user, I want to click Photobooth or DP Blast and receive a notification that it's a placeholder.
@@ -63,27 +63,35 @@ Acceptance Criteria:
 
 ### 5.1 Screen Inventory
 
-This is a single-page marketing website.
+Single-page marketing site. Sections match `src/app/page.tsx`:
 
-| Section | Purpose | States to design |
-|--------|---------|------------------|
-| Hero / Header | Captures attention, shows event title, dates, countdown, and main CTA. | Standard rendering |
-| About & Details | Explains About the Event, Rationale, and Objectives. | Standard rendering |
-| Grid: Venue & Eligibility | Highlights Bulwagang Bonifacio venue details and who can participate. | Standard rendering |
-| Timeline | Interactive or structured grid schedule tracking activities. | Hover/highlight state on active/upcoming timeline nodes |
-| Engagement Center | Sections containing CTAs for GDG Photobooth and DP Blast. | Interactivity warning prompts |
+| Section | Component | Purpose |
+|--------|-----------|---------|
+| Nav | `Nav.tsx` | In-page anchors |
+| Hero | `Hero.tsx` + `HeroLightning.tsx` | Scene, Register CTA |
+| About | `About.tsx` | Event story, stats, partners |
+| What Goes Down | `WhatGoesDown.tsx` | Activity cards |
+| Who Is This For | `WhoIsThisFor.tsx` | Personas |
+| Judges | `Judges.tsx` | Currently TBA placeholders in `content.ts` |
+| Road To Demo | `RoadToDemo.tsx` | Visual roadmap / milestones |
+| Where And When | `WhereAndWhen.tsx` | Venue and schedule |
+| FAQ | `Faq.tsx` | Accordion FAQs |
+| Snap And Frame | `SnapAndFrame.tsx` | Photobooth + DP Blast (PlaceholderCta) |
+| Before The Spark | `BeforeTheSpark.tsx` | Pre-events |
+| Final CTA | `FinalCta.tsx` | Closing registration push |
+| Footer | `Footer.tsx` | Links and chapter credits |
+| Theme loading | `ThemeLoadingScreen.tsx` | Initial load overlay |
 
 ### 5.2 App Flow
 
 ```mermaid
 flowchart TD
-    User([Visitor Launches Site]) --> Hero[Hero / Countdown]
-    Hero --> About[Read About & Objectives]
-    About --> Timeline[Check Event Timeline]
-    Timeline --> CTAs{Choose Engagement}
-    CTAs -->|Registration| GoogleForm[forms.gle/yJntfLmxigG75zSt5]
-    CTAs -->|Photobooth| PhotoPrompt[Dev Modal / Placeholder Notification]
-    CTAs -->|DP Blast| DpPrompt[Dev Modal / Placeholder Notification]
+    User([Visitor launches site]) --> Hero[Hero and Register CTA]
+    Hero --> Explore[Scroll sections: About through FAQ]
+    Explore --> CTAs{Choose engagement}
+    CTAs -->|Registration| GoogleForm[forms.gle registration]
+    CTAs -->|Photobooth| PhotoPrompt[PlaceholderCta until live URL]
+    CTAs -->|DP Blast| DpPrompt[PlaceholderCta until live URL]
     GoogleForm --> Exit((Exit))
     PhotoPrompt --> Exit
     DpPrompt --> Exit

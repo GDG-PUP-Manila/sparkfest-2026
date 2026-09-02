@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-> **Read [AGENTS.md](AGENTS.md) first** — it is the materialized Build Guide (read order, pinned stack, deprecations register, conventions, Definition of Done) and the operating guide for this repo. Its canonical source is [`docs/build-sparkfest.md`](docs/build-sparkfest.md); edit there and re-materialize, never hand-edit `AGENTS.md`/`CLAUDE.md` as the source of truth.
+> **Read [docs/state.md](docs/state.md) then [AGENTS.md](AGENTS.md).** `state.md` is the cold-start position. `AGENTS.md` is the materialized Build Guide (pinned stack, deprecations, conventions). Canonical source for AGENTS is [`docs/build-sparkfest.md`](docs/build-sparkfest.md); edit there and re-materialize.
 
 ## Claude-Code-specific notes
 

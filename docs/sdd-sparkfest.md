@@ -3,9 +3,9 @@
 **Project:** SparkFest 2026 Website System
 **Date:** 2026-06-07
 **Version:** 0.1
-**Owner:** GDG PUP Manila
+**Owner:** GDG PUP Technology (incoming CTO)
 **Status:** Draft
-**Last reconciled:** N/A - first draft
+**Last reconciled:** 2026-09-02 — static export architecture still matches `next.config.ts`
 **PRD:** [prd-sparkfest.md](prd-sparkfest.md)
 
 ---
