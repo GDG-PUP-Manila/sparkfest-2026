@@ -54,3 +54,19 @@ The static files will be exported to the `out/` folder.
 ## ⚡ Developer CTA Booths Note
 The **Photobooth** and **DP Frame** CTAs (in [SnapAndFrame.tsx](src/app/components/SnapAndFrame.tsx)) are placeholder integrations until their live URLs ship. Instead of navigating, they render a dismissible "Coming soon" toast via [PlaceholderCta.tsx](src/app/components/PlaceholderCta.tsx), per PRD-F4 / PRD-F5. Wire the production links there when available.
 
+## Contributors
+
+Built by the GDG PUP community. Section ownership and QA credits come from the historical build tracker in [docs/archive/2026-09-02-pre-handover/tasks.md](docs/archive/2026-09-02-pre-handover/tasks.md).
+
+| Role | Contributor | Area |
+| --- | --- | --- |
+| Development | [Rhandie J. Sales Jr.](https://www.linkedin.com/in/rhandie-sales/) | Hero, About, What Goes Down |
+| Development | E-jay Detera | Who's This For, Judges |
+| Development | Reynard John Rabanal | Road to Demo Day |
+| Development | Gabriel Nicolai Pelagio | Where & When, FAQ |
+| Development | Gabriel David | Snap & Frame |
+| Development | Mobaraq Camar | Before the Spark, Final CTA |
+| Development | [Gerald Berongoy](https://www.linkedin.com/in/geraldberongoy/) | Shared foundation and implementation |
+| QA | Keith & Ge | Cross-cutting responsive, a11y, and release QA |
+| CTO | [Carlos Jerico Dela Torre](https://www.linkedin.com/in/delatorrecj/) | Outgoing CTO (historical) |
+
