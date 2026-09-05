@@ -8,31 +8,28 @@ Retro pixel-arcade theme. Static Next.js export on Cloudflare Pages. Registratio
 
 **Status (2026-09-02 handover):** Operate. Read [docs/state.md](docs/state.md) first for gaps, ownership, and doc freshness.
 
+## Table of Contents
+
+- [About](#about)
+- [Technology Stack](#technology-stack)
+- [Quick start](#quick-start)
+- [Developer CTA Booths Note](#developer-cta-booths-note)
+- [Documentation](#documentation)
+- [Contributors](#contributors)
+
+## About
+
+SparkFest 2026 is GDG PUP's flagship hackathon marketing site: one page, retro pixel-arcade look, registration via Google Form. Audience is students and community members evaluating the event; developers maintain the static Next.js export on Cloudflare Pages.
+
+Live: [sparkfest.gdgpup.org](https://sparkfest.gdgpup.org)
+
 ## Technology Stack
 
 - **Core Framework**: Next.js 16.2.7 (static HTML export) + React 19.2.4
 - **Styling**: Tailwind CSS v4 + Google Sans / Press Start 2P
 - **Deployment**: Cloudflare Pages (`npm run build` → `out/`)
 
-## Documentation
-
-Engineering docs live under `docs/`. Start here:
-
-- [state.md](docs/state.md): Where the project stands (cold start for agents and the incoming CTO).
-- [index.md](docs/index.md): Inventory of every doc that exists.
-- [FLAGS.md](FLAGS.md): Open improvement register (docs handover; not fixed bugs).
-- [prd-sparkfest.md](docs/prd-sparkfest.md): Product requirements and section inventory.
-- [dsd-sparkfest.md](docs/dsd-sparkfest.md): Dark pixel-arcade design tokens.
-- [sdd-sparkfest.md](docs/sdd-sparkfest.md): Static architecture and export rules.
-- [qad-sparkfest.md](docs/qad-sparkfest.md): QA & release scenarios.
-- [sad-sparkfest.md](docs/sad-sparkfest.md): Subagent roster (`.claude/agents/`).
-- [build-sparkfest.md](docs/build-sparkfest.md): Build guide (materialized to [AGENTS.md](AGENTS.md)).
-- [ops-sparkfest.md](docs/ops-sparkfest.md): Ops notes (verify Cloudflare dashboard claims).
-- [figma-mcp-setup.md](docs/figma-mcp-setup.md): Figma MCP for IDE fidelity work.
-
-[AGENTS.md](AGENTS.md) / [CLAUDE.md](CLAUDE.md) are the always-loaded agent entrypoints. Pre-handover leftovers sit in [docs/archive/](docs/archive/2026-09-02-pre-handover/).
-
-## 🛠️ Local Development
+## Quick start
 
 ### 1. Install Dependencies
 ```bash
@@ -52,8 +49,30 @@ npm run build
 ```
 The static files will be exported to the `out/` folder.
 
-## ⚡ Developer CTA Booths Note
+## Developer CTA Booths Note
+
 The **Photobooth** and **DP Frame** CTAs (in [SnapAndFrame.tsx](src/app/components/SnapAndFrame.tsx)) are placeholder integrations until their live URLs ship. Instead of navigating, they render a dismissible "Coming soon" toast via [PlaceholderCta.tsx](src/app/components/PlaceholderCta.tsx), per PRD-F4 / PRD-F5. Wire the production links there when available.
+
+## Documentation
+
+Engineering docs live under `docs/`. Start here:
+
+| Doc | Purpose |
+|-----|---------|
+| [State](docs/state.md) | Where the project stands (cold start for agents and the incoming CTO) |
+| [Index](docs/index.md) | Inventory of every doc that exists |
+| [FLAGS](FLAGS.md) | Open improvement register (docs handover; not fixed bugs) |
+| [AGENTS](AGENTS.md) | Always-loaded agent entrypoint (also [CLAUDE.md](CLAUDE.md)) |
+| [prd-sparkfest.md](docs/prd-sparkfest.md) | Product requirements and section inventory |
+| [dsd-sparkfest.md](docs/dsd-sparkfest.md) | Dark pixel-arcade design tokens |
+| [sdd-sparkfest.md](docs/sdd-sparkfest.md) | Static architecture and export rules |
+| [qad-sparkfest.md](docs/qad-sparkfest.md) | QA and release scenarios |
+| [sad-sparkfest.md](docs/sad-sparkfest.md) | Subagent roster (`.claude/agents/`) |
+| [build-sparkfest.md](docs/build-sparkfest.md) | Build guide |
+| [ops-sparkfest.md](docs/ops-sparkfest.md) | Ops notes (verify Cloudflare dashboard claims) |
+| [figma-mcp-setup.md](docs/figma-mcp-setup.md) | Figma MCP for IDE fidelity work |
+
+Pre-handover leftovers sit in [docs/archive/](docs/archive/2026-09-02-pre-handover/).
 
 ## Contributors
 
@@ -71,4 +90,3 @@ This project is made possible by the GDG PUP community:
 | 🧪 **QA** | [Keith Justine A. Virgenes](https://www.linkedin.com/in/keith-justine-virgenes-749225302) - QA DRI (responsive, a11y, release) |
 | 🧪 **QA** | [Gerald Berongoy](https://www.linkedin.com/in/geraldberongoy) - QA DRI ("Ge") |
 | 🚀 **CTO** | [Carlos Jerico Dela Torre](https://www.linkedin.com/in/delatorrecj/) - Chief Technology Officer (2025-2026) |
-
