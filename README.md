@@ -1,5 +1,10 @@
 # SparkFest 2026 Website
 
+[![Status: Operate](https://img.shields.io/badge/Status-Operate-green)](docs/state.md)
+[![Stack: Next.js](https://img.shields.io/badge/Stack-Next.js-black)](#about)
+[![FMD philosophy: 1.31.0](https://img.shields.io/badge/FMD%20philosophy-1.31.0-blue)](AGENTS.md)
+
+
 The official 1-page static marketing website for SparkFest 2026, a flagship hackathon organized by **Google Developer Groups on Campus - Polytechnic University of the Philippines (GDG PUP)**.
 
 Live: [sparkfest.gdgpup.org](https://sparkfest.gdgpup.org)
@@ -11,6 +16,7 @@ Retro pixel-arcade theme. Static Next.js export on Cloudflare Pages. Registratio
 ## Table of Contents
 
 - [About](#about)
+- [Start here](#start-here)
 - [Technology Stack](#technology-stack)
 - [Quick start](#quick-start)
 - [Developer CTA Booths Note](#developer-cta-booths-note)
@@ -22,6 +28,12 @@ Retro pixel-arcade theme. Static Next.js export on Cloudflare Pages. Registratio
 SparkFest 2026 is GDG PUP's flagship hackathon marketing site: one page, retro pixel-arcade look, registration via Google Form. Audience is students and community members evaluating the event; developers maintain the static Next.js export on Cloudflare Pages.
 
 Live: [sparkfest.gdgpup.org](https://sparkfest.gdgpup.org)
+
+## Start here
+
+- **Humans:** this README, then [docs/state.md](docs/state.md)
+- **Agents:** [AGENTS.md](AGENTS.md) (state → index → FLAGS)
+- **Contributors:** table below
 
 ## Technology Stack
 
@@ -76,17 +88,17 @@ Pre-handover leftovers sit in [docs/archive/](docs/archive/2026-09-02-pre-handov
 
 ## Contributors
 
-This project is made possible by the GDG PUP community:
+This project is made possible by the GDG PUP community.
 
-| Role | Name |
-| --- | --- |
-| 💻 **Development** | [Rhandie Sales](https://www.linkedin.com/in/rhandie-sales/) - Senior Frontend Developer / Hero, About, What Goes Down |
-| 💻 **Development** | [E-jay Pascua Detera](https://www.linkedin.com/in/e-jay-detera-56221532b) - Frontend Developer / Who's This For, Judges |
-| 💻 **Development** | [Reynard John B. Rabanal](https://www.linkedin.com/in/reynard-john-b-rabanal-88893837a/) - Frontend Dev / Road to Demo Day |
-| 💻 **Development** | [Gabriel Nicolai Pelagio](https://www.linkedin.com/in/gabriel-nicolai-pelagio/) - Frontend Developer / Where & When, FAQ |
-| 💻 **Development** | [David Gabriel](https://www.linkedin.com/in/david-gabriel-494308371/) - Frontend Developer / Snap & Frame |
-| 💻 **Development** | [Mobaraq Camar](https://www.linkedin.com/in/mobaraq-camar-6858b426a/) - Frontend Developer / Before the Spark, Final CTA |
-| 💻 **Development** | [Gerald Berongoy](https://www.linkedin.com/in/geraldberongoy) - Senior Backend Developer / Shared foundation |
-| 🧪 **QA** | [Keith Justine A. Virgenes](https://www.linkedin.com/in/keith-justine-virgenes-749225302) - QA DRI (responsive, a11y, release) |
-| 🧪 **QA** | [Gerald Berongoy](https://www.linkedin.com/in/geraldberongoy) - QA DRI ("Ge") |
-| 🚀 **CTO** | [Carlos Jerico Dela Torre](https://www.linkedin.com/in/delatorrecj/) - Chief Technology Officer (2025-2026) |
+| Name | Role | GitHub |
+| --- | --- | --- |
+| [Carlos Jerico Dela Torre](https://www.linkedin.com/in/delatorrecj) | Chief Technology Officer (2025-2026) | [@delatorrecj](https://github.com/delatorrecj) |
+| [David Gabriel](https://www.linkedin.com/in/david-gabriel-494308371) | Frontend Developer | [@djgab16](https://github.com/djgab16) |
+| [E-jay Pascua Detera](https://www.linkedin.com/in/e-jay-detera-56221532b) | Frontend Developer | [@ejay-detera](https://github.com/ejay-detera) |
+| [Gabriel Nicolai Pelagio](https://www.linkedin.com/in/gabriel-nicolai-pelagio) | Frontend Developer | [@gabiuz](https://github.com/gabiuz) |
+| [Gerald Berongoy](https://www.linkedin.com/in/geraldberongoy) | Senior Backend Developer / Web Development Learning Head | [@geraldsberongoy](https://github.com/geraldsberongoy) |
+| [Keith Justine A. Virgenes](https://www.linkedin.com/in/keith-justine-virgenes-749225302) | Backend Developer / QA | [@jhonkeithman123](https://github.com/jhonkeithman123) |
+| [Mobaraq Camar](https://www.linkedin.com/in/mobaraq-camar-6858b426a) | Frontend Developer | [@Zanti00](https://github.com/Zanti00) |
+| [Reynard John B. Rabanal](https://www.linkedin.com/in/reynard-john-b-rabanal-88893837a) | Frontend Dev | [@Reynard-sys](https://github.com/Reynard-sys) |
+| [Rhandie Sales](https://www.linkedin.com/in/rhandie-sales) | Senior Frontend Developer / Web Development Co Lead | [@r0undy](https://github.com/r0undy) |
+
